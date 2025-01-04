@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -55,9 +56,12 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(getResources().getColor(R.color.main_color));
         intIDs();
+        TextView nameTextView = findViewById(R.id.nameTextView);
+        TextInputEditText inputPersonName = findViewById(R.id.inputPersonName);
+
+        String userName = inputPersonName.getText().toString();
+        nameTextView.setText(userName);
     }
-
-
 
     private void intIDs() {
         inputPersonName = findViewById(R.id.inputPersonName);

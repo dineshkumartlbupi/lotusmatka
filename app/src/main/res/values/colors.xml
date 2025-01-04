@@ -18,6 +18,7 @@
 
     <color name="logInInputTextColor">#ffffff</color>
     <color name="logInTextColor">#000000</color>
+
     <color name="logInButtonColor">#ffdb4f</color>
     <color name="logInButtonTextColor">#000000</color>
 
@@ -34,5 +35,13 @@
 
     <color name="mainColor">#EAB70C</color>
 
+
+<!--    my lotus colors start-->
+    <color name="Button_border">#ffFFE3BB</color>
+    <color name="main_white">#ffFFFFFF</color>
+    <color name="sky_blue">#ffB4BDFF</color>
+    <color name="lotus_black">#ff000000</color>
+    <color name="lotus_blue">#ff292C6D</color>
+    <color name="kDarkGredientColor">#ff0086FF</color>
 
 </resources>
