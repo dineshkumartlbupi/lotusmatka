@@ -339,7 +339,8 @@ public class GalidesawarBidPlacedActivity extends AppCompatActivity implements G
         String serverData = getString(R.string.bids_api_open)+gsonData+getString(R.string.bids_api_close);
         if (YourService.isOnline(this))
             presenter.api(SharPrefHelper.getLogInToken(this),serverData,view);
-        else Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
+        else Toast.makeText(this, getString(R.string.check_your_internet_connection),
+                Toast.LENGTH_SHORT).show();
         /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = LayoutInflater.from(this);
         View dialogView = inflater.inflate(R.layout.submit_game_dialog_layout, null);
@@ -413,7 +414,8 @@ public class GalidesawarBidPlacedActivity extends AppCompatActivity implements G
 
     @Override
     public void apiResponse(View view) {
-        SharPrefHelper.setUserPoints(GalidesawarBidPlacedActivity.this, walletAmount.getText().toString());
+        SharPrefHelper.setUserPoints(GalidesawarBidPlacedActivity.this,
+                walletAmount.getText().toString());
         galidesawarBidModelList.clear();
         selectedList.clear();
         inputPoints.setText("");

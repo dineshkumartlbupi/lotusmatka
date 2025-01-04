@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#41526D"
     app:cornerRadius="20dp"
-    app:strokeColor="@color/white"
+    app:strokeColor="#ffFFE3BB"
     app:strokeWidth="2dp"
     android:layout_gravity="center_horizontal"
     android:layout_marginVertical="10dp"
@@ -33,7 +33,7 @@
             android:layout_marginStart="10dp"
             android:gravity="center"
             android:text="Admin"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 

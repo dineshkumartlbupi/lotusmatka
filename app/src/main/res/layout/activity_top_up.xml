@@ -79,9 +79,9 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:background="#071BA4"
+                android:background="#ff051367"
                 app:cornerRadius="20dp"
-                app:strokeColor="@color/purple_500"
+                app:strokeColor="#ffFFE3BB"
                 app:strokeWidth="2dp"
                 android:paddingHorizontal="5dp"
                 android:paddingVertical="8dp">
@@ -89,7 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="!!Add Fund Notice!!"
-                    android:textColor="@color/white"
+                    android:textColor="#ffFFE3BB"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_gravity="center"/>
@@ -97,7 +97,7 @@
                     android:id="@+id/mtv_add_fund_notice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -277,8 +277,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="45dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#071BA4"
-            app:strokeColor="@color/purple_500"
+            android:backgroundTint="#ff051367"
+            app:strokeColor="#ffFFE3BB"
             app:strokeWidth="2dp"
             android:onClick="submitPoints"
             android:text="Submit"

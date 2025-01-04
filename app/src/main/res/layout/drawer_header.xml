@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:paddingVertical="10dp"
-    android:background="#263FC3"
+    android:background="#ff051367"
     android:paddingHorizontal="25dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
     <com.google.android.material.imageview.ShapeableImageView

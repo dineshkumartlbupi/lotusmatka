@@ -37,6 +37,7 @@ public class ContactUsActivity extends AppCompatActivity implements ContactUsCon
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(getResources().getColor(R.color.main_color));
         setContentView(R.layout.activity_contact_us);
+        presenter = new ContactUsPresenter(this);
         intIDs();
         MaterialToolbar toolbar = findViewById(R.id.appbarLayout).findViewById(R.id.toolbar);
         toolbar.setTitle("Contact Us");
@@ -62,7 +63,7 @@ public class ContactUsActivity extends AppCompatActivity implements ContactUsCon
         startService(serviceIntent);
 
 
-        presenter = new ContactUsPresenter(this);
+
         mobileNumber1.setText(SharPrefHelper.getContactDetails(this, SharPrefHelper.KEY_CONTACT_NUMBER1));
         mobileNumber2.setText(SharPrefHelper.getContactDetails(this, SharPrefHelper.KEY_CONTACT_NUMBER2));
         whatsAppNumber.setText(SharPrefHelper.getContactDetails(this, SharPrefHelper.KEY_WHATSAPP_NUMBER));

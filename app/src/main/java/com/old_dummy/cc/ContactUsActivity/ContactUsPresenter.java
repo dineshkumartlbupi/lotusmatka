@@ -2,9 +2,11 @@ package com.old_dummy.cc.ContactUsActivity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.text.TextUtils;
 
 import androidx.core.app.ActivityCompat;
 
@@ -94,12 +96,38 @@ public class ContactUsPresenter implements ContactUsContract.Presenter{
         Type type = new TypeToken<AppDetailsModel.Data>() {
         }.getType();
         try {
-            data = gson.fromJson(SharPrefHelper.getPreferenceData(contactUsActivity,SharPrefHelper.KEY_App_Details), type);
+            data = gson.fromJson(SharPrefHelper.getPreferenceData(contactUsActivity, SharPrefHelper.KEY_App_Details), type);
         } catch (Exception e) {
-            System.out.println("json conversion failed");
+            showErrorPopup(contactUsActivity, "Failed to load data.");
+            return;
         }
-        Uri uri = Uri.parse(data.getContact_details().getWithdraw_proof()); // missing 'http://' will cause crashed
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        contactUsActivity.startActivity(intent);
+
+        if (data == null || data.getContact_details() == null ||
+                TextUtils.isEmpty(data.getContact_details().getWithdraw_proof())) {
+            showErrorPopup(contactUsActivity, "Withdraw proof URL is missing.");
+            return;
+        }
+
+        String url = data.getContact_details().getWithdraw_proof();
+        if (!url.startsWith("https://chat.whatsapp.com/DAtghHfoAb71zysbzS37D") && !url.startsWith("https://chat.whatsapp.com/DAtghHfoAb71zysbzS37D")) {
+            url = "https://chat.whatsapp.com/DAtghHfoAb71zysbzS37D" + url;
+        }
+
+        try {
+            Uri uri = Uri.parse(url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            contactUsActivity.startActivity(intent);
+        } catch (Exception e) {
+            showErrorPopup(contactUsActivity, "No application found to open the URL.");
+        }
     }
+
+    private void showErrorPopup(ContactUsActivity context, String message) {
+        new AlertDialog.Builder(context)
+                .setTitle("Error")
+                .setMessage(message)
+                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                .show();
+    }
+
 }

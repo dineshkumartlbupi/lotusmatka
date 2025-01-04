@@ -46,7 +46,7 @@
                 app:cardElevation="0dp"
                 android:layout_marginTop="10dp"
                 app:cornerRadius="20dp"
-                app:strokeColor="@color/purple_500"
+                app:strokeColor="#ffFFE3BB"
                 app:strokeWidth="2dp"
                 android:backgroundTint="#071BA4"
                 android:layout_weight="1"
@@ -75,7 +75,7 @@
                 app:cardElevation="0dp"
                 android:backgroundTint="#071BA4"
                 app:cornerRadius="20dp"
-                app:strokeColor="@color/purple_500"
+                app:strokeColor="#ffFFE3BB"
                 app:strokeWidth="2dp"
                 android:layout_weight="1"
                 android:foreground="?selectableItemBackground"
@@ -112,7 +112,7 @@
                 android:background="?selectableItemBackground"
                 android:backgroundTint="#071BA4"
                 app:cornerRadius="20dp"
-                app:strokeColor="@color/purple_500"
+                app:strokeColor="#ffFFE3BB"
                 app:strokeWidth="2dp"
                 app:cardCornerRadius="40dp">
 
@@ -140,7 +140,7 @@
                 android:background="?selectableItemBackground"
                 android:backgroundTint="#071BA4"
                 app:cornerRadius="20dp"
-                app:strokeColor="@color/purple_500"
+                app:strokeColor="#ffFFE3BB"
                 app:strokeWidth="2dp"
                 app:cardCornerRadius="40dp">
 

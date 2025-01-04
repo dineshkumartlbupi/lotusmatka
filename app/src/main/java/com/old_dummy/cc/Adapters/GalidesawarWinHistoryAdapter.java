@@ -16,7 +16,8 @@ import com.old_dummy.cc.R;
 
 import java.util.List;
 
-public class GalidesawarWinHistoryAdapter extends RecyclerView.Adapter<GalidesawarWinHistoryAdapter.ViewHolder> {
+public class GalidesawarWinHistoryAdapter extends
+        RecyclerView.Adapter<GalidesawarWinHistoryAdapter.ViewHolder> {
 
     Context context;
     List<GalidesawarWinModel.Data> dataList;
@@ -30,7 +31,8 @@ public class GalidesawarWinHistoryAdapter extends RecyclerView.Adapter<Galidesaw
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.recy_win_history_layout, parent, false);
+        View view = layoutInflater.inflate(R.layout.recy_win_history_layout, parent,
+                false);
         return new ViewHolder(view);
     }
 

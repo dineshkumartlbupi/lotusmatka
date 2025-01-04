@@ -1,7 +1,6 @@
 package com.old_dummy.cc.Adapters;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +70,7 @@ public class GalidesawarGameListAdapter extends RecyclerView.Adapter<Galidesawar
             gameTime.setText(galidesawarGame.getTime());
 
             if(galidesawarGame.isPlay()){
-                playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play_icon));
+                playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
             } else {
                 playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.close));
             }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#071BA4"
+    android:background="#ff051367"
     android:orientation="vertical"
     tools:context=".ChartActivity.ChartActivity">
 

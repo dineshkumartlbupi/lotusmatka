@@ -43,7 +43,7 @@
                         android:id="@+id/openTime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#071BA4"
+                        android:background="#ff051367"
                         android:paddingHorizontal="15dp"
                         android:paddingTop="5dp"
                         android:textSize="15sp"
@@ -55,7 +55,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#071BA4"
+                        android:background="#ff051367"
                         android:paddingHorizontal="15dp"
                         android:paddingBottom="5dp"
                         android:textSize="15sp"
@@ -114,14 +114,14 @@
                             android:layout_height="match_parent"
                             android:orientation="vertical"
                             android:gravity="center"
-                            android:background="#071BA4"
+                            android:background="#ff051367"
                             android:paddingHorizontal="5dp"
                             android:paddingVertical="8dp">
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Withdraw Notice"
-                                android:textColor="@color/white"
+                                android:textColor="#ffFFE3BB"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:layout_gravity="center"/>
@@ -129,7 +129,7 @@
                                 android:id="@+id/mtv_withdraw_notice"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/black"
+                                android:textColor="@color/white"
                                 android:gravity="center"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -515,7 +515,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="45dp"
                         android:layout_marginTop="20dp"
-                        android:backgroundTint="#071BA4"
+                        android:backgroundTint="#ff051367"
                         android:onClick="submitWithdrawPoints"
                         android:text="Submit"
                         app:cornerRadius="20dp"

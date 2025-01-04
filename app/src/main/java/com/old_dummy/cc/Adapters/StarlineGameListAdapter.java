@@ -17,7 +17,8 @@ import com.old_dummy.cc.R;
 
 import java.util.List;
 
-public class StarlineGameListAdapter extends RecyclerView.Adapter<StarlineGameListAdapter.ViewHolder>{
+public class StarlineGameListAdapter extends RecyclerView.Adapter
+        <StarlineGameListAdapter.ViewHolder>{
 
     public interface OnItemClickListener{
         void onItemClick(StarlineGameListModel.Data.StarlineGame starlineGame, View itemView);
@@ -27,7 +28,8 @@ public class StarlineGameListAdapter extends RecyclerView.Adapter<StarlineGameLi
 
     OnItemClickListener listener;
 
-    public StarlineGameListAdapter(Context context, List<StarlineGameListModel.Data.StarlineGame> starlineGameList, OnItemClickListener listener) {
+    public StarlineGameListAdapter(Context context, List<StarlineGameListModel.Data.StarlineGame>
+            starlineGameList, OnItemClickListener listener) {
         this.context = context;
         this.starlineGameList = starlineGameList;
         this.listener = listener;
@@ -37,7 +39,8 @@ public class StarlineGameListAdapter extends RecyclerView.Adapter<StarlineGameLi
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.recycler_starline_game, parent, false);
+        View view = layoutInflater.inflate(R.layout.recycler_starline_game, parent,
+                false);
         return new ViewHolder(view);
     }
 
@@ -65,22 +68,29 @@ public class StarlineGameListAdapter extends RecyclerView.Adapter<StarlineGameLi
         }
 
         public void bind(StarlineGameListModel.Data.StarlineGame starlineGame, OnItemClickListener listener, Context context, int position) {
+             try{
+                 gameName.setText(starlineGame.getName());
+                 gameResult.setText(starlineGame.getResult());
 
-            gameName.setText(starlineGame.getName());
-            gameResult.setText(starlineGame.getResult());
+                 if(starlineGame.isPlay()){
+                     eventStatusText.setText("Market Running");
+                     playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
+                     eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.green)));
+                 }
+                 else {
+                     playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.close));
+                     eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.warningRed)));
+                     eventStatusText.setText("Market closed");
+                 }
+                 itemView.setOnClickListener(v ->{
+                     listener.onItemClick(starlineGame, v);
+                 });
 
-            if(starlineGame.isPlay()){
-                eventStatusText.setText("Market Running");
-                playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play_icon));
-                eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.green)));
-            } else {
-                playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.close));
-                eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.warningRed)));
-                eventStatusText.setText("Market closed");
-            }
-            itemView.setOnClickListener(v ->{
-                listener.onItemClick(starlineGame, v);
-            });
+             }catch (Exception e){
+
+             }
+
+
         }
     }
 }

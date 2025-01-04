@@ -71,10 +71,10 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
         public void bind(GameListModel.Data data, OnItemClickListener listener, Context context, int position) {
             eventType.setText(data.getName());
             eventResult.setText(data.getResult());
-            openTime.setText("Open Time: "+data.getOpen_time());
-            closeTime.setText("Close Time: "+data.getClose_time());
+            openTime.setText("Open: "+data.getOpen_time());
+            closeTime.setText("Close: "+data.getClose_time());
             if(data.isPlay()){
-                playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play_icon));
+                playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
             }else {
                 playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.close));
             }

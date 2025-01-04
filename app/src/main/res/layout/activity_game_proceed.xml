@@ -156,14 +156,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="#071BA4"
+                android:backgroundTint="#ff051367"
                 app:cornerRadius="20dp"
-                app:strokeColor="@color/purple_500"
+                app:strokeColor="#ffFFE3BB"
                 app:strokeWidth="2dp"
                 android:text="Add Bid"
                 android:paddingVertical="12dp"
                 android:textAllCaps="true"
-                android:textColor="@color/white"
+                android:textColor="#ffFFE3BB"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
 

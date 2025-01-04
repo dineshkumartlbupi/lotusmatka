@@ -35,7 +35,7 @@
             app:strokeWidth="2dp"
             android:gravity="center"
             android:paddingVertical="10dp"
-            android:background="#071BA4"
+            android:background="#ff051367"
             android:orientation="horizontal">
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
             android:gravity="center"
             android:layout_marginStart="10dp"
             android:paddingVertical="10dp"
-            android:background="#071BA4"
+            android:background="#ff051367"
             android:orientation="horizontal">
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:paddingVertical="10dp"
-            android:background="#071BA4"
+            android:background="#ff051367"
             android:orientation="horizontal">
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
             android:tag="mainBid"
             android:foreground="?selectableItemBackground"
             android:onClick="history"
-            app:cardBackgroundColor="#071BA4"
+            app:cardBackgroundColor="#ff051367"
             app:cardCornerRadius="10dp">
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
@@ -154,7 +154,7 @@
             android:layout_weight="1"
             android:foreground="?selectableItemBackground"
             android:onClick="chart"
-            app:cardBackgroundColor="#071BA4"
+            app:cardBackgroundColor="#ff051367"
             app:cardCornerRadius="10dp">
 
             <com.google.android.material.textview.MaterialTextView

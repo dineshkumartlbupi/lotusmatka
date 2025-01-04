@@ -155,7 +155,7 @@
             android:tag="mainBid"
             android:foreground="?selectableItemBackground"
             android:onClick="history"
-            app:cardBackgroundColor="#071BA4"
+            app:cardBackgroundColor="#ff051367"
             app:cardCornerRadius="40dp">
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
@@ -179,7 +179,7 @@
             android:layout_weight="1"
             android:foreground="?selectableItemBackground"
             android:onClick="chart"
-            app:cardBackgroundColor="#071BA4"
+            app:cardBackgroundColor="#ff051367"
             app:cardCornerRadius="40dp">
 
             <com.google.android.material.textview.MaterialTextView

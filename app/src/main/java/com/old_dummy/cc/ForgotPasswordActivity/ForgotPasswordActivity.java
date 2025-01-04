@@ -56,7 +56,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements ForgotP
         startService(serviceIntent);
 
         MaterialTextView topTitle = findViewById(R.id.topDesign).findViewById(R.id.topText);
-        topTitle.setText("Forgot\nPassword");
+        topTitle.setText("Forgot Password");
 //        findViewById(R.id.backButton).setOnClickListener(v -> {
 //            onBackPressed();
 //        });

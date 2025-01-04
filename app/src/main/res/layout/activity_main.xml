@@ -14,74 +14,81 @@
 <!--        app:navigationIcon="@drawable/ic_baseline_menu_24"-->
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarLayout"
             android:layout_width="match_parent"
-            android:background="#071BA4"
             android:layout_height="wrap_content"
-            android:id="@+id/appbarLayout">
+            android:background="#ff051367">
+
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:title="@string/app_name"
+                android:layout_marginLeft="8dp"
+                android:background="#ff051367"
+                android:contentInsetStart="0dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
                 app:contentInsetStartWithNavigation="0dp"
-                android:contentInsetStart="0dp"
-                android:layout_marginLeft="8dp"
-                app:titleTextColor="@color/white"
-                android:background="#071BA4"
                 app:navigationIconTint="@color/white"
-                app:popupTheme="@style/MyDarkToolbarStyle">
+                app:popupTheme="@style/MyDarkToolbarStyle"
+                app:title="@string/app_name"
+                app:titleTextColor="@color/white">
+
                 <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/vipBadge"
                     android:layout_width="40dp"
                     android:layout_height="?actionBarSize"
-                    android:src="@drawable/vip"
                     android:layout_gravity="end"
                     android:layout_marginEnd="5dp"
-                    android:visibility="gone"
-                    android:id="@+id/vipBadge"/>
+                    android:src="@drawable/vip"
+                    android:visibility="gone" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/walletAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="00"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/white"
-                    android:drawableStart="@drawable/ic_baseline_account_balance_wallet_24"
                     android:layout_gravity="end"
+                    android:layout_marginEnd="10dp"
+                    android:drawableStart="@drawable/ic_baseline_account_balance_wallet_24"
                     android:drawablePadding="5dp"
-                    android:visibility="visible"
-                    android:layout_marginEnd="10dp"/>
+                    android:text="00"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
                 <FrameLayout
                     android:id="@+id/siv_notice"
-                    android:onClick="callNotice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:foreground="?selectableItemBackgroundBorderless"
+                    android:layout_gravity="end"
                     android:layout_marginEnd="10dp"
-                    android:layout_gravity="end">
+                    android:foreground="?selectableItemBackgroundBorderless"
+                    android:onClick="callNotice">
+
                     <com.google.android.material.imageview.ShapeableImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/baseline_notifications_24"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center"
+                        android:src="@drawable/baseline_notifications_24" />
+
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/mtv_pending_noti"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:text="99"
-                        android:visibility="gone"
-                        android:textSize="8sp"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
                         android:layout_gravity="top|end"
                         android:background="@drawable/baseline_circle_24"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:text="99"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="8sp"
+                        android:visibility="gone" />
                 </FrameLayout>
 
             </com.google.android.material.appbar.MaterialToolbar>
         </com.google.android.material.appbar.AppBarLayout>
+
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -147,70 +154,80 @@
                     android:id="@+id/numberLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:elevation="1dp">
+                    android:layout_marginRight="10dp"
+                    android:elevation="1dp"
+                    android:orientation="horizontal">
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_marginEnd="2dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginEnd="2dp"
                         android:layout_weight="1"
-                        android:backgroundTint="#071BA4"
                         android:background="@drawable/rounded_corner_white"
+                        android:backgroundTint="#ff051367"
+                        android:gravity="center_vertical"
+                        android:onClick="callNumber"
                         android:orientation="horizontal"
-                        android:onClick="callNumber">
+                        android:padding="8dp">
+
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:layout_margin="2dp"
-                            android:tint="@android:color/white"
-                            android:src="@drawable/baseline_call_24"/>
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/baseline_call_24"
+                            android:tint="@android:color/white" />
+
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/callNumber"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="1232654564"
+                            android:layout_weight="1"
                             android:ellipsize="end"
                             android:singleLine="true"
-                            android:textStyle="bold"
+                            android:text="1232654564"
                             android:textColor="@color/white"
-                            android:layout_gravity="center_vertical"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
-                        android:layout_marginEnd="2dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginEnd="2dp"
                         android:layout_weight="1"
-                        android:backgroundTint="#071BA4"
                         android:background="@drawable/rounded_corner_white"
+                        android:backgroundTint="#ff051367"
+                        android:gravity="center_vertical"
+                        android:onClick="whatsAppNumber"
                         android:orientation="horizontal"
-                        android:onClick="whatsAppNumber">
+                        android:padding="8dp">
+
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:layout_gravity="center"
+                            android:layout_marginEnd="8dp"
                             android:padding="2dp"
                             android:scaleType="fitXY"
-                            android:layout_margin="2dp"
-                            android:src="@drawable/ic_whatsappicon"/>
+                            android:src="@drawable/ic_whatsappicon" />
+
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/whatsAppNumber"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="1232654564"
-                            android:textStyle="bold"
+                            android:layout_weight="1"
                             android:ellipsize="end"
                             android:singleLine="true"
+                            android:text="1232654564"
                             android:textColor="@color/white"
-                            android:layout_gravity="center_vertical"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
+
 
                 </LinearLayout>
 
@@ -266,7 +283,7 @@
                         app:cardElevation="0dp"
                         android:layout_weight="1"
                         android:onClick="playStarLine"
-                        app:cardBackgroundColor="#071BA4"
+                        app:cardBackgroundColor="#ff051367"
                         app:cardCornerRadius="40dp">
 
                         <com.google.android.material.textview.MaterialTextView
@@ -292,7 +309,7 @@
                         app:cardElevation="0dp"
                         android:layout_weight="1"
                         android:onClick="galidesawar"
-                        app:cardBackgroundColor="#071BA4"
+                        app:cardBackgroundColor="#ff051367"
                         app:cardCornerRadius="40dp">
 
                         <com.google.android.material.textview.MaterialTextView
@@ -325,7 +342,7 @@
                         app:cardElevation="0dp"
                         android:layout_weight="1"
                         android:onClick="addFund"
-                        app:cardBackgroundColor="#071BA4"
+                        app:cardBackgroundColor="#ff051367"
                         app:cardCornerRadius="40dp">
 
                         <com.google.android.material.textview.MaterialTextView
@@ -350,7 +367,7 @@
                         app:cardElevation="0dp"
                         android:layout_weight="1"
                         android:onClick="withdraw"
-                        app:cardBackgroundColor="#071BA4"
+                        app:cardBackgroundColor="#ff051367"
                         app:cardCornerRadius="40dp">
 
                         <com.google.android.material.textview.MaterialTextView

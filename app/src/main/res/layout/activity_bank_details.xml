@@ -171,10 +171,10 @@
                 android:onClick="submitBankDetails"
                 android:text="Submit"
                 app:cornerRadius="20dp"
-                app:strokeColor="@color/purple_500"
+                app:strokeColor="#ffFFE3BB"
                 app:strokeWidth="2dp"
                 android:paddingVertical="12dp"
-                android:textAllCaps="true"
+                android:textAllCaps="false"
                 android:textColor="@color/logInInputTextColor"
                 android:textSize="16sp"
                 android:textStyle="bold"/>

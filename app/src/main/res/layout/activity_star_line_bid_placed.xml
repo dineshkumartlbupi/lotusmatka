@@ -119,7 +119,7 @@
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#0B1C76"
-                app:strokeColor="@color/purple_500"
+                app:strokeColor="#ffFFE3BB"
                 app:strokeWidth="2dp"
                 android:text="Add Bid"
                 app:cornerRadius="20dp"

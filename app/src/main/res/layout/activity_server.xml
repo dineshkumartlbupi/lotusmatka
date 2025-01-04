@@ -40,7 +40,7 @@
         android:layout_margin="20dp"
         app:cardCornerRadius="8dp"
         android:elevation="9dp"
-        app:cardBackgroundColor="#071BA4"
+        app:cardBackgroundColor="#ff051367"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
             android:orientation="vertical"
             android:gravity="center_vertical"
             app:cornerRadius="20dp"
-            app:strokeColor="@color/purple_500"
+            app:strokeColor="#ffFFE3BB"
             app:strokeWidth="2dp"
             android:paddingHorizontal="20dp"
             android:paddingVertical="8dp">
@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Server Down"
-                android:textColor="@color/white"
+                android:textColor="#ffFFE3BB"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>

@@ -14,8 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:tint="@color/white"
-        android:src="@drawable/outline_home_24" />
+        android:src="@drawable/outline_home_24"
+        android:tint="#ff051367" />
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/drawerText"
         android:layout_width="wrap_content"
@@ -24,6 +24,6 @@
         android:textSize="16sp"
         android:gravity="center"
         android:tint="@color/white"
-        android:textColor="@color/white"/>
+        android:textColor="#ff051367"/>
 
 </LinearLayout>

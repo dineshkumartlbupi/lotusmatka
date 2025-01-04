@@ -14,10 +14,10 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="130dp"
+            android:layout_marginEnd="152dp"
             android:src="@drawable/ic_app_logo_trans" />
 
-<!--        <ImageButton-->
+        <!--        <ImageButton-->
 <!--            android:id="@+id/backButton"-->
 <!--            android:foreground="?selectableItemBackgroundBorderless"-->
 <!--            android:layout_width="wrap_content"-->
@@ -37,7 +37,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="20dp"
         android:text="Change Password"
-        android:textColor="@color/white"
+        android:textColor="#ffFFE3BB"
         android:textSize="20sp"
         app:fontFamily="@font/poppins_black"
         android:textStyle="bold" />

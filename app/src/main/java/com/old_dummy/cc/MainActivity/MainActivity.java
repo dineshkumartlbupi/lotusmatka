@@ -16,12 +16,15 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -288,23 +291,41 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 //        navigationRecyclerView.setAdapter(menuAdapter);
 //    }
 
-    void welcomePopUp(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Welcome to "+getString(R.string.app_name)+"!");
-        builder.setMessage(welcomeMessage);
+    void welcomePopUp() {
+        // Create the custom layout inflater
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_welcome, null);
 
+        // Initialize the views in the layout
+        TextView welcomeTitle = dialogView.findViewById(R.id.welcomeTitle);
+        TextView welcometv = dialogView.findViewById(R.id.welcomeMessage);
+        Button btnDone = dialogView.findViewById(R.id.btnDone);
+
+        // Set the title and message dynamically
+        welcomeTitle.setText("Welcome to " + getString(R.string.app_name) + "!");
+        welcometv.setText(welcomeMessage); // Assuming welcomeMessage is a class-level variable holding your message
+
+        // Create the AlertDialog builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
+
+        // Customize the dialog animations
         AlertDialog alertDialog = builder.create();
         alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
 
+        // Set button click listener
+        btnDone.setOnClickListener(v -> alertDialog.dismiss());
 
-        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Done", (dialogInterface, i) -> {
-
-        });
+        // Show the dialog
         alertDialog.show();
-        alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(ContextCompat.getColor(this,R.color.resend_text_color));
-        alertDialog.getWindow().setBackgroundDrawable(ContextCompat.getDrawable(this,R.drawable.rounded_corner_white));
-        alertDialog.getWindow().setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+        // Customize the dialog appearance
+        alertDialog.getWindow().setBackgroundDrawable(
+                ContextCompat.getDrawable(this, R.drawable.rounded_corner_white));
+        alertDialog.getWindow().setLayout(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onResume() {
@@ -375,12 +396,14 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 //        viewPager.startAutoCycle();
 //    }
     private void configureRecyclerView() {
-        gameListAdapter = new GameListAdapter(this, (ArrayList<GameListModel.Data>) dataList, new GameListAdapter.OnItemClickListener() {
+        gameListAdapter = new GameListAdapter(this, (ArrayList<GameListModel.Data>)
+                dataList, new GameListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(GameListModel.Data data, View itemView) {
                 if (!data.isPlay()){
                     ObjectAnimator
-                            .ofFloat(itemView, "translationX", 0, 25, -25, 25, -25,15, -15, 6, -6, 0)
+                            .ofFloat(itemView, "translationX",
+                                    0, 25, -25, 25, -25,15, -15, 6, -6, 0)
                             .setDuration(700)
                             .start();
                     vibe.vibrate(500);
@@ -490,11 +513,14 @@ public class MainActivity extends BaseActivity implements MainContract.View {
             vipBadge.setVisibility(View.GONE);
         }
         if(userStatusData.getAccountStatus().equals("1")){
-            welcomePopUp();
-//            if(from.equals("pin")){
-//                from = "";
-//                welcomePopUp();
-//            }
+           try {
+               if(from.equals("pin")){
+                   from = "";
+                   welcomePopUp();
+               }
+           }catch (Exception e){
+
+           }
 
         }
     }

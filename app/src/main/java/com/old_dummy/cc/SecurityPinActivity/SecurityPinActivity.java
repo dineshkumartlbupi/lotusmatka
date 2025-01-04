@@ -99,7 +99,7 @@ public class SecurityPinActivity extends AppCompatActivity implements SecurityPi
         presenter.doAppDetailsApi("");
 
         MaterialTextView topTitle = findViewById(R.id.topDesign).findViewById(R.id.topText);
-        topTitle.setText("Enter Your Security\nPin");
+        topTitle.setText("Enter Pin code");
         if(Objects.equals(from, "login")) {
 //            findViewById(R.id.backButton).setVisibility(View.VISIBLE);
 //            findViewById(R.id.backButton).setOnClickListener(v -> {
