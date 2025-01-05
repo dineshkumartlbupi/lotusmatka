@@ -12,7 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingVertical="5dp">
 
@@ -27,28 +27,52 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/eventStatusText"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:textStyle="bold"
+    android:weightSum="5"
+    android:layout_marginTop="8dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/gameResult"
+    app:layout_constraintVertical_bias="1.0" >
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/eventStatusText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/gameResult"
-            android:layout_marginStart="6dp"
-            android:layout_marginBottom="1dp"
-            android:background="@drawable/rounded_corner_white"
-            android:paddingHorizontal="5dp"
-            android:text="fcgvhbjn"
-            android:textColor="@color/warningRed"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/gameResult"
-            app:layout_constraintTop_toBottomOf="@id/gameResult"
-            app:layout_constraintVertical_bias="1.0" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/eventStatusText"
+        android:layout_width="0dp"
+
+        android:layout_weight="4.7"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameResult"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/rounded_corner_white"
+        android:paddingHorizontal="5dp"
+        android:text="fcgvhbjn"
+        android:textColor="@color/main_color"
+        android:textSize="11sp"
+        />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/eventStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameResult"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/rounded_corner_white"
+        android:paddingHorizontal="5dp"
+        android:text="Closed"
+        android:textColor="@color/warningRed"
+        android:textSize="11sp"
+        />
+</LinearLayout>
+
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/gameResult"

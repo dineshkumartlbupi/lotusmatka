@@ -57,12 +57,14 @@ public class StarlineGameListAdapter extends RecyclerView.Adapter
     public class ViewHolder extends RecyclerView.ViewHolder {
         MaterialTextView gameName,gameResult;
         MaterialTextView eventStatusText;
+        MaterialTextView eventStatus;
         ShapeableImageView playIcon;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             gameName = itemView.findViewById(R.id.gameName);
             gameResult = itemView.findViewById(R.id.gameResult);
             eventStatusText = itemView.findViewById(R.id.eventStatusText);
+            eventStatus = itemView.findViewById(R.id.eventStatus);
             playIcon = itemView.findViewById(R.id.playIcon);
 
         }
@@ -73,14 +75,18 @@ public class StarlineGameListAdapter extends RecyclerView.Adapter
                  gameResult.setText(starlineGame.getResult());
 
                  if(starlineGame.isPlay()){
-                     eventStatusText.setText("Market Running");
+                     eventStatusText.setText("Market Open");
+                     eventStatus.setText("Running");
                      playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
-                     eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.green)));
+                     eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
+                     eventStatus.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
                  }
                  else {
                      playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.close));
-                     eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.warningRed)));
-                     eventStatusText.setText("Market closed");
+                     eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
+                     eventStatus.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.warningRed)));
+                     eventStatusText.setText("Market Closed");
+                     eventStatus.setText("Closed");
                  }
                  itemView.setOnClickListener(v ->{
                      listener.onItemClick(starlineGame, v);

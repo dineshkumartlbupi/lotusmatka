@@ -121,17 +121,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textColor="@color/warningRed"
-                        android:textSize="18sp"
+                        android:textSize="12sp"
+                        android:layout_marginTop="8dp"
+                        android:paddingVertical="4dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Welcome to India's No.1 Trusted Kalyan Matka Application"
+                        android:background="@drawable/bg_gradient"
+                        android:textColor="@color/background_color"
                         android:ellipsize="marquee"
-                        android:marqueeRepeatLimit="marquee_forever"
-                        android:scrollHorizontally="true"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
                         android:singleLine="true"
                         android:textStyle="bold"
                         android:gravity="center"/>
+
                 </FrameLayout>
+
+
 
 <!--                <com.smarteist.autoimageslider.SliderView-->
 <!--                    android:id="@+id/slider"-->
@@ -156,18 +160,60 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:elevation="1dp"
-                    android:orientation="horizontal">
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal">
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_corner_white"
+                        android:backgroundTint="#ff051367"
+                        android:gravity="center"
+                        android:onClick="whatsAppNumber"
+                        android:orientation="horizontal"
+                        android:padding="8dp">
+
+                        <!-- WhatsApp Icon -->
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="8dp"
+                            android:gravity="center"
+                            android:padding="2dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_whatsappicon" />
+
+                        <!-- Chat Now Text -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/whatsAppNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:text="Chat Now"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="2dp"
                         android:layout_weight="1"
                         android:background="@drawable/rounded_corner_white"
                         android:backgroundTint="#ff051367"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:onClick="callNumber"
                         android:orientation="horizontal"
                         android:padding="8dp">
@@ -181,209 +227,65 @@
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/callNumber"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:ellipsize="end"
                             android:singleLine="true"
-                            android:text="1232654564"
+                            android:text="Call Now"
                             android:textColor="@color/white"
                             android:textSize="14sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rounded_corner_white"
-                        android:backgroundTint="#ff051367"
-                        android:gravity="center_vertical"
-                        android:onClick="whatsAppNumber"
-                        android:orientation="horizontal"
-                        android:padding="8dp">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_marginEnd="8dp"
-                            android:padding="2dp"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/ic_whatsappicon" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/whatsAppNumber"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:ellipsize="end"
-                            android:singleLine="true"
-                            android:text="1232654564"
-                            android:textColor="@color/white"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/telegram"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginEnd="50dp"
-                    android:background="@drawable/rounded_corner_white">
 
-                    <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:src="@drawable/telegram"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Withdrawal Proof"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
-                        android:layout_gravity="center_vertical"/>
-
-
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_margin="5dp"
-                    android:padding="9dp"
-                    android:background="@drawable/border2">
-                <LinearLayout
-                    android:id="@+id/starLineLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:elevation="1dp">
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/playStarLineLty"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginTop="10dp"
-                        app:cardElevation="0dp"
-                        android:layout_weight="1"
-                        android:onClick="playStarLine"
-                        app:cardBackgroundColor="#ff051367"
-                        app:cardCornerRadius="40dp">
+                    android:padding="9dp">
 
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/starLineGame"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Play Starline"
-                            android:textStyle="bold"
-                            android:layout_marginVertical="10dp"
-                            android:gravity="center"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center"
-                            android:textSize="16sp" />
 
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/galidesawar_card"
-                        android:layout_width="0dp"
+
+
+                    <LinearLayout
+                        android:id="@+id/openBottomSheet"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
                         android:layout_marginStart="5dp"
-                        android:layout_marginTop="10dp"
-                        app:cardElevation="0dp"
-                        android:layout_weight="1"
-                        android:onClick="galidesawar"
-                        app:cardBackgroundColor="#ff051367"
-                        app:cardCornerRadius="40dp">
+                        android:background="@drawable/bg_button_gradient">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_height="wrap_content">
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/withdraw"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:text="Star and Gali Games"
+                                    android:textStyle="bold"
+                                    app:textAllCaps="true"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginVertical="10dp"
+                                    android:textColor="@color/white"
+                                    android:textSize="16sp" />
 
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/galidesawar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Gali Disawar"
-                            android:textStyle="bold"
-                            android:layout_marginVertical="10dp"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center"
-                            android:textSize="16sp" />
+                                <com.google.android.material.imageview.ShapeableImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:padding="2dp"
+                                    android:layout_gravity="center"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/next" />
+                            </LinearLayout>
 
-                    </com.google.android.material.card.MaterialCardView>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/fundLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:elevation="1dp">
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/addFund_mcv"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginTop="10dp"
-                        app:cardElevation="0dp"
-                        android:layout_weight="1"
-                        android:onClick="addFund"
-                        app:cardBackgroundColor="#ff051367"
-                        app:cardCornerRadius="40dp">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/addFunds"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Add Funds"
-                            android:textStyle="bold"
-                            android:layout_marginVertical="10dp"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center"
-                            android:textSize="16sp" />
-
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/withdraw_card"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="10dp"
-                        app:cardElevation="0dp"
-                        android:layout_weight="1"
-                        android:onClick="withdraw"
-                        app:cardBackgroundColor="#ff051367"
-                        app:cardCornerRadius="40dp">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/withdraw"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Withdraw"
-                            android:textStyle="bold"
-                            android:layout_marginVertical="10dp"
-                            android:textColor="@color/white"
-                            android:layout_gravity="center"
-                            android:textSize="16sp" />
-
-                    </com.google.android.material.card.MaterialCardView>
-
-                </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <androidx.core.widget.NestedScrollView

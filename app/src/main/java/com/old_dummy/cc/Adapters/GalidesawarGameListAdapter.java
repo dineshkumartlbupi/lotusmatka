@@ -1,6 +1,7 @@
 package com.old_dummy.cc.Adapters;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,12 +55,14 @@ public class GalidesawarGameListAdapter extends RecyclerView.Adapter<Galidesawar
         MaterialTextView gameName,gameResult;
         ShapeableImageView playIcon;
         MaterialTextView gameTime;
+        MaterialTextView eventStatus;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             gameName = itemView.findViewById(R.id.gameName);
             gameResult = itemView.findViewById(R.id.gameResult);
             gameTime = itemView.findViewById(R.id.gameTime);
             playIcon = itemView.findViewById(R.id.playIcon);
+            eventStatus = itemView.findViewById(R.id.eventStatus);
 
         }
 
@@ -71,8 +74,12 @@ public class GalidesawarGameListAdapter extends RecyclerView.Adapter<Galidesawar
 
             if(galidesawarGame.isPlay()){
                 playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
+                eventStatus.setText("Running");
+                eventStatus.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
             } else {
                 playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.close));
+                eventStatus.setText("Closed");
+                eventStatus.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.warningRed)));
             }
 
             itemView.setOnClickListener(v ->{
