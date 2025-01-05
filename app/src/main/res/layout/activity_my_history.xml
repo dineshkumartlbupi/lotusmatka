@@ -40,15 +40,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="12dp"
-                android:paddingBottom="12dp">
+                android:elevation="1dp">
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginBottom="12dp"
                     android:layout_weight="1"
                     android:foreground="?selectableItemBackground"
@@ -102,7 +101,7 @@
 
                             <ImageView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="20dp"
                                 android:contentDescription="Arrow Icon"
                                 android:src="@drawable/ic_arrow" />
                         </LinearLayout>
@@ -332,9 +331,9 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginBottom="12dp"
                     android:layout_weight="1"
                     android:foreground="?selectableItemBackground"
@@ -400,9 +399,9 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="12dp"
                     android:layout_weight="1"
                     android:foreground="?selectableItemBackground"

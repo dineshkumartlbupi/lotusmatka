@@ -20,23 +20,83 @@
         android:padding="5dp"
         android:visibility="gone"
         android:elevation="1dp"/>
-    <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_app_logo_trans"
-        android:layout_gravity="center"/>
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="00/-"
-        android:layout_gravity="center_horizontal"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:drawablePadding="5dp"
-        android:drawableStart="@drawable/ic_baseline_account_balance_wallet_24"
-        android:textColor="@color/white"/>
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="@android:color/transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/history_bg_gredient"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp">
+        <ImageView
+            android:id="@+id/coin_image"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="6dp"
+            android:contentDescription="Coin Stack"
+            android:src="@drawable/ic_baseline_account_balance_wallet_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/balance_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Balance"
+            android:gravity="center_vertical"
+            android:textColor="@color/main_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/coin_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/coin_image"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00/-"
+
+            android:textColor="@color/main_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/balance_label"
+            app:layout_constraintStart_toStartOf="@id/balance_label"
+            app:layout_constraintEnd_toEndOf="@id/balance_label" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginVertical="3dp"
+        android:layout_marginHorizontal="25dp"
+        android:background="@color/main_color" />
+
+    <!--    <com.google.android.material.imageview.ShapeableImageView-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="150dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:src="@drawable/ic_app_logo_trans"-->
+<!--        android:layout_gravity="center"/>-->
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:id="@+id/amount"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="00/-"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:textSize="25sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:drawablePadding="5dp"-->
+<!--        android:drawableStart="@drawable/ic_baseline_account_balance_wallet_24"-->
+<!--        android:textColor="@color/main_color"/>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +112,7 @@
             app:cardElevation="0dp"
             android:backgroundTint="#ff051367"
             app:cornerRadius="20dp"
-            app:strokeColor="@color/purple_500"
+            app:strokeColor="@color/Button_border"
             app:strokeWidth="2dp"
             android:layout_weight="1"
             android:tag="addFund"
@@ -81,7 +141,7 @@
             app:cardElevation="0dp"
             android:backgroundTint="#ff051367"
             app:cornerRadius="20dp"
-            app:strokeColor="@color/purple_500"
+            app:strokeColor="@color/Button_border"
             app:strokeWidth="2dp"
             android:layout_weight="1"
             android:foreground="?selectableItemBackground"
@@ -116,7 +176,7 @@
             app:cardElevation="0dp"
             android:backgroundTint="#ff051367"
             app:cornerRadius="20dp"
-            app:strokeColor="@color/purple_500"
+            app:strokeColor="@color/Button_border"
             app:strokeWidth="2dp"
             android:layout_weight="1"
             android:tag="transfer"
@@ -146,7 +206,7 @@
             app:cardElevation="0dp"
             android:backgroundTint="#ff051367"
             app:cornerRadius="20dp"
-            app:strokeColor="@color/purple_500"
+            app:strokeColor="@color/Button_border"
             app:strokeWidth="2dp"
             android:layout_weight="1"
             android:tag="paymentMethods"
@@ -168,130 +228,17 @@
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
-    <!--  <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          android:elevation="1dp">
-          <com.google.android.material.card.MaterialCardView
-              android:layout_width="0dp"
-              android:layout_height="wrap_content"
-              android:layout_marginStart="10dp"
-              android:layout_marginEnd="5dp"
-              android:layout_marginTop="10dp"
-              app:cardElevation="0dp"
-              android:layout_weight="1"
-              android:tag="phonePe"
-              android:foreground="?selectableItemBackground"
-              android:onClick="fundItemClick"
-              app:cardBackgroundColor="@color/orange_color"
-              app:cardCornerRadius="40dp">
-              <com.google.android.material.textview.MaterialTextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="PhonePe"
-                  android:textStyle="bold"
-                  android:layout_marginVertical="10dp"
-                  android:gravity="center"
-                  android:textColor="@color/black"
-                  android:layout_gravity="center"
-                  android:textSize="16sp" />
-
-          </com.google.android.material.card.MaterialCardView>
-          <com.google.android.material.card.MaterialCardView
-              android:layout_width="0dp"
-              android:layout_height="wrap_content"
-              android:layout_marginEnd="10dp"
-              android:layout_marginStart="5dp"
-              android:layout_marginTop="10dp"
-              app:cardElevation="0dp"
-              android:layout_weight="1"
-              android:foreground="?selectableItemBackground"
-              android:tag="paytm"
-              android:onClick="fundItemClick"
-              app:cardBackgroundColor="@color/orange_color"
-              app:cardCornerRadius="40dp">
-
-              <com.google.android.material.textview.MaterialTextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="PayTm"
-                  android:textStyle="bold"
-                  android:layout_marginVertical="10dp"
-                  android:textColor="@color/black"
-                  android:layout_gravity="center"
-                  android:textSize="16sp" />
-          </com.google.android.material.card.MaterialCardView>
-
-      </LinearLayout>
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="horizontal"
-          android:layout_marginTop="10dp"
-          android:elevation="1dp">
-          <com.google.android.material.card.MaterialCardView
-              android:layout_width="0dp"
-              android:layout_height="wrap_content"
-              android:layout_marginStart="10dp"
-              android:layout_marginEnd="5dp"
-              android:layout_marginTop="10dp"
-              app:cardElevation="0dp"
-              android:layout_weight="1"
-              android:tag="gPay"
-              android:onClick="fundItemClick"
-              android:background="?selectableItemBackground"
-              app:cardBackgroundColor="@color/orange_color"
-              app:cardCornerRadius="40dp">
-
-              <com.google.android.material.textview.MaterialTextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Google Pay"
-                  android:textStyle="bold"
-                  android:layout_marginVertical="10dp"
-                  android:textColor="@color/black"
-                  android:layout_gravity="center"
-                  android:textSize="16sp" />
-
-          </com.google.android.material.card.MaterialCardView>
-          <com.google.android.material.card.MaterialCardView
-              android:layout_width="0dp"
-              android:layout_height="wrap_content"
-              android:layout_marginEnd="10dp"
-              android:layout_marginStart="5dp"
-              android:layout_marginTop="10dp"
-              app:cardElevation="0dp"
-              android:layout_weight="1"
-              android:tag="wallet"
-              android:onClick="fundItemClick"
-              android:background="?selectableItemBackground"
-              app:cardBackgroundColor="@color/orange_color"
-              app:cardCornerRadius="40dp">
-
-              <com.google.android.material.textview.MaterialTextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="Wallet"
-                  android:textStyle="bold"
-                  android:layout_marginVertical="10dp"
-                  android:textColor="@color/black"
-                  android:layout_gravity="center"
-                  android:textSize="16sp" />
-
-          </com.google.android.material.card.MaterialCardView>
-
-      </LinearLayout>-->
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wallet History"
+        android:text="Transcations"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:layout_marginLeft="14dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/white"/>
+        android:layout_gravity="start"
+        android:textColor="@color/main_color"/>
 
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
