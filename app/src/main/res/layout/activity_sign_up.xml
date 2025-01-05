@@ -177,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="#102FA6"
+                android:backgroundTint="#ff051367"
                 android:onClick="createNewAccount"
                 android:text="Signup"
                 app:cornerRadius="20dp"
