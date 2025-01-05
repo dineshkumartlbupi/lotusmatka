@@ -7,207 +7,470 @@
     android:orientation="vertical"
 
     tools:context=".StarLineActivity.StarLineActivity">
-    <include layout="@layout/custom_appbar11"
-        android:id="@+id/appbarLayout"/>
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/dataConText"
-            android:text="@string/you_are_not_connected_to_internet"
-            android:textColor="@color/white"
-            android:background="@color/warningRed"
-            android:padding="5dp"
-            android:visibility="gone"
-            android:elevation="1dp"/>
-    <LinearLayout
+
+    <include
+        android:id="@+id/appbarLayout"
+        layout="@layout/custom_appbar11" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dataConText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="@color/warningRed"
+        android:elevation="1dp"
+        android:padding="5dp"
+        android:text="@string/you_are_not_connected_to_internet"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/openBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="5dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/border2"
-            android:orientation="vertical">
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Single Digit"
-                android:textSize="14sp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/black"/>
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/singleDigitValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green"
-                android:text="10/90"
-                android:textSize="14sp"/>
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg_button_gradient">
 
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:paddingVertical="10dp"
-            android:background="@drawable/border2"
             android:orientation="horizontal">
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Single Panna"
-                android:textSize="14sp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/black"/>
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/singlePanaValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/green"
-                android:text="10/90"
-                android:textSize="14sp"/>
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/gameRates"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:text="Game Rates"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/starLineChart"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="8dp"
+                android:textStyle="bold"
+                android:padding="2dp"
+                android:scaleType="fitXY"
+                android:text="Starline Chart "
+                android:textColor="@color/white" />
         </LinearLayout>
+
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginHorizontal="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="5dp">
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:paddingVertical="10dp"
-            android:background="@drawable/border2"
+            android:layout_marginEnd="10dp"
+            android:weightSum="3"
             android:orientation="horizontal">
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="Single Digit"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/main_color"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Double Panna"
-                android:textSize="14sp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/black"/>
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/doublePanaValue"
-                android:layout_width="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Coast Amount"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/singleCoastAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textColor="@color/green"
-                android:text="10/90"
-                android:textSize="14sp"/>
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Earning Amount"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp" />
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/singleEarningAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="90"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
 
         </LinearLayout>
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bg_gradient"/>
         <LinearLayout
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
-            android:paddingVertical="10dp"
-            android:background="@drawable/border2"
+            android:layout_marginEnd="10dp"
+            android:weightSum="3"
             android:orientation="horizontal">
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="Single Panna"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/main_color"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Triple Panna"
-                android:textSize="14sp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/black"/>
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/triplePanaValue"
-                android:layout_width="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Coast Amount"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/singlePannaCoastAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:textColor="@color/green"
-                android:text="10/90"
-                android:textSize="14sp"/>
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Earning Amount"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp" />
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/singlePannaEarningAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="90"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
 
         </LinearLayout>
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bg_gradient"/>
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:weightSum="3"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Double Panna"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Coast Amount"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/doublePannaCoastAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Earning Amount"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp" />
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/doublePannaEarningAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="90"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bg_gradient"/>
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:weightSum="3"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Double Panna"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Triple Panna"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tripalePannaCoastAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Earning Amount"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp" />
+
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tripalePannaEarningAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="90"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/bg_gradient"/>
     </LinearLayout>
+
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:elevation="1dp">
+        android:elevation="1dp"
+        android:orientation="horizontal">
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
             android:layout_marginTop="10dp"
-            app:cardElevation="0dp"
+            android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:tag="mainBid"
             android:foreground="?selectableItemBackground"
             android:onClick="history"
+            android:tag="mainBid"
             app:cardBackgroundColor="#ff051367"
-            app:cardCornerRadius="40dp">
+            app:cardCornerRadius="40dp"
+            app:cardElevation="0dp">
+
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="History"
-                android:textStyle="bold"
+                android:layout_gravity="center"
                 android:layout_marginVertical="10dp"
                 android:gravity="center"
+                android:text="History"
                 android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </com.google.android.material.card.MaterialCardView>
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            app:cardElevation="0dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:foreground="?selectableItemBackground"
             android:onClick="chart"
             app:cardBackgroundColor="#ff051367"
-            app:cardCornerRadius="40dp">
+            app:cardCornerRadius="40dp"
+            app:cardElevation="0dp">
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chart"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginVertical="10dp"
-                android:textColor="@color/white"
                 android:layout_gravity="center"
-                android:textSize="16sp" />
+                android:layout_marginVertical="10dp"
+                android:gravity="center"
+                android:text="Chart"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/swipeRefreshLayout"
-            android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerStarLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/recyclerStarLine"
-            tools:listitem="@layout/recycler_starline_game"/>
+            tools:listitem="@layout/recycler_starline_game" />
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

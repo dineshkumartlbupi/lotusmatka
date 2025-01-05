@@ -42,8 +42,10 @@ public class StarLineActivity extends AppCompatActivity implements StarLineContr
     RecyclerView recyclerStarLine;
     StarlineGameListAdapter starlineGameListAdapter;
     MaterialTextView singleDigitValue,singlePanaValue,doublePanaValue,triplePanaValue;
+    MaterialTextView singleDigitEarningAmount,singlePanaEarningAmount,doublePanaEarningAmount,triplePanaEarningAmount;
     String chartURL = "";
     List<MaterialTextView> digitValue = new ArrayList<>();
+    List<MaterialTextView> earningDigitValue = new ArrayList<>();
     List<StarlineGameListModel.Data.StarlineGame> starlineGameList = new ArrayList<>();
     Vibrator vibe;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -64,6 +66,13 @@ public class StarLineActivity extends AppCompatActivity implements StarLineContr
         digitValue.add(singlePanaValue);
         digitValue.add(doublePanaValue);
         digitValue.add(triplePanaValue);
+
+
+        earningDigitValue.add(singleDigitValue);
+        earningDigitValue.add(singlePanaValue);
+        earningDigitValue.add(doublePanaValue);
+        earningDigitValue.add(triplePanaValue);
+
         configureRecycler();
         toolbar.setTitle("Starline Game");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -109,10 +118,18 @@ public class StarLineActivity extends AppCompatActivity implements StarLineContr
     private void intIDs() {
         toolbar = findViewById(R.id.toolbar);
         recyclerStarLine = findViewById(R.id.recyclerStarLine);
-        singleDigitValue = findViewById(R.id.singleDigitValue);
-        singlePanaValue = findViewById(R.id.singlePanaValue);
-        doublePanaValue = findViewById(R.id.doublePanaValue);
-        triplePanaValue = findViewById(R.id.triplePanaValue);
+
+        singleDigitValue = findViewById(R.id.singleCoastAmount);
+        singlePanaValue = findViewById(R.id.singlePannaCoastAmount);
+        doublePanaValue = findViewById(R.id.doublePannaCoastAmount);
+        triplePanaValue = findViewById(R.id.tripalePannaCoastAmount);
+
+        singleDigitEarningAmount = findViewById(R.id.singleEarningAmount);
+        singlePanaEarningAmount = findViewById(R.id.singlePannaEarningAmount);
+        doublePanaEarningAmount= findViewById(R.id.doublePannaEarningAmount);
+        triplePanaEarningAmount = findViewById(R.id.tripalePannaEarningAmount);
+
+
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE) ;
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         presenter =new StarLinePresenter(this);
@@ -172,8 +189,10 @@ public class StarLineActivity extends AppCompatActivity implements StarLineContr
         }
         List<StarlineGameListModel.Data.StarlineRates> starlineRatesList = data.getStarlineRates();
         for (int i = 0; i < starlineRatesList.size(); i++) {
-            String value = starlineRatesList.get(i).getCost_amount() + "-" + starlineRatesList.get(i).getEarning_amount();
+            String value = starlineRatesList.get(i).getCost_amount();
+            String earning = starlineRatesList.get(i).getEarning_amount();
             digitValue.get(i).setText(value);
+            earningDigitValue.get(i).setText(earning);
         }
         starlineGameList = data.getStarlineGame();
         configureRecycler();

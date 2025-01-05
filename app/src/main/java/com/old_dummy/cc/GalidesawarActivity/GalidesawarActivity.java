@@ -42,8 +42,10 @@ public class GalidesawarActivity extends AppCompatActivity implements Galidesawa
     RecyclerView recyclerGalidesawar;
     GalidesawarGameListAdapter galidesawarGameListAdapter;
     MaterialTextView leftDigitValue, rightDigitValue, jodiDigitValue;
+    MaterialTextView leftDigitEarning, rightDigitEarning, jodiDigitEarning;
     String chartURL = "";
     List<MaterialTextView> digitValue = new ArrayList<>();
+    List<MaterialTextView> digitEarning = new ArrayList<>();
     List<GalidesawarGameListModel.Data.GalidesawarGame> galidesawarGameList = new ArrayList<>();
     Vibrator vibe;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -63,6 +65,10 @@ public class GalidesawarActivity extends AppCompatActivity implements Galidesawa
         digitValue.add(leftDigitValue);
         digitValue.add(rightDigitValue);
         digitValue.add(jodiDigitValue);
+
+        digitEarning.add(leftDigitEarning);
+        digitEarning.add(rightDigitEarning);
+        digitEarning.add(jodiDigitEarning);
 
         configureRecycler();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -108,9 +114,15 @@ public class GalidesawarActivity extends AppCompatActivity implements Galidesawa
     private void intIDs() {
         toolbar = findViewById(R.id.toolbar);
         recyclerGalidesawar = findViewById(R.id.recyclerGalidesawar);
-        leftDigitValue = findViewById(R.id.leftDigitValue);
-        rightDigitValue = findViewById(R.id.rightDigitValue);
-        jodiDigitValue = findViewById(R.id.jodiDigitValue);
+
+        leftDigitValue = findViewById(R.id.leftCoastAmount);
+        rightDigitValue = findViewById(R.id.rightCoastAmount);
+        jodiDigitValue = findViewById(R.id.jodiCoastAmount);
+
+        leftDigitEarning = findViewById(R.id.leftEarningAmount);
+        rightDigitEarning = findViewById(R.id.rightEarningAmount);
+        jodiDigitEarning = findViewById(R.id.jodiEarningAmount);
+
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE) ;
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         presenter =new GalidesawarPresenter(this);
@@ -173,8 +185,10 @@ public class GalidesawarActivity extends AppCompatActivity implements Galidesawa
         }
         List<GalidesawarGameListModel.Data.GalidesawarRates> galidesawarRatesList = data.getGalidesawrRates();
         for (int i = 0; i < galidesawarRatesList.size(); i++) {
-            String value = galidesawarRatesList.get(i).getCost_amount() + "-" + galidesawarRatesList.get(i).getEarning_amount();
+            String value = galidesawarRatesList.get(i).getCost_amount();
+            String earning =  galidesawarRatesList.get(i).getEarning_amount();
             digitValue.get(i).setText(value);
+            digitEarning.get(i).setText(earning);
         }
         galidesawarGameList = data.getGalidesawrGame();
         configureRecycler();
