@@ -299,7 +299,7 @@
             android:layout_marginHorizontal="15sp"
             android:layout_marginTop="10dp"
             android:background="@drawable/text_field_background"
-            android:backgroundTint="@color/yellow"
+            android:backgroundTint="@color/main_color"
             android:onClick="WatchItOnYoutube"
             android:orientation="horizontal"
             android:padding="2dp">
