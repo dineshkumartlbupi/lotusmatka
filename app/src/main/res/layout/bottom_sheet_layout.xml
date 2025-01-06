@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -28,6 +29,7 @@
             android:orientation="vertical"
             android:layout_gravity="center"
             android:gravity="center">
+
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,7 +43,8 @@
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/animation"
-                    android:contentDescription="Star Animation" />
+                    android:contentDescription="Star Animation"
+                    tools:ignore="DuplicateIds" />
 
                 <!-- Shapeable Image View -->
                 <com.google.android.material.imageview.ShapeableImageView
