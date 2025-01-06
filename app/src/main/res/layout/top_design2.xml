@@ -38,7 +38,7 @@
         android:layout_marginBottom="20dp"
         android:text="Change Password"
         android:textColor="#ffFFE3BB"
-        android:textSize="20sp"
+        android:textSize="18dp"
         app:fontFamily="@font/poppins_black"
         android:textStyle="bold" />
 

@@ -22,12 +22,10 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
 import com.old_dummy.cc.Extras.SharPrefHelper;
 import com.old_dummy.cc.Extras.Utility;
 import com.old_dummy.cc.Extras.YourService;
-import com.old_dummy.cc.LoginActivity.LoginActivity;
 import com.old_dummy.cc.R;
 import com.old_dummy.cc.SplashActivity.SplashActivity;
 
@@ -87,7 +85,7 @@ public class UPIDetailsActivity extends AppCompatActivity implements UpiDetailsC
             case 2:
                 toolbar.setTitle("Google Pay");
                 titleText.setText("Google Pay Number");
-                upiIcon.setImageResource(R.drawable.gpay);
+                upiIcon.setImageResource(R.drawable.gogpay);
                 if (SharPrefHelper.getPreferenceData(this, SharPrefHelper.KEY_GOOGLEPAY_UPI)!=null)
                 {
                     inputUPI.setText(SharPrefHelper.getPreferenceData(this, SharPrefHelper.KEY_GOOGLEPAY_UPI));

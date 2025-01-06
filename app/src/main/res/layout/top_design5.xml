@@ -1,46 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="center">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="135dp"
-            android:src="@drawable/ic_app_logo_trans" />
-
-        <!--        <ImageButton-->
-        <!--            android:id="@+id/backButton"-->
-        <!--            android:foreground="?selectableItemBackgroundBorderless"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            app:tint="@color/white"-->
-        <!--            android:src="@drawable/ic_baseline_arrow_back_24"-->
-        <!--            android:backgroundTint="@color/transparent"/>-->
-    </RelativeLayout>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_app_logo_trans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/topText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="20dp"
         android:text="Signup"
         android:textColor="#ffFFE3BB"
-        android:textSize="20sp"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
         app:fontFamily="@font/poppins_black"
-        android:textStyle="bold" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView"
+        app:layout_constraintVertical_bias="0" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

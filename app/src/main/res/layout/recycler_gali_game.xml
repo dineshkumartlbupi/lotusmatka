@@ -24,8 +24,8 @@
             android:layout_marginTop="8dp"
             android:gravity="start"
             android:text="User welcome Bonus"
-            android:textColor="#071BA4"
-            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/gameResult"
             app:layout_constraintEnd_toStartOf="@id/playIcon"
@@ -33,16 +33,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/playIcon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="36dp"
             android:src="@drawable/play"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.491" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/gameResult"
@@ -51,8 +52,8 @@
             android:layout_marginTop="8dp"
             android:gravity="start"
             android:text="**"
-            android:textColor="#071BA4"
-            android:textSize="16sp"
+            android:textColor="@color/main_color"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/gameTime"
             app:layout_constraintEnd_toStartOf="@id/playIcon"
@@ -68,8 +69,8 @@
             android:layout_marginStart="14dp"
             android:layout_marginBottom="1dp"
             android:text="51:27 PM"
-            android:textColor="#071BA4"
-            android:textSize="16sp"
+            android:textColor="@color/main_color"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/playIcon"
@@ -91,7 +92,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/eventStatusText"
                 android:layout_width="0dp"
-                android:layout_weight="4.7"
+                android:layout_weight="4.5"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/gameResult"
                 android:layout_marginStart="6dp"
@@ -106,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/gameResult"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginBottom="1dp"
                 android:background="@drawable/rounded_corner_white"
                 android:paddingHorizontal="5dp"

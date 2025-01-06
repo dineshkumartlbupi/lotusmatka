@@ -92,6 +92,7 @@
                         android:text="Single Digit"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:textStyle="bold"
                         android:textColor="@color/main_color"
                         android:textSize="14sp" />
 
@@ -107,6 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Coast Amount"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="@color/main_color"
@@ -131,6 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Earning Amount"
+                    android:textStyle="bold"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
 
@@ -170,6 +173,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
+                        android:textStyle="bold"
                         android:text="Single Panna"
                         android:layout_gravity="center"
                         android:gravity="center"
@@ -189,6 +193,7 @@
                     android:text="Coast Amount"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
                 <com.google.android.material.textview.MaterialTextView
@@ -211,6 +216,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Earning Amount"
+                    android:textStyle="bold"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
 
@@ -253,6 +259,7 @@
                     android:text="Double Panna"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -269,6 +276,7 @@
                     android:text="Coast Amount"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
                 <com.google.android.material.textview.MaterialTextView
@@ -291,6 +299,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Earning Amount"
+                    android:textStyle="bold"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
 
@@ -333,6 +342,7 @@
                     android:text="Double Panna"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -349,6 +359,7 @@
                     android:text="Triple Panna"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
                 <com.google.android.material.textview.MaterialTextView
@@ -371,6 +382,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Earning Amount"
+                    android:textStyle="bold"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
 

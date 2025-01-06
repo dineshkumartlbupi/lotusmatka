@@ -182,14 +182,14 @@
                 android:text="Signup"
                 app:cornerRadius="20dp"
                 app:strokeColor="#ffFFE3BB"
-                app:strokeWidth="2dp"
+                app:strokeWidth="1.5dp"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/poppins_extra_bold"
                 android:textAllCaps="false"
                 android:textStyle="bold"
                 android:paddingHorizontal="50dp"
                 android:textColor="@color/white"
-                android:textSize="16sp"/>
+                android:textSize="14sp"/>
 
 
             <!--            <LinearLayout-->
@@ -221,7 +221,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Or"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textColor="@color/black"
                 android:textStyle="normal"
                 android:gravity="center"/>
@@ -235,14 +235,14 @@
                 android:text="Login"
                 app:cornerRadius="20dp"
                 app:strokeColor="#ffFFE3BB"
-                app:strokeWidth="2dp"
+                app:strokeWidth="1.5dp"
                 android:onClick="LoginNow"
                 android:fontFamily="@font/poppins_extra_bold"
                 android:textAllCaps="false"
                 android:textStyle="bold"
                 android:paddingHorizontal="50dp"
                 android:textColor="@color/white"
-                android:textSize="16sp"/>
+                android:textSize="14sp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -250,7 +250,7 @@
                 android:text="Need Help?"
                 android:textStyle="normal"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"/>
 

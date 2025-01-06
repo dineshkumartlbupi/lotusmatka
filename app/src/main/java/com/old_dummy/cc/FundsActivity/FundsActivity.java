@@ -81,7 +81,7 @@ public class FundsActivity extends AppCompatActivity implements FundsContract.Vi
         mIntentFilter.addAction(BroadCastStringForAction);
         Intent serviceIntent = new Intent(this, YourService.class);
         startService(serviceIntent);
-        amount.setText(SharPrefHelper.getUserPoints(this)+"/-");
+        amount.setText(SharPrefHelper.getUserPoints(this));
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE) ;
         presenter = new FundsPresenter(this);
         presenter.api(SharPrefHelper.getLogInToken(FundsActivity.this));
@@ -120,7 +120,7 @@ public class FundsActivity extends AppCompatActivity implements FundsContract.Vi
     @Override
     public void apiResponse(WalletStatementModel walletStatementModel) {
         SharPrefHelper.setUserPoints(this, walletStatementModel.getData().getAvailablePoints());
-        amount.setText(walletStatementModel.getData().getAvailablePoints()+"/-");
+        amount.setText(walletStatementModel.getData().getAvailablePoints());
 
         modelWalletArrayList = walletStatementModel.getData().getStatement();
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

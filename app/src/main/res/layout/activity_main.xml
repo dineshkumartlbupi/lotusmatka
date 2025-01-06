@@ -2,16 +2,17 @@
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawerLayout"
-    android:fitsSystemWindows="true"
     android:background="@color/white"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity.MainActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-<!--        app:navigationIcon="@drawable/ic_baseline_menu_24"-->
+        <!--        app:navigationIcon="@drawable/ic_baseline_menu_24"-->
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbarLayout"
@@ -23,7 +24,6 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
                 android:background="#ff051367"
                 android:contentInsetStart="0dp"
                 app:contentInsetLeft="0dp"
@@ -31,32 +31,53 @@
                 app:contentInsetStartWithNavigation="0dp"
                 app:navigationIconTint="@color/white"
                 app:popupTheme="@style/MyDarkToolbarStyle"
-                app:title="@string/app_name"
                 app:titleTextColor="@color/white">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/vipBadge"
-                    android:layout_width="40dp"
-                    android:layout_height="?actionBarSize"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="5dp"
-                    android:src="@drawable/vip"
-                    android:visibility="gone" />
+                <!-- Container to hold image and text -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
+                    <!-- Image before text -->
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/vipBadge"
+                        android:layout_width="40dp"
+                        android:layout_height="?actionBarSize"
+                       android:layout_marginRight="30dp"
+                        android:layout_marginLeft="18dp"
+                        android:contentDescription="VIP Badge"
+                        android:src="@drawable/ic_app_logo_trans"
+                        android:visibility="visible" />
+
+                    <!-- Title text -->
+                    <TextView
+                        android:id="@+id/toolbarTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textColor="@color/white"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Wallet amount -->
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/walletAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:layout_marginEnd="10dp"
-                    android:drawableStart="@drawable/ic_baseline_account_balance_wallet_24"
-                    android:drawablePadding="5dp"
+                    android:drawableEnd="@drawable/ic_baseline_account_balance_wallet_24"
+                    android:drawablePadding="10dp"
                     android:text="00"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:visibility="visible" />
 
+                <!-- Notification icon -->
                 <FrameLayout
                     android:id="@+id/siv_notice"
                     android:layout_width="wrap_content"
@@ -65,12 +86,6 @@
                     android:layout_marginEnd="10dp"
                     android:foreground="?selectableItemBackgroundBorderless"
                     android:onClick="callNotice">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/baseline_notifications_24" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/mtv_pending_noti"
@@ -85,58 +100,32 @@
                         android:textSize="8sp"
                         android:visibility="gone" />
                 </FrameLayout>
-
             </com.google.android.material.appbar.MaterialToolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
+
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/dataConText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/dataConText"
+            android:layout_below="@id/appbarLayout"
+            android:background="@color/warningRed"
+            android:elevation="1dp"
+            android:padding="5dp"
             android:text="@string/you_are_not_connected_to_internet"
             android:textColor="@color/white"
-            android:background="@color/warningRed"
-            android:padding="5dp"
-            android:visibility="gone"
-            android:layout_below="@id/appbarLayout"
-            android:elevation="1dp"/>
+            android:visibility="gone" />
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/dataConText">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <FrameLayout
-                    android:id="@+id/stripLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:elevation="1dp"
-                    android:visibility="visible"
-                    android:background="@color/white">
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/textStripFirst"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:textSize="12sp"
-                        android:layout_marginTop="8dp"
-                        android:paddingVertical="4dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="Welcome to India's No.1 Trusted Kalyan Matka Application"
-                        android:background="@drawable/bg_gradient"
-                        android:textColor="@color/background_color"
-                        android:ellipsize="marquee"
-                        android:singleLine="true"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
-
-                </FrameLayout>
-
-
-
 <!--                <com.smarteist.autoimageslider.SliderView-->
 <!--                    android:id="@+id/slider"-->
 <!--                    android:layout_width="match_parent"-->
@@ -154,16 +143,53 @@
 <!--                    app:sliderIndicatorSelectedColor="#5A5A5A"-->
 <!--                    app:sliderIndicatorUnselectedColor="#FFF"-->
 <!--                    app:sliderScrollTimeInSec="1" />-->
+
+                <FrameLayout
+                    android:id="@+id/stripLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:elevation="0dp"
+                    android:layout_marginTop="150dp"
+                    android:visibility="visible">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/textStripFirst"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:textAllCaps="true"
+                        android:background="@drawable/bg_gradient"
+                        android:ellipsize="marquee"
+                        android:marqueeRepeatLimit="marquee_forever"
+                        android:gravity="center"
+                        android:scrollHorizontally="true"
+                        android:paddingVertical="4dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:singleLine="true"
+                        android:text="Welcome to India's No.1 Trusted Kalyan Matka Application"
+                        android:textColor="@color/background_color"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                </FrameLayout>
+
+
+
                 <LinearLayout
                     android:id="@+id/numberLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:elevation="1dp"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="horizontal"
                     android:gravity="center_horizontal"
-                    android:layout_gravity="center_horizontal">
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -181,8 +207,8 @@
 
                         <!-- WhatsApp Icon -->
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:layout_marginEnd="8dp"
                             android:gravity="center"
                             android:padding="2dp"
@@ -219,11 +245,10 @@
                         android:padding="8dp">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:layout_marginEnd="8dp"
-                            android:src="@drawable/baseline_call_24"
-                            android:tint="@android:color/white" />
+                            android:src="@drawable/call" />
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/callNumber"
@@ -240,65 +265,66 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_margin="5dp"
+                    android:orientation="vertical"
                     android:padding="9dp">
-
-
 
 
                     <LinearLayout
                         android:id="@+id/openBottomSheet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
                         android:layout_marginStart="5dp"
+                        android:layout_marginEnd="10dp"
                         android:background="@drawable/bg_button_gradient">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:orientation="horizontal"
-                                android:layout_height="wrap_content">
-                                <com.google.android.material.textview.MaterialTextView
-                                    android:id="@+id/withdraw"
-                                    android:layout_width="0dp"
-                                    android:layout_weight="1"
-                                    android:layout_height="wrap_content"
-                                    android:text="Star and Gali Games"
-                                    android:textStyle="bold"
-                                    app:textAllCaps="true"
-                                    android:layout_marginLeft="16dp"
-                                    android:layout_marginVertical="10dp"
-                                    android:textColor="@color/white"
-                                    android:textSize="16sp" />
 
-                                <com.google.android.material.imageview.ShapeableImageView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_marginEnd="8dp"
-                                    android:padding="2dp"
-                                    android:layout_gravity="center"
-                                    android:scaleType="fitXY"
-                                    android:src="@drawable/next" />
-                            </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/withdraw"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp"
+                                android:layout_marginLeft="35dp"
+                                android:layout_weight="1"
+                                android:paddingVertical="5dp"
+                                android:text="Star and Gali Games"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                app:textAllCaps="true" />
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="8dp"
+                                android:padding="2dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/next" />
+                        </LinearLayout>
 
                     </LinearLayout>
                 </LinearLayout>
 
                 <androidx.core.widget.NestedScrollView
-                    android:layout_below="@id/stripLayout"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/stripLayout"
+                    android:layout_marginTop="10dp">
+
                     <LinearLayout
                         android:id="@+id/ll_whole"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:elevation="1dp">
+                        android:elevation="1dp"
+                        android:orientation="vertical">
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerView"
@@ -308,39 +334,41 @@
 
                         <ImageView
                             android:id="@+id/nogame_iv"
-                            android:visibility="gone"
-                            android:src="@drawable/ic_win_history_icon_2_01"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_win_history_icon_2_01"
+                            android:visibility="gone" />
                     </LinearLayout>
                 </androidx.core.widget.NestedScrollView>
-
-
             </LinearLayout>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
         <ProgressBar
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/progressBar"
-            android:indeterminateTint="@color/orange_color"
             android:layout_centerInParent="true"
-            android:visibility="gone"/>
+            android:indeterminateTint="@color/orange_color"
+            android:visibility="gone" />
     </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/naviagationMenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@drawable/background_bg"
-        android:orientation="vertical"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
-        <include layout="@layout/drawer_header"
-            android:id="@+id/drawerHeader"/>
-         <androidx.recyclerview.widget.RecyclerView
+        <include
+            android:id="@+id/drawerHeader"
+            layout="@layout/drawer_header" />
+
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/navigation_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/drawer_menu_item"/>
+            tools:listitem="@layout/drawer_menu_item" />
     </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

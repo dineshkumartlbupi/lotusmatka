@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--variable details-->
-    <string name="app_name">LOTUS MATKA</string>
-    <string name="welcome_to_app_matka">Welcome to Lotus Matka</string>
+    <string name="app_name">DHAN LAXMI</string>
+    <string name="welcome_to_app_matka">Welcome to Dhan Laxmi</string>
     <string name="mail_subject">Mail Subject</string>
     <string name="mail_message">Mail message</string>
 

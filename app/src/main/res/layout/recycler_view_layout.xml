@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingVertical="8dp">
+        android:paddingVertical="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,18 +40,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Event Name"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_color"
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/eventResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="**_***_**"
-                    android:textColor="@color/black"
+                    android:textColor="@color/main_color"
+                    android:textSize="14dp"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:layout_marginTop="5dp" />
@@ -68,14 +69,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Open: 00:00 AM"
-                        android:textColor="@color/black" />
+                        android:textColor="@color/main_color"
+                        android:textSize="10dp"/>
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/closeTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" | Close: 00:00 AM"
-                        android:textColor="@color/black"
+                        android:textColor="@color/main_color"
+                        android:textSize="10dp"
                         android:layout_marginStart="5dp" />
                 </LinearLayout>
             </LinearLayout>
@@ -83,12 +86,13 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/playIcon"
-                    android:layout_width="86dp"
-                    android:layout_height="50dp"
+                    android:layout_width="66dp"
+                    android:layout_height="45dp"
                     android:layout_marginLeft="2dp"
                     android:src="@drawable/play"
                     android:visibility="visible" />
@@ -99,9 +103,8 @@
                     android:layout_height="wrap_content"
                     android:text="Closed"
                     android:textColor="@android:color/holo_red_dark"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:visibility="gone" />
+                    android:textSize="12sp"
+                    android:visibility="visible" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

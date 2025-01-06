@@ -24,8 +24,8 @@
             android:layout_marginTop="8dp"
             android:text="xdtcfgv"
             android:textAllCaps="true"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:textSize="16dp"
             android:textStyle="bold"
 
             app:layout_constraintStart_toStartOf="parent"
@@ -46,11 +46,10 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/eventStatusText"
         android:layout_width="0dp"
-
-        android:layout_weight="4.7"
+        android:layout_weight="4.78"
         android:layout_height="wrap_content"
         android:layout_below="@id/gameResult"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="1dp"
         android:background="@drawable/rounded_corner_white"
         android:paddingHorizontal="5dp"
@@ -83,8 +82,8 @@
             android:paddingVertical="6dp"
             android:layout_marginTop="8dp"
             android:text="***_*"
-            android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/playIcon"
@@ -95,8 +94,8 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/playIcon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="15dp"
             android:src="@drawable/play"
             app:layout_constraintBottom_toBottomOf="parent"

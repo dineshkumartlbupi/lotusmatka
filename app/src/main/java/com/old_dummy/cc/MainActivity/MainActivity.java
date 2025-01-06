@@ -552,7 +552,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         if(vipStatus){
             vipBadge.setVisibility(View.VISIBLE);
         }else {
-            vipBadge.setVisibility(View.GONE);
+            vipBadge.setVisibility(View.VISIBLE);
         }
         if(userStatusData.getAccountStatus().equals("1")){
            try {
