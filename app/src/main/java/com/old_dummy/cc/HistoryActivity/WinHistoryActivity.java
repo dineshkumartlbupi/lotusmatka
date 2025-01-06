@@ -31,7 +31,6 @@ import com.old_dummy.cc.Adapters.WinHistoryAdapter;
 import com.old_dummy.cc.Extras.SharPrefHelper;
 import com.old_dummy.cc.Extras.Utility;
 import com.old_dummy.cc.Extras.YourService;
-import com.old_dummy.cc.LoginActivity.LoginActivity;
 import com.old_dummy.cc.Models.GalidesawarWinModel;
 import com.old_dummy.cc.Models.StarLineWinModel;
 import com.old_dummy.cc.Models.WinModel;
@@ -51,6 +50,8 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
 
     MaterialToolbar toolbar;
     MaterialTextView fromDate, toDate;
+    String fromDatestr;
+    String toDatestr;
     Date fDate,tDate;
     SimpleDateFormat userSF = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
     SimpleDateFormat serverSF = new SimpleDateFormat("yyyy-MM-dd",Locale.getDefault());
@@ -79,6 +80,11 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
     Utility utility;
     HistoryContract.Presenter presenter;
 
+    private Calendar calendar;
+    private int year, month, day;
+
+    private String ffDate = "";
+    private String ttoDate = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +92,49 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
         setContentView(R.layout.activity_win_history);
         intIDs();
         configureToolbar();
+
+
+
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        // Set button click listeners
+        fromDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create DatePickerDialog for From Date
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        WinHistoryActivity.this,
+                        R.style.CustomDatePickerDialog,
+                        (view, selectedYear, selectedMonth, selectedDay) -> {
+                            // Update From Date
+                            fromDatestr = selectedDay + "-" + (selectedMonth + 1) + "-" + selectedYear;
+                            fromDate.setText(fromDatestr);
+                        },
+                        year, month, day);
+                datePickerDialog.show();
+            }
+        });
+
+        toDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // If From Date is selected, show the DatePicker for To Date
+                // Create DatePickerDialog for To Date with minDate set to From Date
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        WinHistoryActivity.this,
+                        R.style.CustomDatePickerDialog,
+                        (view, selectedYear, selectedMonth, selectedDay) -> {
+                            // Ensure the selected To Date is after the From Date
+                            toDatestr = selectedDay + "-" + (selectedMonth + 1) + "-" + selectedYear;
+                            toDate.setText(toDatestr);
+                        },year,month,day);  // Set From Date as the min date
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+                datePickerDialog.show();
+            }
+        });
     }
 
 
@@ -188,6 +237,7 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
         });
     }
     public void fromDate(View view) {
+        
         DatePickerDialog datePickerDialog=  new DatePickerDialog(this,android.R.style.Theme_Holo_Light_Panel, fromDatePicker, fromCal
                 .get(Calendar.YEAR), fromCal.get(Calendar.MONTH), fromCal.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();

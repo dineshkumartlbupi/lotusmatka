@@ -50,5 +50,10 @@
         <item name="android:windowEnterAnimation">@anim/slide_up</item>
         <item name="android:windowExitAnimation">@anim/slide_bottom</item>
     </style>
-
+    <style name="CustomDatePickerDialog" parent="Theme.AppCompat.Light.Dialog">
+        <!-- Customize the DatePicker dialog appearance -->
+        <item name="android:colorBackground">@color/main_color</item>
+        <item name="android:textColorPrimary">@color/main_color</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
 </resources>

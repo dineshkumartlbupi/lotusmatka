@@ -251,6 +251,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/main_color"
                 android:id="@+id/recyclerViewWallet"
                 tools:listitem="@layout/recycler_view_wallet"/>
             <com.google.android.material.imageview.ShapeableImageView
