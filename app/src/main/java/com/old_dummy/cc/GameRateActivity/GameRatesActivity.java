@@ -10,6 +10,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -37,6 +38,7 @@ import java.util.Objects;
 public class GameRatesActivity extends AppCompatActivity implements GameRatesContract.View{
 
     MaterialTextView singleDigitValue,jodiDigitValue,singlePanaValue,doubleDigitValue,tripleDigitValue,halfSangamValue,fullSangamValue;
+    MaterialTextView singleDigitEarning,jodiDigitEarning,singlePanaEarning,doubleDigitEarning,tripleDigitEarning,halfSangamEarning,fullSangamEarning;
     int activity=0;
     MaterialTextView howToPlayText;
     View view1,view2;
@@ -51,6 +53,7 @@ public class GameRatesActivity extends AppCompatActivity implements GameRatesCon
     GameRatesContract.Presenter presenter;
 
     List<MaterialTextView> digitValue = new ArrayList<>();
+    List<MaterialTextView> digitEarning = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,20 +69,41 @@ public class GameRatesActivity extends AppCompatActivity implements GameRatesCon
         digitValue.add(halfSangamValue);
         digitValue.add(fullSangamValue);
 
+        digitEarning.add(singleDigitEarning);
+        digitEarning.add(jodiDigitEarning);
+        digitEarning.add(singlePanaEarning);
+        digitEarning.add(doubleDigitEarning);
+        digitEarning.add(tripleDigitEarning);
+        digitEarning.add(halfSangamEarning);
+        digitEarning.add(fullSangamEarning);
+
 
     }
 
     private void intIDs() {
         gameRateLyt = findViewById(R.id.gameRateLyt);
-        singleDigitValue = findViewById(R.id.singleDigitValue);
-        jodiDigitValue = findViewById(R.id.jodiDigit);
-        singlePanaValue = findViewById(R.id.singlePanaValue);
-        doubleDigitValue = findViewById(R.id.doubleDigitValue);
-        tripleDigitValue = findViewById(R.id.tripleDigitValue);
-        halfSangamValue = findViewById(R.id.halfSangamValue);
-        fullSangamValue = findViewById(R.id.fullSangamValue);
+
+//        Coast
+        singleDigitValue = findViewById(R.id.singleCoastAmount);
+        jodiDigitValue = findViewById(R.id.jodiCoastAmount);
+        singlePanaValue = findViewById(R.id.singlePannaCoastAmount);
+        doubleDigitValue = findViewById(R.id.doublePannaCoastAmount);
+        tripleDigitValue = findViewById(R.id.tripalePannaCoastAmount);
+        halfSangamValue = findViewById(R.id.halfSangamCoastAmount);
+        fullSangamValue = findViewById(R.id.fullSangamCoastAmount);
+
+//earning
+        singleDigitEarning = findViewById(R.id.singleEarningAmount);
+        jodiDigitEarning = findViewById(R.id.jodiEarningAmount);
+        singlePanaEarning = findViewById(R.id.singlePannaEarningAmount);
+        doubleDigitEarning= findViewById(R.id.doublePannaEarningAmount);
+        tripleDigitEarning= findViewById(R.id.triplePannaEarningAmount);
+        halfSangamEarning = findViewById(R.id.halfSangamEarningAmount);
+        fullSangamEarning = findViewById(R.id.fullSangamEarningAmount);
+
+
         howToPlayText = findViewById(R.id.howToPlayText);
-        howToPlayLyt = findViewById(R.id.howToPlayLyt);
+        howToPlayLyt = findViewById(R.id.howToPlay);
         progressBar = findViewById(R.id.progressBar);
 
         view1 = findViewById(R.id.view1);
@@ -168,8 +192,17 @@ public class GameRatesActivity extends AppCompatActivity implements GameRatesCon
     public void gameRatesApiResponse(GameRateModel gameRateModel) {
         List<GameRateModel.Data> gameRateData = gameRateModel.getData();
         for (int i = 0; i < gameRateData.size(); i++) {
-            String value =gameNames[i]+"\n"+ gameRateData.get(i).getCost_amount() + " - " + gameRateData.get(i).getEarning_amount();
+            String value  =gameRateData.get(i).getCost_amount();
+            String earning = gameRateData.get(i).getEarning_amount();
             digitValue.get(i).setText(value);
+            Log.e("Testing :: ",earning.toString());
+            try {
+                digitEarning.get(i).setText(earning);
+
+
+            }catch (Exception e){
+                Log.e("Testing :: ",e.toString());
+            }
         }
     }
 
