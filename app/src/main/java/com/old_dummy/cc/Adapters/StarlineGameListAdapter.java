@@ -69,7 +69,8 @@ public class StarlineGameListAdapter extends RecyclerView.Adapter
 
         }
 
-        public void bind(StarlineGameListModel.Data.StarlineGame starlineGame, OnItemClickListener listener, Context context, int position) {
+        public void bind(StarlineGameListModel.Data.StarlineGame starlineGame,
+                         OnItemClickListener listener, Context context, int position) {
              try{
                  gameName.setText(starlineGame.getName());
                  gameResult.setText(starlineGame.getResult());

@@ -453,7 +453,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                     Intent intent = new Intent(MainActivity.this, GameActivity.class);
                     intent.putExtra(getString(R.string.game), data.getId());
                     intent.putExtra(getString(R.string.game_name), data.getName());
-                    intent.putExtra("open",data.isOpen());
+                    intent.putExtra("Running",data.isOpen());
                     startActivity(intent);
                 }
             }

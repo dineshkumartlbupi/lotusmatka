@@ -65,8 +65,8 @@
                         android:padding="10dp">
 
                         <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:contentDescription="Main Bid Icon"
                             android:src="@drawable/dice" />
@@ -90,7 +90,7 @@
                                 android:gravity="center_vertical"
                                 android:text="Main Bid "
                                 android:textColor="@color/main_color"
-                                android:textSize="14sp"
+                                android:textSize="12dp"
                                 android:textStyle="bold" />
 
                             <View
@@ -100,7 +100,7 @@
 
                             <ImageView
                                 android:layout_width="wrap_content"
-                                android:layout_height="20dp"
+                                android:layout_height="16dp"
                                 android:contentDescription="Arrow Icon"
                                 android:src="@drawable/ic_arrow" />
                         </LinearLayout>
@@ -131,8 +131,8 @@
                         android:padding="10dp">
 
                         <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:contentDescription="Main Bid Icon"
                             android:src="@drawable/trophy" />
@@ -156,7 +156,7 @@
                                 android:gravity="center"
                                 android:text="Main Win "
                                 android:textColor="@color/main_color"
-                                android:textSize="14sp"
+                                android:textSize="12dp"
                                 android:textStyle="bold" />
 
                             <View
@@ -166,7 +166,7 @@
 
                             <ImageView
                                 android:layout_width="wrap_content"
-                                android:layout_height="20dp"
+                                android:layout_height="16dp"
                                 android:contentDescription="Arrow Icon"
                                 android:src="@drawable/ic_arrow" />
                         </LinearLayout>
@@ -207,8 +207,8 @@
                         android:padding="10dp">
 
                         <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:contentDescription="Main Bid Icon"
                             android:src="@drawable/dice" />
@@ -232,7 +232,7 @@
                                 android:gravity="center_vertical"
                                 android:text="Starline Bid "
                                 android:textColor="@color/main_color"
-                                android:textSize="14sp"
+                                android:textSize="12dp"
                                 android:textStyle="bold" />
 
                             <View
@@ -241,8 +241,8 @@
                                 android:layout_weight="1.5" />
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
                                 android:contentDescription="Arrow Icon"
                                 android:src="@drawable/ic_arrow" />
                         </LinearLayout>
@@ -272,8 +272,8 @@
                         android:orientation="vertical"
                         android:padding="10dp">
                         <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:contentDescription="Main Bid Icon"
                             android:src="@drawable/trophy" />
@@ -297,7 +297,7 @@
                                 android:gravity="center_vertical"
                                 android:text="Starline Win "
                                 android:textColor="@color/main_color"
-                                android:textSize="14sp"
+                                android:textSize="12dp"
                                 android:textStyle="bold" />
 
                             <View
@@ -306,8 +306,8 @@
                                 android:layout_weight="1.5" />
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
                                 android:contentDescription="Arrow Icon"
                                 android:src="@drawable/ic_arrow" />
                         </LinearLayout>
@@ -347,8 +347,8 @@
                         android:padding="10dp">
 
                         <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:contentDescription="Main Bid Icon"
                             android:src="@drawable/dice" />
@@ -370,10 +370,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-
                                 android:text="Gali Bid "
                                 android:textColor="@color/main_color"
-                                android:textSize="14sp"
+                                android:textSize="12dp"
                                 android:textStyle="bold" />
 
                             <View
@@ -382,8 +381,8 @@
                                 android:layout_weight="1.5" />
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
                                 android:contentDescription="Arrow Icon"
                                 android:src="@drawable/ic_arrow" />
                         </LinearLayout>
@@ -414,8 +413,8 @@
                         android:padding="10dp">
 
                         <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center"
                             android:contentDescription="Main Bid Icon"
                             android:src="@drawable/trophy"/>
@@ -439,7 +438,7 @@
                                 android:gravity="center"
                                 android:text="Gali Win "
                                 android:textColor="@color/main_color"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 android:textStyle="bold" />
 
                             <View
@@ -448,8 +447,8 @@
                                 android:layout_weight="1.5" />
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
                                 android:contentDescription="Arrow Icon"
                                 android:src="@drawable/ic_arrow" />
                         </LinearLayout>

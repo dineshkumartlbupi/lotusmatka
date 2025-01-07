@@ -68,7 +68,8 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
 
         }
 
-        public void bind(GameListModel.Data data, OnItemClickListener listener, Context context, int position) {
+        public void bind(GameListModel.Data data, OnItemClickListener listener,
+                         Context context, int position) {
             eventType.setText(data.getName());
             eventResult.setText(data.getResult());
             openTime.setText("Open: "+data.getOpen_time());

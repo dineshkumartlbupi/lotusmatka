@@ -80,9 +80,9 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_marginHorizontal="25dp"
-        android:layout_marginVertical="3dp"
+        android:layout_marginVertical="1dp"
         android:background="@color/main_color" />
 
     <!--    <com.google.android.material.imageview.ShapeableImageView-->
@@ -102,143 +102,143 @@
     <!--        android:drawablePadding="5dp"-->
     <!--        android:drawableStart="@drawable/ic_baseline_account_balance_wallet_24"-->
     <!--        android:textColor="@color/main_color"/>-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:elevation="1dp"
-        android:orientation="vertical">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:elevation="1dp"-->
+<!--        android:orientation="vertical">-->
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="#ff051367"
-            android:foreground="?selectableItemBackground"
-            android:onClick="fundItemClick"
-            android:tag="addFund"
-            app:cardBackgroundColor="#F4C125"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp"
-            app:cornerRadius="20dp"
-            app:strokeColor="@color/Button_border"
-            app:strokeWidth="2dp">
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:backgroundTint="#ff051367"-->
+<!--            android:foreground="?selectableItemBackground"-->
+<!--            android:onClick="fundItemClick"-->
+<!--            android:tag="addFund"-->
+<!--            app:cardBackgroundColor="#F4C125"-->
+<!--            app:cardCornerRadius="5dp"-->
+<!--            app:cardElevation="0dp"-->
+<!--            app:cornerRadius="20dp"-->
+<!--            app:strokeColor="@color/Button_border"-->
+<!--            app:strokeWidth="2dp">-->
 
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginVertical="10dp"
-                android:gravity="center"
-                android:text="Add Fund"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+<!--            <com.google.android.material.textview.MaterialTextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginVertical="10dp"-->
+<!--                android:gravity="center"-->
+<!--                android:text="Add Fund"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="bold" />-->
 
-        </com.google.android.material.card.MaterialCardView>
+<!--        </com.google.android.material.card.MaterialCardView>-->
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:backgroundTint="#ff051367"
-            android:foreground="?selectableItemBackground"
-            android:onClick="fundItemClick"
-            android:tag="withdraw"
-            app:cardBackgroundColor="#F4C125"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp"
-            app:cornerRadius="20dp"
-            app:strokeColor="@color/Button_border"
-            app:strokeWidth="2dp">
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:backgroundTint="#ff051367"-->
+<!--            android:foreground="?selectableItemBackground"-->
+<!--            android:onClick="fundItemClick"-->
+<!--            android:tag="withdraw"-->
+<!--            app:cardBackgroundColor="#F4C125"-->
+<!--            app:cardCornerRadius="5dp"-->
+<!--            app:cardElevation="0dp"-->
+<!--            app:cornerRadius="20dp"-->
+<!--            app:strokeColor="@color/Button_border"-->
+<!--            app:strokeWidth="2dp">-->
 
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginVertical="10dp"
-                android:text="Withdraw"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </com.google.android.material.card.MaterialCardView>
+<!--            <com.google.android.material.textview.MaterialTextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginVertical="10dp"-->
+<!--                android:text="Withdraw"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="bold" />-->
+<!--        </com.google.android.material.card.MaterialCardView>-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="10dp"
-        android:elevation="1dp"
-        android:orientation="vertical">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginVertical="10dp"-->
+<!--        android:elevation="1dp"-->
+<!--        android:orientation="vertical">-->
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:background="?selectableItemBackground"
-            android:backgroundTint="#ff051367"
-            android:onClick="fundItemClick"
-            android:tag="transfer"
-            app:cardBackgroundColor="#F4C125"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp"
-            app:cornerRadius="20dp"
-            app:strokeColor="@color/Button_border"
-            app:strokeWidth="2dp">
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="?selectableItemBackground"-->
+<!--            android:backgroundTint="#ff051367"-->
+<!--            android:onClick="fundItemClick"-->
+<!--            android:tag="transfer"-->
+<!--            app:cardBackgroundColor="#F4C125"-->
+<!--            app:cardCornerRadius="5dp"-->
+<!--            app:cardElevation="0dp"-->
+<!--            app:cornerRadius="20dp"-->
+<!--            app:strokeColor="@color/Button_border"-->
+<!--            app:strokeWidth="2dp">-->
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/addFunds"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginVertical="10dp"
-                android:text="Transfer"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+<!--            <com.google.android.material.textview.MaterialTextView-->
+<!--                android:id="@+id/addFunds"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginVertical="10dp"-->
+<!--                android:text="Transfer"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="bold" />-->
 
-        </com.google.android.material.card.MaterialCardView>
+<!--        </com.google.android.material.card.MaterialCardView>-->
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:background="?selectableItemBackground"
-            android:backgroundTint="#ff051367"
-            android:onClick="fundItemClick"
-            android:tag="paymentMethods"
-            app:cardBackgroundColor="#F4C125"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp"
-            app:cornerRadius="20dp"
-            app:strokeColor="@color/Button_border"
-            app:strokeWidth="2dp">
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="?selectableItemBackground"-->
+<!--            android:backgroundTint="#ff051367"-->
+<!--            android:onClick="fundItemClick"-->
+<!--            android:tag="paymentMethods"-->
+<!--            app:cardBackgroundColor="#F4C125"-->
+<!--            app:cardCornerRadius="5dp"-->
+<!--            app:cardElevation="0dp"-->
+<!--            app:cornerRadius="20dp"-->
+<!--            app:strokeColor="@color/Button_border"-->
+<!--            app:strokeWidth="2dp">-->
 
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginVertical="10dp"
-                android:text="Payment Methods"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+<!--            <com.google.android.material.textview.MaterialTextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginVertical="10dp"-->
+<!--                android:text="Payment Methods"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textStyle="bold" />-->
 
-        </com.google.android.material.card.MaterialCardView>
+<!--        </com.google.android.material.card.MaterialCardView>-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"

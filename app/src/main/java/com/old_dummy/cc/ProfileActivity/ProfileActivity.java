@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +35,7 @@ import com.old_dummy.cc.Models.LoginModel;
 import com.old_dummy.cc.R;
 import com.old_dummy.cc.SplashActivity.SplashActivity;
 
-public class ProfileActivity extends BaseActivity implements ProfileContract.View{
+public class ProfileActivity extends BaseActivity implements ProfileContract.View {
     TextInputEditText inputPersonName, inputMobileNumber, inputEmail;
     MaterialButton submitButton;
     InputMethodManager imm;
@@ -45,6 +46,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     ProfileContract.Presenter presenter;
     TextInputLayout nameInputLayout;
     Boolean editProfile = false;
+
     @Override
     protected int getLayoutResourceId() {
         return R.layout.activity_profile;
@@ -58,8 +60,15 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         intIDs();
         TextView nameTextView = findViewById(R.id.nameTextView);
         TextInputEditText inputPersonName = findViewById(R.id.inputPersonName);
+        TextView profileInitial = findViewById(R.id.profileInitial);
 
         String userName = inputPersonName.getText().toString();
+
+        if (userName != null && !userName.isEmpty()) {
+            String firstLetter = String.valueOf(userName.charAt(0)).toUpperCase();
+            profileInitial.setText(firstLetter);
+        }
+//        String userName = inputPersonName.getText().toString();
         nameTextView.setText(userName);
     }
 
@@ -79,7 +88,8 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         startService(serviceIntent);
 
         MaterialToolbar toolbar = findViewById(R.id.appbarLayout).findViewById(R.id.toolbar);
-        toolbar.setTitle("Profile");
+        TextView toolbarTitle = findViewById(R.id.toolbar_title);
+        toolbarTitle.setText("Profile");
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,38 +105,85 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     }
 
     public void submitEditProfile(View view) {
-        if (editProfile){
-            imm = (InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        if (editProfile) {
+            imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-            if (TextUtils.isEmpty(inputPersonName.getText().toString())){
+
+            if (TextUtils.isEmpty(inputPersonName.getText().toString())) {
                 Snackbar.make(view, getString(R.string.please_enter_your_name), 2000).show();
                 return;
             }
-            if (TextUtils.isEmpty(inputEmail.getText().toString())){
+            if (TextUtils.isEmpty(inputEmail.getText().toString())) {
                 Snackbar.make(view, getString(R.string.please_enter_your_email), 2000).show();
                 return;
             }
-            if (!isEmailValid(inputEmail.getText())){
+            if (!isEmailValid(inputEmail.getText())) {
                 Snackbar.make(view, getString(R.string.please_enter_valid_email), 2000).show();
                 return;
             }
-            if (YourService.isOnline(this))
+            if (YourService.isOnline(this)) {
                 presenter.api(SharPrefHelper.getLogInToken(this), inputEmail.getText().toString(), inputPersonName.getText().toString());
-            else Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
-        }
-        else {
-            submitButton.setText("Submit");
+            } else {
+                Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            submitButton.setText("Submit Request");
             inputPersonName.setEnabled(true);
             inputEmail.setEnabled(true);
             inputPersonName.requestFocus();
+
+//            // Shift button to the bottom
+//            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) submitButton.getLayoutParams();
+//            params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1); // Align to the bottom of the parent
+//            params.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0); // Remove alignment from the top
+//            params.setMargins(16, 10, 16, 16); // Optional: Set margin for spacing
+//            submitButton.setLayoutParams(params);
+
             editProfile = true;
         }
     }
 
 
+//    public void submitEditProfile(View view) {
+//        if (editProfile){
+//            imm = (InputMethodManager)getSystemService(
+//                    Activity.INPUT_METHOD_SERVICE);
+//            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+//            if (TextUtils.isEmpty(inputPersonName.getText().toString())
+//            )
+//            {
+//                Snackbar.make(
+//                        view, getString(
+//                                R.string.please_enter_your_name
+//                        ), 2000).show();
+//                return;
+//            }
+//            if (TextUtils.isEmpty(inputEmail.getText().toString())){
+//                Snackbar.make(view, getString(R.string.please_enter_your_email), 2000).show();
+//                return;
+//            }
+//            if (!isEmailValid(inputEmail.getText())){
+//                Snackbar.make(view, getString(R.string.please_enter_valid_email), 2000).show();
+//                return;
+//            }
+//            if (YourService.isOnline(this))
+//                presenter.api(SharPrefHelper.getLogInToken(this), inputEmail.getText().toString(), inputPersonName.getText().toString());
+//            else Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
+//        }
+//        else {
+//            submitButton.setText("Submit Request");
+//            inputPersonName.setEnabled(true);
+//            inputEmail.setEnabled(true);
+//            inputPersonName.requestFocus();
+//            editProfile = true;
+//        }
+//    }
+
+
     boolean isEmailValid(CharSequence email) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onRestart() {
@@ -164,7 +221,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         submitButton.setText("Update");
         editProfile = false;
         MainActivity.personName.setText(inputPersonName.getText().toString());
-        SharPrefHelper.setSignUpData(this,SharPrefHelper.KEY_PERSON_NAME ,data.getUsername());
+        SharPrefHelper.setSignUpData(this, SharPrefHelper.KEY_PERSON_NAME, data.getUsername());
         SharPrefHelper.setPreferenceData(this, SharPrefHelper.KEY_USER_EMAIL, data.getEmail());
     }
 
