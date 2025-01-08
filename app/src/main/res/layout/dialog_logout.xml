@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="16dp"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="16dp"
-    android:layout_margin="16dp">
+    app:cardCornerRadius="16dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,9 +20,9 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="Logout"
-            android:textStyle="bold"
             android:textColor="@color/main_color"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <!-- Logout Confirmation Text -->
         <com.google.android.material.textview.MaterialTextView
@@ -33,10 +32,10 @@
             android:layout_below="@id/title"
             android:layout_margin="20dp"
             android:gravity="center"
-            android:textStyle="bold"
-            android:text="Are you sure,\nyou want to logout?"
+            android:text="Are you sure,\nyou want to logout the game?"
             android:textColor="@color/main_color"
-            android:textSize="15sp" />
+            android:textSize="12dp"
+            android:textStyle="bold" />
 
         <!-- Buttons Section -->
         <LinearLayout
@@ -49,49 +48,76 @@
             android:orientation="horizontal">
 
             <!-- Cancel Button -->
-            <androidx.cardview.widget.CardView
+            <!--            <androidx.cardview.widget.CardView-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_weight="1"-->
+            <!--                app:cardCornerRadius="30dp"-->
+            <!--                app:cardElevation="1dp"-->
+            <!--                app:strokeColor="#ffFFE3BB"-->
+            <!--                app:strokeWidth="2dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/noBtn"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:paddingVertical="12dp"-->
+            <!--                    android:paddingHorizontal="16dp"-->
+            <!--                    android:text="No"-->
+            <!--                    android:textColor="@color/white"-->
+            <!--                    android:background="@drawable/history_bg_gredient"-->
+            <!--                    android:textSize="16sp"-->
+            <!--                    android:textStyle="bold" />-->
+            <!--            </androidx.cardview.widget.CardView>-->
+
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:cardCornerRadius="30dp"
-                app:cardElevation="1dp">
+                app:cardElevation="1dp"
+                app:strokeColor="#ffFFE3BB"
+                app:strokeWidth="2dp">
 
                 <TextView
                     android:id="@+id/noBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/history_bg_gredient"
                     android:gravity="center"
-                    android:paddingVertical="12dp"
                     android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
                     android:text="No"
                     android:textColor="@color/white"
-                    android:background="@drawable/history_bg_gredient"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
+
 
             <!-- Logout Button -->
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="16dp"
                 app:cardCornerRadius="30dp"
-                app:cardElevation="1dp">
+                app:cardElevation="1dp"
+                app:strokeColor="#ffFFE3BB"
+                app:strokeWidth="2dp">
 
                 <TextView
                     android:id="@+id/yesBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/main_color"
                     android:gravity="center"
-                    android:paddingVertical="12dp"
                     android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
                     android:text="Yes"
                     android:textColor="@color/white"
-                    android:background="@color/main_color"
                     android:textSize="16sp"
                     android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
     </RelativeLayout>
