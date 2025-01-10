@@ -143,38 +143,49 @@
 <!--                    app:sliderIndicatorSelectedColor="#5A5A5A"-->
 <!--                    app:sliderIndicatorUnselectedColor="#FFF"-->
 <!--                    app:sliderScrollTimeInSec="1" />-->
-
+<!---->
                 <FrameLayout
                     android:id="@+id/stripLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:background="@drawable/bg_gradient"
                     android:elevation="0dp"
                     android:layout_marginTop="150dp"
                     android:visibility="visible">
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/textStripFirst"
+                    <TextView
+                        android:id="@+id/marqueeText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        app:textAllCaps="true"
-                        android:background="@drawable/bg_gradient"
                         android:ellipsize="marquee"
                         android:marqueeRepeatLimit="marquee_forever"
-                        android:gravity="center"
+                        android:padding="10dp"
                         android:scrollHorizontally="true"
-                        android:paddingVertical="4dp"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
                         android:singleLine="true"
                         android:text="Welcome to India's No.1 Trusted Kalyan Matka Application"
-                        android:textColor="@color/background_color"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:visibility="visible" />
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+<!--                    <com.google.android.material.textview.MaterialTextView-->
+<!--                        android:id="@+id/textStripFirst"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginTop="8dp"-->
+<!--                        android:layout_marginBottom="8dp"-->
+<!--                        app:textAllCaps="true"-->
+<!--                        android:background="@drawable/bg_gradient"-->
+<!--                        android:ellipsize="marquee"-->
+<!--                        android:marqueeRepeatLimit="marquee_forever"-->
+<!--                        android:gravity="center"-->
+<!--                        android:scrollHorizontally="true"-->
+<!--                        android:paddingVertical="4dp"-->
+<!--                        android:focusable="true"-->
+<!--                        android:focusableInTouchMode="true"-->
+<!--                        android:singleLine="true"-->
+<!--                        android:text=""-->
+<!--                        android:textColor="@color/background_color"-->
+<!--                        android:textSize="12sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:visibility="visible" />-->
 
                 </FrameLayout>
 
@@ -345,10 +356,11 @@
 
         <ProgressBar
             android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_centerInParent="true"
-            android:indeterminateTint="@color/orange_color"
+
+            android:indeterminateTint="@color/white"
             android:visibility="gone" />
     </RelativeLayout>
 

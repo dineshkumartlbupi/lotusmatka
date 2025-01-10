@@ -71,7 +71,7 @@
                             app:lottie_autoPlay="true"
                             app:lottie_loop="true"
                             app:lottie_rawRes="@raw/animation"
-                            tools:ignore="DuplicateIds" />
+                            tools:ignore="DuplicateIds,MissingClass" />
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/singleDigit"

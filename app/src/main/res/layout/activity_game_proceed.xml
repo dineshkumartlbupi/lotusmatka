@@ -6,167 +6,208 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".GameProceedActivity.GameProceedActivity">
-    <include layout="@layout/custom_appbar8"
-        android:id="@+id/appbarLayout"/>
+
+    <include
+        android:id="@+id/appbarLayout"
+        layout="@layout/custom_appbar8" />
 
     <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dataConText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dataConText"
+        android:background="@color/warningRed"
+        android:elevation="1dp"
+        android:padding="5dp"
         android:text="@string/you_are_not_connected_to_internet"
         android:textColor="@color/white"
-        android:background="@color/warningRed"
-        android:padding="5dp"
-        android:visibility="gone"
-        android:elevation="1dp"/>
+        android:visibility="gone" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:id="@+id/ll_bid"
-            android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:orientation="vertical">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp">
+
                 <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/pointIcon"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:id="@+id/pointIcon"
                     android:src="@drawable/diamond"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/walletAmount"/>
+                    app:layout_constraintEnd_toStartOf="@id/walletAmount"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/pointIcon"
-                    app:layout_constraintBottom_toBottomOf="@id/pointIcon"
-                    app:layout_constraintStart_toEndOf="@id/pointIcon"
-                    app:layout_constraintBottom_toTopOf="@id/text1"
-                    android:text="00"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
                     android:id="@+id/walletAmount"
-                    android:layout_marginStart="20dp"/>
-                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/walletAmount"
+                    android:layout_marginStart="20dp"
+                    android:text="00"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/pointIcon"
+                    app:layout_constraintBottom_toTopOf="@id/text1"
+                    app:layout_constraintStart_toEndOf="@id/pointIcon"
+                    app:layout_constraintTop_toTopOf="@id/pointIcon" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Available Points"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="@id/pointIcon"
                     app:layout_constraintStart_toEndOf="@id/pointIcon"
-                    android:text="Available Points"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:id="@+id/text1"
-                    android:layout_marginStart="20dp"/>
+                    app:layout_constraintTop_toBottomOf="@id/walletAmount" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/chooseDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border2"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_gradient2"
+                android:gravity="center"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="13dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginHorizontal="20dp"
-                android:textSize="18sp"
                 android:text="rdxcfvhjhgjh"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textColor="@color/black"/>
-            <RadioGroup
-                android:id="@+id/radioGroup"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/border2"
-                android:layout_marginHorizontal="20dp">
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/open"
-                    android:layout_width="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/bg_gradient2"
+                android:orientation="vertical">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/open"
-                    app:buttonTint="@color/black"
-                    android:textColor="@color/black"
-                    android:layout_weight="1"/>
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="16dp"
+                    android:weightSum="2"
 
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/close"
-                    android:layout_width="wrap_content"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/open"
+                        android:background="@drawable/bg_gradient_radius"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Open"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/close"
+                        android:background="@drawable/bg_gradient_radius_main"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Close"
+                            android:textAlignment="center"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/inputDigit"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/close"
-                    app:buttonTint="@color/black"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/border2"
+                    android:hint="@string/enter_digits"
+                    android:inputType="number"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="12dp"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/inputCloseDigit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_corner_white"
+                    android:hint="@string/enter_digits"
+                    android:inputType="number"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="12dp"
                     android:textColor="@color/black"
-                    android:layout_weight="1"/>
-            </RadioGroup>
+                    android:visibility="gone" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border2"
+                    android:hint="Enter Amount"
+                    android:inputType="number"
+
+                    android:maxLength="9"
+                    android:paddingHorizontal="10dp"
+                    android:textColorHint="@color/white"
+                    android:paddingVertical="12dp"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_proceed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#ff051367"
+                    android:paddingVertical="12dp"
+                    android:text="Add Bid"
+                    android:textColor="#ffFFE3BB"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="20dp"
+                    app:strokeColor="#ffFFE3BB"
+                    app:strokeWidth="2dp" />
 
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/inputDigit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_digits"
-                android:paddingHorizontal="10dp"
-                android:layout_marginTop="15dp"
-                android:paddingVertical="12dp"
-                android:textColor="@color/black"
-                android:background="@drawable/border2"
-                android:inputType="number"
-                android:layout_marginHorizontal="20dp"/>
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/inputCloseDigit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_digits"
-                android:layout_marginTop="10dp"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="12dp"
-                android:textColor="@color/black"
-                android:inputType="number"
-                android:background="@drawable/rounded_corner_white"
-                android:layout_marginHorizontal="20dp"
-                android:visibility="gone"/>
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputPoints"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Amount"
-                android:paddingHorizontal="10dp"
-                android:layout_marginTop="10dp"
-                android:paddingVertical="12dp"
-                android:inputType="number"
-                android:maxLength="9"
-                android:background="@drawable/border2"
-                android:textColor="@color/black"
-                android:layout_marginHorizontal="20dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_proceed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#ff051367"
-                app:cornerRadius="20dp"
-                app:strokeColor="#ffFFE3BB"
-                app:strokeWidth="2dp"
-                android:text="Add Bid"
-                android:paddingVertical="12dp"
-                android:textAllCaps="true"
-                android:textColor="#ffFFE3BB"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-
+            </LinearLayout>
         </LinearLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -174,10 +215,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/ll_bid"
             android:layout_marginTop="10dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="wrap_content"
@@ -193,44 +236,48 @@
 
         <LinearLayout
             android:id="@+id/ll_bid_bottom"
-            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_marginHorizontal="20dp"
+            android:background="@color/toolbarColor"
             android:orientation="horizontal"
             android:paddingHorizontal="10dp"
             android:paddingVertical="10dp"
-            android:visibility="gone"
-            android:background="@color/toolbarColor">
+            android:visibility="gone">
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/mtv_totalPoints"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:background="@drawable/rounded_corner_white"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="18sp"
+                android:gravity="center"
                 android:paddingStart="10dp"
-                android:text="Total Points\n00"/>
+                android:text="Total Points\n00"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/proceedConform"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="@string/proceed"
-                app:cornerRadius="20dp"
                 android:textColor="@color/black"
                 app:backgroundTint="@color/orange_color"
-                android:gravity="center"/>
+                app:cornerRadius="20dp" />
         </LinearLayout>
-        <include layout="@layout/custom_progress"
+
+        <include
+            layout="@layout/custom_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
     </RelativeLayout>
 </LinearLayout>

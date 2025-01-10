@@ -79,7 +79,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends BaseActivity implements MainContract.View {
-
+    TextView txtMarquee;
     MaterialToolbar toolbar;
     ImageView noGameIv;
     List<AppDetailsModel.Data.Banner> bannerList;
@@ -87,7 +87,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     RecyclerView recyclerView,navigationRecyclerView;
     GameListAdapter gameListAdapter;
     List<GameListModel.Data> dataList = new ArrayList<>();
-    MaterialTextView whatsAppNumber, mobileNumber,textStripFirst,walletAmount,pendingNoti,callNumber;
+    MaterialTextView whatsAppNumber, mobileNumber,walletAmount,pendingNoti,callNumber;
     public static MaterialTextView personName;
     ProgressBar progressBar;
     Vibrator vibe;
@@ -222,8 +222,11 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         whatsAppNumber = findViewById(R.id.whatsAppNumber);
         callNumber = findViewById(R.id.callNumber);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
-        textStripFirst = findViewById(R.id.textStripFirst);
         stripLayout = findViewById(R.id.stripLayout);
+        txtMarquee =findViewById(R.id.marqueeText);
+        txtMarquee.setSelected(true);
+        // Now we will call setSelected() method
+        // and pass boolean value as true
 
 //        addFundLyt = findViewById(R.id.addFund_mcv);
 //        playStarLineLty = findViewById(R.id.playStarLineLty);

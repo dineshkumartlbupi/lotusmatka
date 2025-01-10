@@ -73,12 +73,12 @@ public class GameActivity extends AppCompatActivity implements GameActivityContr
 
         if(!open){
             singleDigit.setVisibility(View.VISIBLE);
-            jodiDigit.setVisibility(View.GONE);
+            jodiDigit.setVisibility(View.VISIBLE);
             singlePana.setVisibility(View.VISIBLE);
             doublePana.setVisibility(View.VISIBLE);
             triplePana.setVisibility(View.VISIBLE);
-            halfSangam.setVisibility(View.GONE);
-            fullSangam.setVisibility(View.GONE);
+            halfSangam.setVisibility(View.VISIBLE);
+            fullSangam.setVisibility(View.VISIBLE);
         }
         if(SharPrefHelper.getVipStatus(this)){
             halfSangam.setVisibility(View.GONE);

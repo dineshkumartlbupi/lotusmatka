@@ -36,7 +36,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class GameRatesActivity extends AppCompatActivity implements GameRatesContract.View{
-
     MaterialTextView singleDigitValue,jodiDigitValue,singlePanaValue,doubleDigitValue,tripleDigitValue,halfSangamValue,fullSangamValue;
     MaterialTextView singleDigitEarning,jodiDigitEarning,singlePanaEarning,doubleDigitEarning,tripleDigitEarning,halfSangamEarning,fullSangamEarning;
     int activity=0;
@@ -49,9 +48,7 @@ public class GameRatesActivity extends AppCompatActivity implements GameRatesCon
     String videoLink= "";
     LinearLayout gameRateLyt,howToPlayLyt;
     MaterialToolbar toolbar;
-
     GameRatesContract.Presenter presenter;
-
     List<MaterialTextView> digitValue = new ArrayList<>();
     List<MaterialTextView> digitEarning = new ArrayList<>();
     @Override
@@ -82,8 +79,7 @@ public class GameRatesActivity extends AppCompatActivity implements GameRatesCon
 
     private void intIDs() {
         gameRateLyt = findViewById(R.id.gameRateLyt);
-
-//        Coast
+//       Coast
         singleDigitValue = findViewById(R.id.singleCoastAmount);
         jodiDigitValue = findViewById(R.id.jodiCoastAmount);
         singlePanaValue = findViewById(R.id.singlePannaCoastAmount);
