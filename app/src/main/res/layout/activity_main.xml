@@ -45,7 +45,7 @@
                         android:id="@+id/vipBadge"
                         android:layout_width="40dp"
                         android:layout_height="?actionBarSize"
-                       android:layout_marginRight="30dp"
+                       android:layout_marginRight="20dp"
                         android:layout_marginLeft="18dp"
                         android:contentDescription="VIP Badge"
                         android:src="@drawable/ic_app_logo_trans"
@@ -57,8 +57,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
+                        android:textAllCaps="true"
                         android:textColor="@color/white"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -173,14 +174,14 @@
                           android:layout_height="wrap_content"
                           android:ellipsize="marquee"
                           android:marqueeRepeatLimit="marquee_forever"
-                          android:padding="10dp"
+                          android:paddingHorizontal="10dp"
+                          android:paddingVertical="3dp"
                           android:scrollHorizontally="true"
                           android:singleLine="true"
                           android:textAllCaps="true"
-                          android:text=" Welcome to india no.1 Trusted Kalyan Matka  Application "
-                          android:textSize="20sp"
-                          android:textColor="@color/main_color"
-                          android:textStyle="bold" />
+                          android:text=" Welcome to india no.1 Trusted Dhan Laxmi Application "
+                          android:textSize="16sp"
+                          android:textColor="@color/lotus_blue" />
                   </FrameLayout>
               </androidx.constraintlayout.widget.ConstraintLayout>
 
