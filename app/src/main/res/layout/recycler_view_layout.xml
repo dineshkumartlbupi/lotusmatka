@@ -94,7 +94,7 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/playIcon"
                     android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="2dp"
                     android:src="@drawable/play"
                     android:padding="4dp"
@@ -104,7 +104,7 @@
                     android:id="@+id/status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Closed"
+                    android:text="Running"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="11sp"
                     android:visibility="visible"/>
