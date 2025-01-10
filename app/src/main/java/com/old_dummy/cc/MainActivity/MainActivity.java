@@ -16,6 +16,7 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -38,6 +39,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -49,7 +51,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.old_dummy.cc.Adapters.GameListAdapter;
 import com.old_dummy.cc.Adapters.MenuAdapter;
-//import com.old_dummy.cc.Adapters.ViewPagerAdapter;
 import com.old_dummy.cc.BaseActivity;
 import com.old_dummy.cc.Extras.SharPrefHelper;
 import com.old_dummy.cc.Extras.Utility;
@@ -65,7 +66,7 @@ import com.old_dummy.cc.NoticeActivity.NoticeActivity;
 import com.old_dummy.cc.R;
 import com.old_dummy.cc.SplashActivity.SplashActivity;
 import com.old_dummy.cc.WithdrawActivity.WithdrawActivity;
-//import com.old_dummy.cc.Adapters.ViewPagerAdapter;
+import com.old_dummy.cc.Adapters.ViewPagerAdapter;
 //import com.smarteist.autoimageslider.SliderView;
 
 import java.lang.reflect.Type;
@@ -106,7 +107,8 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     ShapeableImageView vipBadge;
     ConstraintLayout navigationHeader;
     List<MenuItemModel> menuItems;
-
+    ViewPager2 viewPager;
+    ViewPagerAdapter viewPagerAdapter;
     @Override
     protected int getLayoutResourceId() {
         return R.layout.activity_main;
@@ -196,7 +198,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
 
     private void updateProjectStatus() {
-//        if(!SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_BANNER_STATUS,false)) viewPager.setVisibility(View.GONE);
+        if(!SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_BANNER_STATUS,false)) viewPager.setVisibility(View.GONE);
 //        if(!SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_MARQUEE_STATUS,false)) stripLayout.setVisibility(View.GONE);
         if(!SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_MAIN_MARKET_STATUS,false)){
             recyclerView.setVisibility(View.GONE);
@@ -204,6 +206,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         }
 
     }
+
 
     public boolean internetIsConnected() {
         try {
@@ -217,7 +220,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 //        drawerLayout = findViewById(R.id.drawerLayout);
         toolbar = findViewById(R.id.toolbar);
         navigationRecyclerView = findViewById(R.id.navigation_recycler_view);
-//        viewPager = findViewById(R.id.slider);
+        viewPager = findViewById(R.id.slider);
         recyclerView = findViewById(R.id.recyclerView);
         whatsAppNumber = findViewById(R.id.whatsAppNumber);
         callNumber = findViewById(R.id.callNumber);
@@ -281,7 +284,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
             System.out.println("json conversion failed");
         }
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE) ;
-//        configureViewPager();
+        configureViewPager();
     }
 
     private void updateUserStatus(String accountStatus) {
@@ -432,14 +435,38 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         walletAmount.setOnClickListener(v -> presenter.funds(this));
     }
 
-//    private void configureViewPager() {
-//        viewPagerAdapter = new ViewPagerAdapter(this, bannerList);
+    private void configureViewPager() {
+        viewPagerAdapter = new ViewPagerAdapter(this, bannerList);
 //        viewPager.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR);
-//        viewPager.setSliderAdapter(viewPagerAdapter);
+        viewPager.setAdapter(viewPagerAdapter);
+        viewPager.setOffscreenPageLimit(3);
 //        viewPager.setScrollTimeInSec(3);
 //        viewPager.setAutoCycle(true);
 //        viewPager.startAutoCycle();
-//    }
+        viewPager.setPageTransformer((page, position) -> {
+            float absPosition = Math.abs(position);
+
+            // Adjust scale for zoom-out effect
+            page.setScaleY(0.85f + (1 - absPosition) * 0.15f);
+
+            // Adjust translation for spacing effect
+            page.setTranslationX(-position * 40); // Adjust the value to increase/decrease spacing
+        });
+        Log.e("Total Length", String.valueOf(bannerList.size()));
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                int currentItem = viewPager.getCurrentItem();
+                int nextItem = (currentItem + 1) % bannerList.size(); // Loop back to first item
+                viewPager.setCurrentItem(nextItem, true);
+                handler.postDelayed(this, 3000); // Auto-scroll every 3 seconds
+            }
+        };
+        handler.postDelayed(runnable, 3000);
+
+
+    }
     private void configureRecyclerView() {
         gameListAdapter = new GameListAdapter(this, (ArrayList<GameListModel.Data>)
                 dataList, new GameListAdapter.OnItemClickListener() {
@@ -596,7 +623,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         telegramLink = data.getContact_details().getTelegram_no();
         welcomeMessage = data.getWelcome_message();
         bannerList = data.getBannerList();
-//        viewPagerAdapter.notifyDataSetChanged();
+        viewPagerAdapter.notifyDataSetChanged();
     }
 
     @Override
