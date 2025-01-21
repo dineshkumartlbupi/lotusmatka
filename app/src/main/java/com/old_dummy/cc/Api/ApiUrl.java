@@ -1,9 +1,9 @@
 package com.old_dummy.cc.Api;
 
 public class ApiUrl {
- //   public static String BASE_URL = "https://development.smapidev.co.in/";
+    public static String BASE_URL = "https://development.smapidev.co.in/";
 //    public static String BASE_URL = "https://lotusmatka.co.in/";
-    public static String BASE_URL = "https://development.smapidev.co.in/api/Api/";
+//    public static String BASE_URL = "https://development.smapidev.co.in/api/Api/";
     public static String version = "lmroc1-1.0";
     public static final String signUp = "api/Api/signup";
     public static final String login = "api/Api/login";
