@@ -13,10 +13,16 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -27,32 +33,78 @@ import com.old_dummy.cc.Extras.Utility;
 import com.old_dummy.cc.Extras.YourService;
 import com.old_dummy.cc.NewPasswordActivity.NewPasswordActivity;
 import com.old_dummy.cc.R;
+import com.google.android.material.button.MaterialButton;
 
 import in.aabhasjindal.otptextview.OTPListener;
 import in.aabhasjindal.otptextview.OtpTextView;
 
 public class OTPActivity extends AppCompatActivity implements OtpContract.View {
-
-    private OtpTextView mInPC;
+    private EditText otpBox1, otpBox2, otpBox3, otpBox4;
     private FrameLayout progressBar;
-    private MaterialTextView dataConText;
-    private MaterialTextView resendOtp;
+    private MaterialTextView dataConText, resendOtp;
     private IntentFilter mIntentFilter;
-    int code = 200;
-    String mobileNumber = "";
-    Utility utility;
-    OtpContract.Presenter presenter;
+    private int code = 200;
+    private String mobileNumber = "";
+    private Utility utility;
+    private OtpContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(getResources().getColor(R.color.main_color));
-        getWindow().setBackgroundDrawable(ContextCompat.getDrawable(this,R.drawable.background_bg));
+        getWindow().setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.background_bg));
         setContentView(R.layout.activity_otpactivity);
 
-        intVariables();
+        // Initialize views and variables
+        initializeViews();
+        setupOtpListeners();
+        LinearLayout verifyButton = findViewById(R.id.btnVerifyOtp);
+        verifyButton.setOnClickListener(v -> verifyOtp(v));
+
         loadData();
         presenter.countdown(resendOtp);
+    }
+
+    private void initializeViews() {
+        // EditText Boxes
+        otpBox1 = findViewById(R.id.otpBox1);
+        otpBox2 = findViewById(R.id.otpBox2);
+        otpBox3 = findViewById(R.id.otpBox3);
+        otpBox4 = findViewById(R.id.otpBox4);
+
+        // Other Views
+        progressBar = findViewById(R.id.progressBar);
+        dataConText = findViewById(R.id.dataConText);
+        resendOtp = findViewById(R.id.resendOtp);
+
+        // Presenter initialization
+        presenter = new OtpPresenter(this);
+        code = getIntent().getIntExtra(getString(R.string.verification), 200);
+        mobileNumber = getIntent().getStringExtra(getString(R.string.mobile_number));
+    }
+
+    private void setupOtpListeners() {
+        TextWatcher otpWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() == 1) {
+                    if (otpBox1.isFocused()) otpBox2.requestFocus();
+                    else if (otpBox2.isFocused()) otpBox3.requestFocus();
+                    else if (otpBox3.isFocused()) otpBox4.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        };
+
+        otpBox1.addTextChangedListener(otpWatcher);
+        otpBox2.addTextChangedListener(otpWatcher);
+        otpBox3.addTextChangedListener(otpWatcher);
+        otpBox4.addTextChangedListener(otpWatcher);
     }
 
     private void loadData() {
@@ -63,56 +115,38 @@ public class OTPActivity extends AppCompatActivity implements OtpContract.View {
         startService(serviceIntent);
     }
 
-    private void intVariables() {
-        mInPC = findViewById(R.id.in_pc);
-        progressBar = findViewById(R.id.progressBar);
-        dataConText = findViewById(R.id.dataConText);
-        resendOtp = findViewById(R.id.resendOtp);
-        presenter = new OtpPresenter(this);
-        code = getIntent().getIntExtra(getString(R.string.verification),200);
-        mobileNumber = getIntent().getStringExtra(getString(R.string.mobile_number));
-
-        MaterialTextView topTitle = findViewById(R.id.topDesign).findViewById(R.id.topText);
-        topTitle.setText("Otp\nVerification");
-//        findViewById(R.id.backButton).setOnClickListener(v -> {
-//            onBackPressed();
-//        });
-        mInPC.setOtpListener(new OTPListener() {
-            @Override
-            public void onInteractionListener() {
-
-            }
-
-            @Override
-            public void onOTPComplete(String otp) {
-                verifyOtp(mInPC.getRootView());
-            }
-        });
-    }
-
     public void verifyOtp(View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        if (TextUtils.isEmpty(mInPC.getOTP())){
-            Snackbar.make(view, "Please Enter OTP",2000).show();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+        // Get the text from all 4 OTP boxes
+        String otp = otpBox1.getText().toString() + otpBox2.getText().toString() +
+                otpBox3.getText().toString() + otpBox4.getText().toString();
+
+        // Check if the OTP is empty or if it has less than 4 characters
+        if (TextUtils.isEmpty(otp)) {
+            Snackbar.make(view, "Please Enter OTP", Snackbar.LENGTH_LONG).show();
             return;
         }
-        if (mInPC.getOTP().length()<4){
-            Snackbar.make(view, "Please Enter a valid OTP",2000).show();
+        if (otp.length() < 4) {
+            Snackbar.make(view, "Please Enter a valid OTP", Snackbar.LENGTH_LONG).show();
             return;
         }
-        if (YourService.isOnline(this)){
-            switch (code){
+
+        // Proceed with OTP verification if there's no error
+        if (YourService.isOnline(this)) {
+            switch (code) {
                 case 200:
-                    presenter.verifyUserMethodApi(mobileNumber, mInPC.getOTP());
+                    presenter.verifyUserMethodApi(mobileNumber, otp);
                     break;
                 case 300:
                 case 400:
-                    presenter.verifyOtpApi(mobileNumber,mInPC.getOTP());
+                    presenter.verifyOtpApi(mobileNumber, otp);
                     break;
             }
+        } else {
+            Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
         }
-        else Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -154,8 +188,8 @@ public class OTPActivity extends AppCompatActivity implements OtpContract.View {
         SharPrefHelper.setLoginToken(this, token);
         Intent intent = new Intent(this, NewPasswordActivity.class);
         intent.putExtra(getString(R.string.verification), code);
-        intent.putExtra(getString(R.string.mobile_number),mobileNumber);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.putExtra(getString(R.string.mobile_number), mobileNumber);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }
@@ -165,8 +199,8 @@ public class OTPActivity extends AppCompatActivity implements OtpContract.View {
         SharPrefHelper.setLoginSuccess(this, true);
         SharPrefHelper.setLoginToken(this, token);
         Intent intentMain = new Intent(this, MainActivity.class);
-        intentMain.putExtra("from","signup");
-        intentMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intentMain.putExtra("from", "signup");
+        intentMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intentMain);
         finish();
     }

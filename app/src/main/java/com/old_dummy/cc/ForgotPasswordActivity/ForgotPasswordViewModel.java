@@ -20,7 +20,7 @@ public class ForgotPasswordViewModel implements ForgotPasswordContract.ViewModel
                     if (data.getStatus().equals("success")) {
                         onFinishedListener.finished();
                     }
-                   // onFinishedListener.message(data.getMessage());
+                    onFinishedListener.message(data.getMessage());
                 } else onFinishedListener.message("Network Error");
             }
 

@@ -34,7 +34,6 @@ public class SplashActivity extends AppCompatActivity implements SplashContract.
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         getWindow().setStatusBarColor(getResources().getColor(R.color.main_color));
         setContentView(R.layout.activity_splash);
-        progressBar = findViewById(R.id.progressBar);
         presenter = new SplashPresenter(this);
         presenter.api("");
     }
@@ -96,12 +95,10 @@ public class SplashActivity extends AppCompatActivity implements SplashContract.
     }
 
     private void callApp() {
-        progressBar.setVisibility(View.VISIBLE);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 if (SharPrefHelper.getLoginSuccess(SplashActivity.this)) {
-                    progressBar.setVisibility(View.GONE);
                     Intent i = new Intent(SplashActivity.this, SecurityPinActivity.class);
                     i.putExtra(getString(R.string.mobile_number),SharPrefHelper.getSignUpData(SplashActivity.this, SharPrefHelper.KEY_MOBILE_NUMBER));
                     i.putExtra("from","splash");
@@ -110,7 +107,7 @@ public class SplashActivity extends AppCompatActivity implements SplashContract.
                     startActivity(i);
                     finish();
                 } else {
-                    progressBar.setVisibility(View.GONE);
+//                    progressBar.setVisibility(View.GONE);
                     Intent i = new Intent(SplashActivity.this, SignUpActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK  );
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

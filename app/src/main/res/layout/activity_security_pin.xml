@@ -48,7 +48,7 @@
                 <EditText
                     android:id="@+id/pinBox1"
                     android:layout_width="35dp"
-                    android:layout_height="45dp"
+                    android:layout_height="40dp"
                     android:layout_margin="8dp"
                     android:background="@drawable/pin_input_box"
                     android:gravity="center"
@@ -72,7 +72,7 @@
                 <EditText
                     android:id="@+id/pinBox2"
                     android:layout_width="35dp"
-                    android:layout_height="45dp"
+                    android:layout_height="40dp"
                     android:layout_margin="8dp"
                     android:background="@drawable/pin_input_box"
                     android:gravity="center"
@@ -96,7 +96,7 @@
                 <EditText
                     android:id="@+id/pinBox3"
                     android:layout_width="35dp"
-                    android:layout_height="45dp"
+                    android:layout_height="40dp"
                     android:layout_margin="8dp"
                     android:nextFocusUp="@id/pinBox4"
                     android:textColor="@color/white"
@@ -121,7 +121,7 @@
                 <EditText
                     android:id="@+id/pinBox4"
                     android:layout_width="35dp"
-                    android:layout_height="45dp"
+                    android:layout_height="40dp"
                     android:layout_margin="8dp"
                     android:background="@drawable/pin_input_box"
                     android:gravity="center"
@@ -173,8 +173,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-
+                android:layout_marginTop="30dp"
                 android:foreground="?selectableItemBackground"
                 android:gravity="center"
                 android:orientation="horizontal">

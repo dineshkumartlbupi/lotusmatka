@@ -19,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
@@ -41,15 +42,16 @@ import java.lang.reflect.Type;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpContract.View {
 
-    TextInputEditText inputPersonName,inputMobNumber,inputPassword,inputPinCode;
+    TextInputEditText inputPersonName, inputMobNumber, inputPassword, inputPinCode;
     InputMethodManager imm;
     FrameLayout progressBar;
     MaterialTextView dataConText;
     IntentFilter mIntentFilter;
     Utility utility;
     SignUpContract.Presenter presenter;
-    ShapeableImageView passToggleEye,pinToggleEye;
+    ShapeableImageView passToggleEye, pinToggleEye;
     MaterialCheckBox privacyCheck;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +84,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
         topTitle.setText("SignUp");
 //        findViewById(R.id.backButton).setVisibility(View.GONE);
         findViewById(R.id.privacyText).setOnClickListener(v -> {
-            String url = ApiUrl.BASE_URL +"terms_and_conditions";
+            String url = ApiUrl.BASE_URL + "terms_and_conditions";
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(url));
             startActivity(i);
@@ -93,13 +95,13 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
             Type type = new TypeToken<AppDetailsModel.Data>() {
             }.getType();
             try {
-                data = gson.fromJson(SharPrefHelper.getPreferenceData(this,SharPrefHelper.KEY_App_Details), type);
+                data = gson.fromJson(SharPrefHelper.getPreferenceData(this, SharPrefHelper.KEY_App_Details), type);
             } catch (Exception e) {
                 System.out.println("json conversion failed");
             }
             String adminMsg = data.getAdmin_message();
 
-            String url = "https://api.whatsapp.com/send?phone="+SharPrefHelper.getContactDetails(this, SharPrefHelper.KEY_WHATSAPP_NUMBER)+"&text="+adminMsg;
+            String url = "https://api.whatsapp.com/send?phone=" + SharPrefHelper.getContactDetails(this, SharPrefHelper.KEY_WHATSAPP_NUMBER) + "&text=" + adminMsg;
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setData(Uri.parse(url));
             startActivity(i);
@@ -127,39 +129,40 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
         super.onResume();
         registerReceiver(myReceiver, mIntentFilter, Context.RECEIVER_NOT_EXPORTED);
     }
+
     public void LoginNow(View view) {
         presenter.login(this);
     }
 
     public void createNewAccount(View view) {
-        imm = (InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        if (TextUtils.isEmpty(inputPersonName.getText().toString())){
-            Snackbar.make(view, getString(R.string.please_enter_your_name),2000).show();
+        if (TextUtils.isEmpty(inputPersonName.getText().toString())) {
+            Snackbar.make(view, getString(R.string.please_enter_your_name), 2000).show();
             return;
         }
-        if (TextUtils.isEmpty(inputMobNumber.getText().toString())){
-            Snackbar.make(view, getString(R.string.please_enter_mobile_number),2000).show();
+        if (TextUtils.isEmpty(inputMobNumber.getText().toString())) {
+            Snackbar.make(view, getString(R.string.please_enter_mobile_number), 2000).show();
             return;
         }
-        if (inputMobNumber.getText().toString().length()<10){
-            Snackbar.make(view, getString(R.string.please_enter_valid_mobile_number),2000).show();
+        if (inputMobNumber.getText().toString().length() < 10) {
+            Snackbar.make(view, getString(R.string.please_enter_valid_mobile_number), 2000).show();
             return;
         }
-        if (TextUtils.isEmpty(inputPassword.getText().toString())){
-            Snackbar.make(view, getString(R.string.please_enter_password),2000).show();
+        if (TextUtils.isEmpty(inputPassword.getText().toString())) {
+            Snackbar.make(view, getString(R.string.please_enter_password), 2000).show();
             return;
         }
-        if (inputPassword.getText().toString().length()<4){
-            Snackbar.make(view, getString(R.string.please_enter_min_4_digits_password),2000).show();
+        if (inputPassword.getText().toString().length() < 4) {
+            Snackbar.make(view, getString(R.string.please_enter_min_4_digits_password), 2000).show();
             return;
         }
-        if (TextUtils.isEmpty(inputPinCode.getText().toString())){
-            Snackbar.make(view, "Please Enter Security Pin",2000).show();
+        if (TextUtils.isEmpty(inputPinCode.getText().toString())) {
+            Snackbar.make(view, "Please Enter Security Pin", 2000).show();
             return;
         }
-        if (inputPinCode.getText().toString().length()<4){
-            Snackbar.make(view, getString(R.string.please_enter_min_4_digit_pin),2000).show();
+        if (inputPinCode.getText().toString().length() < 4) {
+            Snackbar.make(view, getString(R.string.please_enter_min_4_digit_pin), 2000).show();
             return;
         }
         /*if (!privacyCheck.isChecked()){
@@ -167,11 +170,13 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
             return;
         }*/
         if (YourService.isOnline(this))
-            presenter.api(inputPersonName.getText().toString().trim(),inputMobNumber.getText().toString().trim(),inputPassword.getText().toString().trim(),inputPinCode.getText().toString());
-        else Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
+            presenter.api(inputPersonName.getText().toString().trim(), inputMobNumber.getText().toString().trim(), inputPassword.getText().toString().trim(), inputPinCode.getText().toString());
+        else
+            Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
     }
+
     public void passToggleEye(View view) {
-        if (inputPassword.getTransformationMethod().getClass().getSimpleName() .equals("PasswordTransformationMethod")) {
+        if (inputPassword.getTransformationMethod().getClass().getSimpleName().equals("PasswordTransformationMethod")) {
             inputPassword.setTransformationMethod(new SingleLineTransformationMethod());
             passToggleEye.setImageResource(R.drawable.ic_baseline_visibility_24);
         } else {
@@ -181,8 +186,9 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
 
         inputPassword.setSelection(inputPassword.getText().length());
     }
+
     public void pinToggleEye(View view) {
-        if (inputPinCode.getTransformationMethod().getClass().getSimpleName() .equals("PasswordTransformationMethod")) {
+        if (inputPinCode.getTransformationMethod().getClass().getSimpleName().equals("PasswordTransformationMethod")) {
             inputPinCode.setTransformationMethod(new SingleLineTransformationMethod());
             pinToggleEye.setImageResource(R.drawable.ic_baseline_visibility_24);
         } else {
@@ -192,6 +198,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
 
         inputPinCode.setSelection(inputPinCode.getText().length());
     }
+
     @Override
     public void showProgressBar() {
         progressBar.setVisibility(View.VISIBLE);
@@ -205,11 +212,14 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
     @Override
     public void apiResponse() {
         Intent intent = new Intent(SignUpActivity.this, OTPActivity.class);
-        SharPrefHelper.setSignUpData(SignUpActivity.this,SharPrefHelper.KEY_PERSON_NAME,inputPersonName.getText().toString().trim());
-        SharPrefHelper.setSignUpData(SignUpActivity.this,SharPrefHelper.KEY_MOBILE_NUMBER,inputMobNumber.getText().toString().trim());
-        SharPrefHelper.setSignUpData(SignUpActivity.this,SharPrefHelper.KEY_USER_PASSWORD,inputPassword.getText().toString().trim());
+        SharPrefHelper.setSignUpData(SignUpActivity.this,
+                SharPrefHelper.KEY_PERSON_NAME, inputPersonName.getText().toString().trim());
+        SharPrefHelper.setSignUpData(SignUpActivity.this,
+                SharPrefHelper.KEY_MOBILE_NUMBER, inputMobNumber.getText().toString().trim());
+        SharPrefHelper.setSignUpData(SignUpActivity.this,
+                SharPrefHelper.KEY_USER_PASSWORD, inputPassword.getText().toString().trim());
         intent.putExtra(getString(R.string.verification), 200);
-        intent.putExtra(getString(R.string.mobile_number),inputMobNumber.getText().toString().trim());
+        intent.putExtra(getString(R.string.mobile_number), inputMobNumber.getText().toString().trim());
         startActivity(intent);
     }
 

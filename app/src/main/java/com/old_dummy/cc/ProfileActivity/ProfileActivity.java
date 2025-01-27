@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
@@ -72,10 +73,24 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         }
 //        String userName = inputPersonName.getText().toString();
         nameTextView.setText(userName);
-
+submitButton.setVisibility(View.VISIBLE);
+editRequestLayout.setVisibility(View.GONE);
         editRequestLayout.setOnClickListener(view -> {
             submitEditProfile(view);
         });
+        inputPersonName = findViewById(R.id.inputPersonName);
+        inputEmail = findViewById(R.id.inputEmail);
+        inputMobileNumber = findViewById(R.id.inputMobNumber);
+
+        // Set hint text color using android:textColorHint attribute (recommended)
+        inputPersonName.setTextColor(getResources().getColor(R.color.main_color));
+        inputEmail.setTextColor(getResources().getColor(R.color.main_color));
+        inputMobileNumber.setTextColor(getResources().getColor(R.color.main_color));
+
+
+        TextInputEditText hint = findViewById(R.id.inputPersonName);
+        hint.setHintTextColor(ContextCompat.getColor(this, R.color.main_color));
+
     }
 
     private void intIDs() {
@@ -87,7 +102,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         progressBar = findViewById(R.id.progressBar);
         presenter = new ProfilePresenter(this);
         dataConText = findViewById(R.id.dataConText);
-        nameInputLayout = findViewById(R.id.nameInputLayout);
+//        nameInputLayout = findViewById(R.id.labelTextView);
         utility = new Utility(dataConText);
         mIntentFilter = new IntentFilter();
         mIntentFilter.addAction(BroadCastStringForAction);
@@ -129,7 +144,8 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
                 return;
             }
             if (YourService.isOnline(this)) {
-                presenter.api(SharPrefHelper.getLogInToken(this), inputEmail.getText().toString(), inputPersonName.getText().toString());
+                presenter.api(SharPrefHelper.getLogInToken(this), inputEmail.getText().toString(),
+                        inputPersonName.getText().toString());
                 editRequestLayout.setVisibility(View.GONE);
                 submitButton.setVisibility(View.VISIBLE);
             } else {
