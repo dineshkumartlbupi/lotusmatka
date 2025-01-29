@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
@@ -46,6 +48,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     ProfileContract.Presenter presenter;
     TextInputLayout nameInputLayout;
     Boolean editProfile = false;
+    LinearLayout editRequestLayout;
 
     @Override
     protected int getLayoutResourceId() {
@@ -56,7 +59,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setStatusBarColor(getResources().getColor(R.color.main_color));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.black));
         intIDs();
         TextView nameTextView = findViewById(R.id.nameTextView);
         TextInputEditText inputPersonName = findViewById(R.id.inputPersonName);
@@ -70,6 +73,24 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         }
 //        String userName = inputPersonName.getText().toString();
         nameTextView.setText(userName);
+submitButton.setVisibility(View.VISIBLE);
+editRequestLayout.setVisibility(View.GONE);
+        editRequestLayout.setOnClickListener(view -> {
+            submitEditProfile(view);
+        });
+        inputPersonName = findViewById(R.id.inputPersonName);
+        inputEmail = findViewById(R.id.inputEmail);
+        inputMobileNumber = findViewById(R.id.inputMobNumber);
+
+        // Set hint text color using android:textColorHint attribute (recommended)
+        inputPersonName.setTextColor(getResources().getColor(R.color.black));
+        inputEmail.setTextColor(getResources().getColor(R.color.black));
+        inputMobileNumber.setTextColor(getResources().getColor(R.color.black));
+
+
+        TextInputEditText hint = findViewById(R.id.inputPersonName);
+        hint.setHintTextColor(ContextCompat.getColor(this, R.color.black));
+
     }
 
     private void intIDs() {
@@ -77,10 +98,11 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         inputEmail = findViewById(R.id.inputEmail);
         inputMobileNumber = findViewById(R.id.inputMobNumber);
         submitButton = findViewById(R.id.submitButton);
+        editRequestLayout = findViewById(R.id.editRequestLayout);
         progressBar = findViewById(R.id.progressBar);
         presenter = new ProfilePresenter(this);
         dataConText = findViewById(R.id.dataConText);
-        nameInputLayout = findViewById(R.id.nameInputLayout);
+//        nameInputLayout = findViewById(R.id.labelTextView);
         utility = new Utility(dataConText);
         mIntentFilter = new IntentFilter();
         mIntentFilter.addAction(BroadCastStringForAction);
@@ -122,12 +144,16 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
                 return;
             }
             if (YourService.isOnline(this)) {
-                presenter.api(SharPrefHelper.getLogInToken(this), inputEmail.getText().toString(), inputPersonName.getText().toString());
+                presenter.api(SharPrefHelper.getLogInToken(this), inputEmail.getText().toString(),
+                        inputPersonName.getText().toString());
+                editRequestLayout.setVisibility(View.GONE);
+                submitButton.setVisibility(View.VISIBLE);
             } else {
                 Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
             }
         } else {
-            submitButton.setText("Submit Request");
+            submitButton.setVisibility(View.GONE);
+            editRequestLayout.setVisibility(View.VISIBLE);
             inputPersonName.setEnabled(true);
             inputEmail.setEnabled(true);
             inputPersonName.requestFocus();
@@ -218,7 +244,6 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     public void apiResponse(LoginModel.Data data) {
         inputPersonName.setEnabled(false);
         inputEmail.setEnabled(false);
-        submitButton.setText("Update");
         editProfile = false;
         MainActivity.personName.setText(inputPersonName.getText().toString());
         SharPrefHelper.setSignUpData(this, SharPrefHelper.KEY_PERSON_NAME, data.getUsername());

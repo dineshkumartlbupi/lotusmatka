@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#41526D"
+    android:background="#09304d"
     app:cornerRadius="200dp"
     app:strokeColor="#ffFFE3BB"
     app:strokeWidth="1.5dp"
@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:background="#ED34364E"
+        android:background="#09304d"
         android:orientation="horizontal"
         android:paddingHorizontal="25dp">
 

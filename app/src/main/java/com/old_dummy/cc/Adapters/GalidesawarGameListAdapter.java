@@ -74,10 +74,12 @@ public class GalidesawarGameListAdapter extends RecyclerView.Adapter<Galidesawar
 
             if(galidesawarGame.isPlay()){
                 playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
+                playIcon.setColorFilter(ContextCompat.getColor(context, R.color.main_color));
                 eventStatus.setText("Running");
                 eventStatus.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
             } else {
-                playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.close));
+                playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
+                playIcon.setColorFilter(ContextCompat.getColor(context, R.color.warningRed));
                 eventStatus.setText("Closed");
                 eventStatus.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.warningRed)));
             }

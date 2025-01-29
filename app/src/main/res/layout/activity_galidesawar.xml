@@ -52,14 +52,13 @@
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/starLineChart"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="8dp"
-                android:textStyle="bold"
-                android:padding="2dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="10dp"
                 android:scaleType="fitXY"
-                android:text="Starline Chart "
-                android:textColor="@color/white" />
+                android:text="Galideswar Chart "
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>
@@ -90,6 +89,7 @@
                     android:layout_gravity="center"
                     android:layout_marginEnd="10dp"
                     android:gravity="center"
+                    android:textStyle="bold"
                     android:text="Left Digit"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
@@ -105,7 +105,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="Coast Amount"
+                    android:textStyle="bold"
+                    android:text="Cost Amount"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="@color/main_color"
@@ -115,6 +116,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
+                    android:textColor="@color/black"
+
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="14sp" />
@@ -128,6 +131,7 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:layout_marginEnd="10dp"
                     android:text="Earning Amount"
                     android:textColor="@color/main_color"
@@ -140,6 +144,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="90"
+                    android:textColor="@color/black"
+
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="14sp" />
@@ -169,6 +175,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
+                    android:textStyle="bold"
                     android:text="Right Digit"
                     android:layout_gravity="center"
                     android:gravity="center"
@@ -185,7 +192,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="Coast Amount"
+                    android:text="Cost Amount"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="@color/main_color"
@@ -195,6 +203,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
+                    android:textColor="@color/black"
+
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="14sp" />
@@ -209,6 +219,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
+                    android:textStyle="bold"
                     android:text="Earning Amount"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
@@ -220,6 +231,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="90"
+                    android:textColor="@color/black"
+
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="14sp" />
@@ -250,6 +263,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Jodi Digit"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="@color/main_color"
@@ -265,7 +279,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:text="Coast Amount"
+                    android:text="Cost Amount"
+                    android:textStyle="bold"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textColor="@color/main_color"
@@ -275,6 +290,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10"
+                    android:textColor="@color/black"
+
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="14sp" />
@@ -290,6 +307,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Earning Amount"
+                    android:textStyle="bold"
                     android:textColor="@color/main_color"
                     android:textSize="14sp" />
                 <com.google.android.material.textview.MaterialTextView
@@ -297,6 +315,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="90"
+                    android:textColor="@color/black"
+
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="14sp" />
@@ -333,7 +353,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="History"
+                android:text="Bid History"
                 android:textStyle="bold"
                 android:layout_marginVertical="10dp"
                 android:gravity="center"
@@ -348,7 +368,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginStart="5dp"
             android:layout_weight="1"
-            android:onClick="chart"
+            android:onClick="winHistory"
             android:layout_gravity="center"
             android:gravity="center"
             android:background="@drawable/bg_button_gradient">
@@ -356,7 +376,7 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chart"
+                android:text="Win History"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:layout_marginVertical="10dp"

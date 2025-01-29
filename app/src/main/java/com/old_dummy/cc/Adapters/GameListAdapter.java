@@ -2,6 +2,8 @@ package com.old_dummy.cc.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +57,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        MaterialTextView eventType,eventResult,openTime,closeTime;
+        MaterialTextView eventType,eventResult,openTime,closeTime,status;
         ShapeableImageView chartImage, playIcon;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,6 +66,7 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
             openTime = itemView.findViewById(R.id.openTime);
             closeTime = itemView.findViewById(R.id.closeTime);
             chartImage = itemView.findViewById(R.id.chartIcon);
+            status = itemView.findViewById(R.id.status);
             playIcon = itemView.findViewById(R.id.playIcon);
 
         }
@@ -74,9 +77,17 @@ public class GameListAdapter extends RecyclerView.Adapter<GameListAdapter.ViewHo
             eventResult.setText(data.getResult());
             openTime.setText("Open: "+data.getOpen_time());
             closeTime.setText("Close: "+data.getClose_time());
+
+            Log.e("Data's : ",data.toString());
+
             if(data.isPlay()){
                 playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
+                playIcon.setColorFilter(ContextCompat.getColor(context,R.color.main_color));
+                status.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
+                status.setText("Running");
             }else {
+                status.setText("Closed");
+                status.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.warningRed)));
                 playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.close));
             }
             chartImage.setOnClickListener(v -> {

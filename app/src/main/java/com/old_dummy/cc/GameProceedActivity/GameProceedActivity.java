@@ -3,6 +3,7 @@ package com.old_dummy.cc.GameProceedActivity;
 import static com.old_dummy.cc.Extras.Utility.BroadCastStringForAction;
 import static com.old_dummy.cc.Extras.Utility.myReceiver;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -68,13 +69,14 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
     String points="";
     String digitOrPanna="Digit";
     String digitOrPanna2="Digit";
-    boolean isOpen = false;
+    boolean isOpen = true;
+    boolean bidOpen = false;
+    boolean bidClose = false;
     MaterialToolbar toolbar;
     MaterialTextView chooseDate,mtv_totalPoints,walletAmount;
-    RadioGroup radioGroup;
     MaterialAutoCompleteTextView inputDigit,inputCloseDigit;
     TextInputEditText inputPoints;
-    MaterialRadioButton open, close;
+    MaterialRadioButton openLlout, closeLlout;
     MaterialButton btn_proceed;
     ArrayList<String> numbers, numbers2;
     ArrayAdapter<String> adapter,adapter2;
@@ -106,6 +108,12 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
         intIDs();
         configureToolbar();
         configureRecycler();
+        openLlout.setOnClickListener(view -> {
+            bidOpen=true;
+        });
+        closeLlout.setOnClickListener( view -> {
+            bidClose=true;
+        });
     }
 
     private void configureRecycler() {
@@ -139,13 +147,12 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
     private void intIDs() {
         toolbar = findViewById(R.id.toolbar);
         chooseDate = findViewById(R.id.chooseDate);
-        radioGroup = findViewById(R.id.radioGroup);
         inputDigit = findViewById(R.id.inputDigit);
         inputPoints = findViewById(R.id.inputPoints);
         inputCloseDigit = findViewById(R.id.inputCloseDigit);
         mtv_totalPoints = findViewById(R.id.mtv_totalPoints);
-        open = findViewById(R.id.open);
-        close = findViewById(R.id.close);
+        openLlout = findViewById(R.id.open);
+        closeLlout = findViewById(R.id.close);
         proceedConform = findViewById(R.id.proceedConform);
         btn_proceed = findViewById(R.id.btn_proceed);
         recyclerView = findViewById(R.id.recyclerView);
@@ -175,9 +182,9 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
         SimpleDateFormat df = new SimpleDateFormat("EEE dd-MMM-yyyy", Locale.getDefault());
         String formattedDate = df.format(c);
         chooseDate.setText(formattedDate);
-        open.setEnabled(isOpen);
-        open.setChecked(isOpen);
-        close.setChecked(!isOpen);
+//        open.setEnabled(isOpen);
+//        open.setChecked(isOpen);
+//        close.setChecked(!isOpen);
         walletAmount.setText(String.valueOf(currentPoints));
         btn_proceed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,16 +194,16 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
         });
 
         if (gameProceed==6){
-            open.setChecked(true);
+//            open.setChecked(true);
             inputCloseDigit.setVisibility(View.VISIBLE);
         }
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (gameProceed!=2)
-                    configureToolbar();
-            }
-        });
+//        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, int checkedId) {
+//                if (gameProceed!=2)
+//                    configureToolbar();
+//            }
+//        });
 
         inputPoints.addTextChangedListener(new TextWatcher() {
             @Override
@@ -217,7 +224,6 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
         });
 
         proceedConform.setOnClickListener(v -> {
-
             //proceedConform(v);
             String gsonData = new Gson().toJson(gameProceedModelList);
             String serverData = getString(R.string.bids_api_open)+gsonData+getString(R.string.bids_api_close);
@@ -359,7 +365,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
                 inputDigit.setHint("Enter Jodi Digit");
                 digitOrPanna = "Digit";
                 toolbar.setTitle(getString(R.string.jodi_digit));
-                radioGroup.setVisibility(View.GONE);
+//                radioGroup.setVisibility(View.GONE);
                 for (int i = 0; i <= 9; i++) {
                     for (int j = 0; j<=9; j++){
                         numbers.add(String.valueOf(i)+String.valueOf(j));
@@ -412,7 +418,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
                 break;
             case 6:
                 toolbar.setTitle(getString(R.string.half_sangam));
-                if (open.isChecked()){
+                if (bidOpen){
                     inputDigit.setHint("Enter Open Digit");
                     inputCloseDigit.setHint("Enter Close Panna");
                     digitOrPanna = "Digit";
@@ -429,7 +435,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
                             }
                         }
                     }
-                }else if (close.isChecked()){
+                }else if (bidClose){
                     inputDigit.setHint("Enter Open Panna");
                     inputCloseDigit.setHint("Enter Close Digit");
                     digitOrPanna = "Panna";
@@ -453,7 +459,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
                 inputCloseDigit.setHint("Enter Close Panna");
                 digitOrPanna = "Panna";
                 digitOrPanna2 = "Panna";
-                radioGroup.setVisibility(View.GONE);
+//                radioGroup.setVisibility(View.GONE);
                 inputCloseDigit.setVisibility(View.VISIBLE);
                 toolbar.setTitle(getString(R.string.full_sangam));
                 for (int a =0 ; a<=9; a++){
@@ -511,7 +517,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
             case 3:
             case 4:
             case 5:
-                if(!open.isChecked() && !close.isChecked()){
+                if(!bidOpen && !bidClose){
                     snackbar("Please select session", view);
                     return;
                 }
@@ -531,11 +537,11 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
                 setRecycleData(gameProceed);
                 break;
             case 6:
-                if(!open.isChecked() && !close.isChecked()){
+                if(!bidOpen && !bidClose){
                     snackbar("Please select session", view);
                     return;
                 }
-                if (open.isChecked()){
+                if (bidOpen){
                     if (!numbers.contains(inputDigit.getText().toString())){
                         snackbar(getString(R.string.please_enter_valid_open_digits), view);
                         return;
@@ -601,6 +607,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void setRecycleData(int gameProceed) {
         String openNum = inputDigit.getText().toString();
         String closeNum = inputCloseDigit.getText().toString();
@@ -615,7 +622,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
         walletAmount.setText(userPoints);
         switch (gameProceed){
             case 1:
-                if(open.isChecked()){
+                if(bidOpen){
                     gameProceedModelList.add(new GameProceedModel(gameID,"single_digit","Open",points,openNum,"","",""));
                 }
                 else{
@@ -629,7 +636,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
                 gameProceedModelList.add(new GameProceedModel(gameID,"jodi_digit","Open",points,open_digit,close_digit,"",""));
                 break;
             case 3:
-                if(open.isChecked()){
+                if(bidOpen){
                     gameProceedModelList.add(new GameProceedModel(gameID,"single_panna","Open",points,"","",openNum,""));
                 }
                 else{
@@ -637,7 +644,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
                 }
                 break;
             case 4:
-                if(open.isChecked()){
+                if(bidOpen){
                     gameProceedModelList.add(new GameProceedModel(gameID,"double_panna","Open",points,"","",openNum,""));
                 }
                 else{
@@ -645,7 +652,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
                 }
                 break;
             case 5:
-                if(open.isChecked()){
+                if(bidOpen){
                     gameProceedModelList.add(new GameProceedModel(gameID,"triple_panna","Open",points,"","",openNum,""));
                 }
                 else{
@@ -653,7 +660,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
                 }
                 break;
             case 6:
-                if(open.isChecked()){
+                if(bidOpen){
                     gameProceedModelList.add(new GameProceedModel(gameID,"half_sangam","Open",points,openNum,"","",closeNum));
                 }
                 else{
@@ -669,17 +676,17 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
         inputPoints.setText("");
         inputDigit.requestFocus();
         if (isOpen)
-            radioGroup.clearCheck();
+//            radioGroup.clearCheck();
 
         recyclerView.setVisibility(View.VISIBLE);
         ll_bid_bottom.setVisibility(View.VISIBLE);
         mtv_totalPoints.setText("Total Points\n"+totalPoints);
         gameProceedAdapter.notifyDataSetChanged();
         if(gameProceed==2){
-            open.setChecked(true);
+            bidOpen=true;
         }
         if (gameProceed ==6){
-            open.setChecked(true);
+            bidOpen=true;
             inputCloseDigit.setVisibility(View.VISIBLE);
             inputDigit.setHint("Enter Open Digit");
             inputCloseDigit.setHint("Enter Close Panna");

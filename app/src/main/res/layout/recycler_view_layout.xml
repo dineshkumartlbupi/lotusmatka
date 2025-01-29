@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingBottom="4dp"
             android:gravity="center">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -87,24 +88,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:layout_marginRight="4dp"
                 android:orientation="vertical">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/playIcon"
-                    android:layout_width="66dp"
-                    android:layout_height="45dp"
+                    android:layout_width="48dp"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="2dp"
                     android:src="@drawable/play"
+                    android:padding="4dp"
                     android:visibility="visible" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Closed"
+                    android:text="Running"
                     android:textColor="@android:color/holo_red_dark"
-                    android:textSize="12sp"
-                    android:visibility="visible" />
+                    android:textSize="11sp"
+                    android:visibility="visible"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -94,32 +94,25 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.361" />
 
-            <LinearLayout
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
+                android:layout_marginHorizontal="0dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ff051367"
+                app:strokeColor="#ffFFE3BB"
+                app:strokeWidth="2dp"
                 android:onClick="submitWinHistory"
-                android:background="@drawable/rounded_button_border"
-                android:orientation="horizontal"
+                android:text="Submit"
+                app:cornerRadius="20dp"
+                android:paddingVertical="12dp"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@id/fromDate"
                 app:layout_constraintBottom_toBottomOf="parent"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingHorizontal="50dp"
-                    android:text="Submit"
-                    android:paddingVertical="12dp"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

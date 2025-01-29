@@ -18,11 +18,12 @@ import com.old_dummy.cc.R;
 import java.util.List;
 
 public class StarlineGameListAdapter extends RecyclerView.Adapter
-        <StarlineGameListAdapter.ViewHolder>{
+        <StarlineGameListAdapter.ViewHolder> {
 
-    public interface OnItemClickListener{
+    public interface OnItemClickListener {
         void onItemClick(StarlineGameListModel.Data.StarlineGame starlineGame, View itemView);
     }
+
     Context context;
     List<StarlineGameListModel.Data.StarlineGame> starlineGameList;
 
@@ -55,10 +56,11 @@ public class StarlineGameListAdapter extends RecyclerView.Adapter
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        MaterialTextView gameName,gameResult;
+        MaterialTextView gameName, gameResult;
         MaterialTextView eventStatusText;
         MaterialTextView eventStatus;
         ShapeableImageView playIcon;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             gameName = itemView.findViewById(R.id.gameName);
@@ -71,33 +73,32 @@ public class StarlineGameListAdapter extends RecyclerView.Adapter
 
         public void bind(StarlineGameListModel.Data.StarlineGame starlineGame,
                          OnItemClickListener listener, Context context, int position) {
-             try{
-                 gameName.setText(starlineGame.getName());
-                 gameResult.setText(starlineGame.getResult());
+            try {
+                gameName.setText(starlineGame.getName());
+                gameResult.setText(starlineGame.getResult());
 
-                 if(starlineGame.isPlay()){
-                     eventStatusText.setText("Market Open");
-                     eventStatus.setText("Running");
-                     playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
-                     eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
-                     eventStatus.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
-                 }
-                 else {
-                     playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.close));
-                     eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
-                     eventStatus.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.warningRed)));
-                     eventStatusText.setText("Market Closed");
-                     eventStatus.setText("Closed");
-                 }
-                 itemView.setOnClickListener(v ->{
-                     listener.onItemClick(starlineGame, v);
-                 });
+                if (starlineGame.isPlay()) {
+                    eventStatusText.setText("Market Open");
+                    eventStatus.setText("Running");
+                    playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
+                    playIcon.setColorFilter(ContextCompat.getColor(context, R.color.main_color));
+                    eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
+                    eventStatus.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.main_color)));
+                } else {
+                    playIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play));
+                    playIcon.setColorFilter(ContextCompat.getColor(context, R.color.warningRed)); // Explicitly set color
+                    eventStatusText.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.warningRed)));
+                    eventStatus.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.warningRed)));
+                    eventStatusText.setText("Market Closed");
+                    eventStatus.setText("Closed");
+                }
 
-             }catch (Exception e){
+                itemView.setOnClickListener(v -> listener.onItemClick(starlineGame, v));
 
-             }
-
-
+            } catch (Exception e) {
+                // Log or handle exception
+                e.printStackTrace();
+            }
         }
     }
 }

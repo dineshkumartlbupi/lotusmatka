@@ -10,11 +10,13 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -52,16 +54,16 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
     MaterialTextView fromDate, toDate;
     String fromDatestr;
     String toDatestr;
-    Date fDate,tDate;
+    Date fDate, tDate;
     SimpleDateFormat userSF = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-    SimpleDateFormat serverSF = new SimpleDateFormat("yyyy-MM-dd",Locale.getDefault());
+    SimpleDateFormat serverSF = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
     final Calendar fromCal = Calendar.getInstance();
     final Calendar toCal = Calendar.getInstance();
     final Calendar todayCal = Calendar.getInstance();
     ShapeableImageView emptyIcon;
 
-    int history=0;
-    String title="History";
+    int history = 0;
+    String title = "History";
     RecyclerView recyclerView;
     WinHistoryAdapter winHistoryAdapter;
     BidHistoryAdapter bidHistoryAdapter;
@@ -85,6 +87,7 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
 
     private String ffDate = "";
     private String ttoDate = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +95,6 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
         setContentView(R.layout.activity_win_history);
         intIDs();
         configureToolbar();
-
 
 
         calendar = Calendar.getInstance();
@@ -130,7 +132,7 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
                             // Ensure the selected To Date is after the From Date
                             toDatestr = selectedDay + "-" + (selectedMonth + 1) + "-" + selectedYear;
                             toDate.setText(toDatestr);
-                        },year,month,day);  // Set From Date as the min date
+                        }, year, month, day);  // Set From Date as the min date
                 datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
                 datePickerDialog.show();
             }
@@ -162,16 +164,16 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
         title = getIntent().getStringExtra("from");
 
 
-        if (history==100 || history ==200){
-            historyMethod( fDate, tDate);
+        if (history == 100 || history == 200) {
+            historyMethod(fDate, tDate);
         }
 
-        if (history==300 || history==400){
-            winHistoryHistoryMethod( fDate, tDate);
+        if (history == 300 || history == 400) {
+            winHistoryHistoryMethod(fDate, tDate);
         }
 
-        if (history==500 || history==600){
-            galidesawarHistoryMethod( fDate, tDate);
+        if (history == 500 || history == 600) {
+            galidesawarHistoryMethod(fDate, tDate);
         }
 
     }
@@ -180,7 +182,7 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
         String fromDate = serverSF.format(fDate) + " 00:00:00";
         String toDate = serverSF.format(tDate) + " 23:59:59";
 
-        presenter.galidesawarHistoryApi(SharPrefHelper.getLogInToken(this),fromDate, toDate, history);
+        presenter.galidesawarHistoryApi(SharPrefHelper.getLogInToken(this), fromDate, toDate, history);
     }
 
     DatePickerDialog.OnDateSetListener fromDatePicker = new DatePickerDialog.OnDateSetListener() {
@@ -202,7 +204,7 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
             toCal.set(Calendar.YEAR, year);
             toCal.set(Calendar.MONTH, monthOfYear);
             toCal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            if(toCal.getTimeInMillis()<fromCal.getTimeInMillis()){
+            if (toCal.getTimeInMillis() < fromCal.getTimeInMillis()) {
                 Toast.makeText(WinHistoryActivity.this, "To Date can't be smaller then From Date", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -210,8 +212,9 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
             toDate.setText(userSF.format(tDate));
         }
     };
+
     private void configureToolbar() {
-       toolbar.setTitle(title);
+        toolbar.setTitle(title);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -223,56 +226,73 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                if (history==100 || history ==200){
-                    historyMethod( fDate, tDate);
+                if (history == 100 || history == 200) {
+                    historyMethod(fDate, tDate);
                 }
-                if (history==300 || history==400){
-                    winHistoryHistoryMethod( fDate, tDate);
+                if (history == 300 || history == 400) {
+                    winHistoryHistoryMethod(fDate, tDate);
                 }
-                if (history==500 || history==600){
-                    galidesawarHistoryMethod( fDate, tDate);
+                if (history == 500 || history == 600) {
+                    galidesawarHistoryMethod(fDate, tDate);
                 }
 
             }
         });
     }
+
     public void fromDate(View view) {
-        
-        DatePickerDialog datePickerDialog=  new DatePickerDialog(this,android.R.style.Theme_Holo_Light_Panel, fromDatePicker, fromCal
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, android.R.style.Theme_Holo_Light_Panel, fromDatePicker, fromCal
                 .get(Calendar.YEAR), fromCal.get(Calendar.MONTH), fromCal.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
-        long maxDate = todayCal.getTime().getTime() ;
+        long maxDate = todayCal.getTime().getTime();
         datePickerDialog.getDatePicker().setMaxDate(maxDate);
         datePickerDialog.setCanceledOnTouchOutside(true);
-        datePickerDialog.getDatePicker().setBackgroundColor(getResources().getColor(R.color.white));
+        datePickerDialog.getDatePicker().setBackgroundColor(getResources().getColor(R.color.main_color));
         datePickerDialog.show();
     }
 
     public void toDate(View view) {
-        DatePickerDialog datePickerDialog=  new DatePickerDialog(this,android.R.style.Theme_Holo_Light_Panel, toDatePicker, toCal
-                .get(Calendar.YEAR), toCal.get(Calendar.MONTH), toCal.get(Calendar.DAY_OF_MONTH));
-        datePickerDialog.show();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                this,
+                R.style.CustomDatePickerDialog, // Apply custom style
+                toDatePicker,
+                toCal.get(Calendar.YEAR),
+                toCal.get(Calendar.MONTH),
+                toCal.get(Calendar.DAY_OF_MONTH)
+        );
 
-
-        long maxDate = todayCal.getTime().getTime() ;
+        // Set the maximum selectable date
+        long maxDate = todayCal.getTime().getTime();
         datePickerDialog.getDatePicker().setMaxDate(maxDate);
-        datePickerDialog.setCanceledOnTouchOutside(true);
-        datePickerDialog.getDatePicker().setBackgroundColor(getResources().getColor(R.color.white));
+        // Get the current date to apply the outlined circle
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        int currentMonth = Calendar.getInstance().get(Calendar.MONTH);
+        int currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+
+// Apply outlined circle for the current date
+        if (toCal.get(Calendar.YEAR) == currentYear && toCal.get(Calendar.MONTH) == currentMonth && toCal.get(Calendar.DAY_OF_MONTH) == currentDay) {
+            datePickerDialog.getDatePicker().setBackgroundResource(R.drawable.outlined_current_day);
+        } else {
+            // Apply filled circle for selected date
+            datePickerDialog.getDatePicker().setBackgroundResource(R.drawable.filled_selected_day);
+        }
+
+// Show the date picker dialog
         datePickerDialog.show();
     }
 
 
-
     public void submitWinHistory(View view) {
 
-        if (history==100 || history ==200){
-            historyMethod( fDate, tDate);
+        if (history == 100 || history == 200) {
+            historyMethod(fDate, tDate);
         }
-        if (history==300 || history==400){
+        if (history == 300 || history == 400) {
             winHistoryHistoryMethod(fDate, tDate);
         }
-        if (history==500 || history==600){
-            galidesawarHistoryMethod( fDate, tDate);
+        if (history == 500 || history == 600) {
+            galidesawarHistoryMethod(fDate, tDate);
         }
 
     }
@@ -280,14 +300,14 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
     private void historyMethod(Date fDate, Date tDate) {
         String fromDate = serverSF.format(fDate) + " 00:00:00";
         String toDate = serverSF.format(tDate) + " 23:59:59";
-        presenter.mainHistoryApi(SharPrefHelper.getLogInToken(this),fromDate,toDate,history);
+        presenter.mainHistoryApi(SharPrefHelper.getLogInToken(this), fromDate, toDate, history);
     }
 
-    private void winHistoryHistoryMethod( Date fDate, Date tDate) {
+    private void winHistoryHistoryMethod(Date fDate, Date tDate) {
         String fromDate = serverSF.format(fDate) + " 00:00:00";
         String toDate = serverSF.format(tDate) + " 23:59:59";
 
-        presenter.starLineHistoryApi(SharPrefHelper.getLogInToken(this),fromDate, toDate, history);
+        presenter.starLineHistoryApi(SharPrefHelper.getLogInToken(this), fromDate, toDate, history);
 
     }
 
@@ -323,11 +343,11 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
 
     @Override
     public void mainHistoryApiResponse(WinModel winModel) {
-        if (winModel.getStatus().equalsIgnoreCase(getString(R.string.success))){
+        if (winModel.getStatus().equalsIgnoreCase(getString(R.string.success))) {
             LinearLayoutManager layoutManager = new LinearLayoutManager(this);
             winModelArrayList = winModel.getData();
             recyclerView.setLayoutManager(layoutManager);
-            switch (history){
+            switch (history) {
                 case 100:
                     winHistoryAdapter = new WinHistoryAdapter(this, winModelArrayList);
                     recyclerView.setAdapter(winHistoryAdapter);
@@ -338,20 +358,20 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
                     break;
             }
         }
-        if (winModel.getMessage().equalsIgnoreCase("No Record Found")){
+        if (winModel.getMessage().equalsIgnoreCase("No Record Found")) {
             emptyIcon.setVisibility(View.VISIBLE);
-        }else emptyIcon.setVisibility(View.GONE);
+        } else emptyIcon.setVisibility(View.GONE);
 
     }
 
     @Override
     public void starLineHistoryApiResponse(StarLineWinModel starLineWinModel) {
-        if (starLineWinModel.getStatus().equalsIgnoreCase(getString(R.string.success))){
+        if (starLineWinModel.getStatus().equalsIgnoreCase(getString(R.string.success))) {
             LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
             starlineWinModelList = starLineWinModel.getData();
             recyclerView.setLayoutManager(layoutManager);
-            switch (history){
+            switch (history) {
                 case 300:
                     starlineWinHistoryAdapter = new StarlineWinHistoryAdapter(this, starlineWinModelList);
                     recyclerView.setAdapter(starlineWinHistoryAdapter);
@@ -362,18 +382,19 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
                     break;
             }
         }
-        if (starLineWinModel.getMessage().equalsIgnoreCase("No Record Found")){
+        if (starLineWinModel.getMessage().equalsIgnoreCase("No Record Found")) {
             emptyIcon.setVisibility(View.VISIBLE);
-        }else emptyIcon.setVisibility(View.GONE);
+        } else emptyIcon.setVisibility(View.GONE);
     }
+
     @Override
     public void galidesawarHistoryApiResponse(GalidesawarWinModel starLineWinModel) {
-        if (starLineWinModel.getStatus().equalsIgnoreCase(getString(R.string.success))){
+        if (starLineWinModel.getStatus().equalsIgnoreCase(getString(R.string.success))) {
             LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
             galidesawarWinModelList = starLineWinModel.getData();
             recyclerView.setLayoutManager(layoutManager);
-            switch (history){
+            switch (history) {
                 case 500:
                     galidesawarWinHistoryAdapter = new GalidesawarWinHistoryAdapter(this, galidesawarWinModelList);
                     recyclerView.setAdapter(galidesawarWinHistoryAdapter);
@@ -384,9 +405,9 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
                     break;
             }
         }
-        if (starLineWinModel.getMessage().equalsIgnoreCase("No Record Found")){
+        if (starLineWinModel.getMessage().equalsIgnoreCase("No Record Found")) {
             emptyIcon.setVisibility(View.VISIBLE);
-        }else emptyIcon.setVisibility(View.GONE);
+        } else emptyIcon.setVisibility(View.GONE);
     }
 
     @Override

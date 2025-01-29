@@ -96,7 +96,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements ForgotP
             return;
         }
         if (YourService.isOnline(this)){
-            presenter.api( inputMobNumber.getText().toString().trim());
+            presenter.api(inputMobNumber.getText().toString().trim());
         }
         else Toast.makeText(this, getString(R.string.check_your_internet_connection), Toast.LENGTH_SHORT).show();
     }

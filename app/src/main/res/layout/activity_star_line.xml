@@ -54,14 +54,13 @@
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/starLineChart"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="8dp"
-                android:textStyle="bold"
-                android:padding="2dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="10dp"
                 android:scaleType="fitXY"
                 android:text="Starline Chart "
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>
@@ -78,336 +77,371 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:weightSum="3"
-            android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:text="Single Digit"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textStyle="bold"
-                        android:textColor="@color/main_color"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
+            android:orientation="horizontal"
+            android:weightSum="3">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coast Amount"
-                    android:textStyle="bold"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
+                    android:text="Single Digit"
                     android:textColor="@color/main_color"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:text="Cost Amount"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/singleCoastAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10"
                     android:layout_gravity="center"
                     android:gravity="center"
+
+                    android:text="10"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Earning Amount"
-                    android:textStyle="bold"
                     android:textColor="@color/main_color"
-                    android:textSize="14sp" />
-
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/singleEarningAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="90"
                     android:layout_gravity="center"
                     android:gravity="center"
+
+                    android:text="90"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
             </LinearLayout>
 
 
         </LinearLayout>
+
         <View
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@drawable/bg_gradient"/>
-        <LinearLayout
             android:layout_marginTop="8dp"
+            android:background="@drawable/bg_gradient" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
-            android:weightSum="3"
-            android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:textStyle="bold"
-                        android:text="Single Panna"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/main_color"
-                        android:textSize="14sp" />
-                </LinearLayout>
+            android:orientation="horizontal"
+            android:weightSum="3">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coast Amount"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
-                    android:textStyle="bold"
+                    android:text="Single Panna"
                     android:textColor="@color/main_color"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"
+                    android:text="Cost Amount"
+                    android:textColor="@color/main_color"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/singlePannaCoastAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10"
                     android:layout_gravity="center"
                     android:gravity="center"
+
+                    android:text="10"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Earning Amount"
-                    android:textStyle="bold"
                     android:textColor="@color/main_color"
-                    android:textSize="14sp" />
-
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/singlePannaEarningAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="90"
                     android:layout_gravity="center"
                     android:gravity="center"
+
+                    android:text="90"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
             </LinearLayout>
 
 
         </LinearLayout>
+
         <View
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@drawable/bg_gradient"/>
-        <LinearLayout
             android:layout_marginTop="8dp"
+            android:background="@drawable/bg_gradient" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
-            android:weightSum="3"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="3">
+
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="Double Panna"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
-                    android:textStyle="bold"
+                    android:text="Double Panna"
                     android:textColor="@color/main_color"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="Coast Amount"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
-                    android:textStyle="bold"
+                    android:text="Cost Amount"
                     android:textColor="@color/main_color"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/doublePannaCoastAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:text="10"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Earning Amount"
-                    android:textStyle="bold"
                     android:textColor="@color/main_color"
-                    android:textSize="14sp" />
-
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/doublePannaEarningAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="90"
                     android:layout_gravity="center"
                     android:gravity="center"
+
+                    android:text="90"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
             </LinearLayout>
 
 
         </LinearLayout>
+
         <View
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@drawable/bg_gradient"/>
-        <LinearLayout
             android:layout_marginTop="8dp"
+            android:background="@drawable/bg_gradient" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="10dp"
-            android:weightSum="3"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="3">
+
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="Double Panna"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
-                    android:textStyle="bold"
+                    android:text="Triple Panna"
                     android:textColor="@color/main_color"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="Triple Panna"
                     android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center"
-                    android:textStyle="bold"
+                    android:text="Cost Amount"
                     android:textColor="@color/main_color"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tripalePannaCoastAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:text="10"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical">
+
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:text="Earning Amount"
-                    android:textStyle="bold"
                     android:textColor="@color/main_color"
-                    android:textSize="14sp" />
-
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tripalePannaEarningAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="90"
                     android:layout_gravity="center"
                     android:gravity="center"
+
+                    android:text="90"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
             </LinearLayout>
 
 
         </LinearLayout>
+
         <View
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@drawable/bg_gradient"/>
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_gradient" />
     </LinearLayout>
-
-
 
 
     <LinearLayout
@@ -437,7 +471,7 @@
                 android:layout_gravity="center"
                 android:layout_marginVertical="10dp"
                 android:gravity="center"
-                android:text="History"
+                android:text="Bid History"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -452,7 +486,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:foreground="?selectableItemBackground"
-            android:onClick="chart"
+            android:onClick="winHistory"
             app:cardBackgroundColor="#ff051367"
             app:cardCornerRadius="40dp"
             app:cardElevation="0dp">
@@ -463,7 +497,7 @@
                 android:layout_gravity="center"
                 android:layout_marginVertical="10dp"
                 android:gravity="center"
-                android:text="Chart"
+                android:text="Win History"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />

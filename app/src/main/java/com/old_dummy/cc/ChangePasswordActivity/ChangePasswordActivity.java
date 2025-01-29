@@ -70,7 +70,7 @@ public class ChangePasswordActivity extends AppCompatActivity implements ChangeP
         startService(serviceIntent);
 //        ImageButton backButton = findViewById(R.id.backButton);
         MaterialTextView topText = findViewById(R.id.topText);
-        topText.setText("Reset\nPassword");
+        topText.setText("Change Password");
 //        backButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

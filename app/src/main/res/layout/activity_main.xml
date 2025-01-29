@@ -45,7 +45,7 @@
                         android:id="@+id/vipBadge"
                         android:layout_width="40dp"
                         android:layout_height="?actionBarSize"
-                       android:layout_marginRight="30dp"
+                       android:layout_marginRight="20dp"
                         android:layout_marginLeft="18dp"
                         android:contentDescription="VIP Badge"
                         android:src="@drawable/ic_app_logo_trans"
@@ -57,8 +57,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
+                        android:textAllCaps="true"
                         android:textColor="@color/white"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -126,7 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-<!--                <com.smarteist.autoimageslider.SliderView-->
+<!--                <androidx.viewpager2.widget.ViewPager2-->
 <!--                    android:id="@+id/slider"-->
 <!--                    android:layout_width="match_parent"-->
 <!--                    android:layout_height="150dp"-->
@@ -143,40 +144,69 @@
 <!--                    app:sliderIndicatorSelectedColor="#5A5A5A"-->
 <!--                    app:sliderIndicatorUnselectedColor="#FFF"-->
 <!--                    app:sliderScrollTimeInSec="1" />-->
+              <androidx.constraintlayout.widget.ConstraintLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="180dp">
+                  <androidx.viewpager2.widget.ViewPager2
+                      android:id="@+id/slider"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      app:layout_constraintRight_toRightOf="parent"
+                      app:layout_constraintTop_toTopOf="parent"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      android:layout_width="match_parent"
+                      android:layout_height="180dp"
+                      android:clipToPadding="false"
+                      android:clipChildren="false"
+                      android:overScrollMode="never" />
+                  <FrameLayout
+                      android:id="@+id/stripLayout"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      app:layout_constraintRight_toRightOf="parent"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@drawable/bg_gradient"
+                      android:elevation="0dp"
+                      android:visibility="visible">
+                      <TextView
+                          android:id="@+id/marqueeText"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:ellipsize="marquee"
+                          android:marqueeRepeatLimit="marquee_forever"
+                          android:paddingHorizontal="10dp"
+                          android:paddingVertical="3dp"
+                          android:scrollHorizontally="true"
+                          android:singleLine="true"
+                          android:textAllCaps="true"
+                          android:text=" Welcome to india no.1 Trusted Dhan Laxmi Application "
+                          android:textSize="16sp"
+                          android:textColor="@color/lotus_blue" />
+                  </FrameLayout>
+              </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <FrameLayout
-                    android:id="@+id/stripLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:elevation="0dp"
-                    android:layout_marginTop="150dp"
-                    android:visibility="visible">
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/textStripFirst"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        app:textAllCaps="true"
-                        android:background="@drawable/bg_gradient"
-                        android:ellipsize="marquee"
-                        android:marqueeRepeatLimit="marquee_forever"
-                        android:gravity="center"
-                        android:scrollHorizontally="true"
-                        android:paddingVertical="4dp"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
-                        android:singleLine="true"
-                        android:text="Welcome to India's No.1 Trusted Kalyan Matka Application"
-                        android:textColor="@color/background_color"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:visibility="visible" />
 
-                </FrameLayout>
+                <!--                <com.smarteist.autoimageslider.SliderView-->
+<!--                    android:id="@+id/slider"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="150dp"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    app:sliderAnimationDuration="600"-->
+<!--                    app:sliderAutoCycleDirection="back_and_forth"-->
+<!--                    app:sliderIndicatorAnimationDuration="600"-->
+<!--                    app:sliderIndicatorEnabled="true"-->
+<!--                    app:sliderIndicatorGravity="center_horizontal|bottom"-->
+<!--                    app:sliderIndicatorMargin="15dp"-->
+<!--                    app:sliderIndicatorOrientation="horizontal"-->
+<!--                    app:sliderIndicatorPadding="3dp"-->
+<!--                    app:sliderIndicatorRadius="2dp"-->
+<!--                    app:sliderIndicatorSelectedColor="#5A5A5A"-->
+<!--                    app:sliderIndicatorUnselectedColor="#FFF"-->
+<!--                    app:sliderScrollTimeInSec="1"-->
+<!--                    tools:ignore="MissingClass" />-->
+<!---->
+
 
 
 
@@ -345,10 +375,11 @@
 
         <ProgressBar
             android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_centerInParent="true"
-            android:indeterminateTint="@color/orange_color"
+
+            android:indeterminateTint="@color/white"
             android:visibility="gone" />
     </RelativeLayout>
 
