@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="transparent">#00000000</color>
+    <color name="transparent">#05404040</color>
     <color name="green">#489800</color>
     <color name="red">#FF0000</color>
     <color name="warningRed">#CE2619</color>
@@ -15,9 +15,11 @@
     <color name="bg_gray">#e7e7e7</color>
     <color name="blue_color">#2598EC</color>
     <color name="main_color">#ff051367</color>
+    <color name="main_color2">#38051367</color>
 
     <color name="logInInputTextColor">#ffffff</color>
     <color name="logInTextColor">#000000</color>
+
     <color name="logInButtonColor">#ffdb4f</color>
     <color name="logInButtonTextColor">#000000</color>
 
@@ -34,5 +36,13 @@
 
     <color name="mainColor">#EAB70C</color>
 
+
+<!--    my lotus colors start-->
+    <color name="Button_border">#ffFFE3BB</color>
+    <color name="main_white">#ffFFFFFF</color>
+    <color name="sky_blue">#ffB4BDFF</color>
+    <color name="lotus_black">#ff000000</color>
+    <color name="lotus_blue">#ff292C6D</color>
+    <color name="kDarkGredientColor">#ff0086FF</color>
 
 </resources>

@@ -31,34 +31,142 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
-                android:paddingVertical="10dp">
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/leftDigit"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:onClick="leftDigit"
-                    android:layout_marginHorizontal="25dp"
-                    android:foreground="?attr/selectableItemBackgroundBorderless"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ld"/>
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/rightDigit"
-                    android:layout_width="120dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_height="120dp"
-                    android:onClick="RightDigit"
-                    android:layout_marginHorizontal="25dp"
-                    android:foreground="?attr/selectableItemBackgroundBorderless"
-                    android:layout_gravity="center"
-                    android:src="@drawable/rd"/>
-            </LinearLayout>
 
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewLeft"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toStartOf="@id/cardViewRight"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.45">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/starIcon"
+                            android:layout_width="135dp"
+                            android:layout_height="135dp"
+                            android:layout_marginVertical="20dp"
+                            android:contentDescription="Star Animation"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true"
+                            app:lottie_rawRes="@raw/animation"
+                            tools:ignore="DuplicateIds" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/leftDigit"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="leftDigit"
+                            android:src="@drawable/ld" />
+
+                        <ImageView
+                            android:id="@+id/arrowIcon"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="end"
+                            android:layout_margin="8dp"
+                            android:contentDescription="Arrow Icon"
+                            android:src="@drawable/ic_arrow"
+                            tools:ignore="DuplicateIds" />
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewRight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:cardUseCompatPadding="true"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardViewLeft"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.45">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/starIcon"
+                            android:layout_width="135dp"
+                            android:layout_height="135dp"
+                            android:contentDescription="Star Animation"
+                            app:lottie_autoPlay="true"
+                            android:layout_gravity="center"
+                            app:lottie_loop="true"
+                            app:lottie_rawRes="@raw/animation"
+                            tools:ignore="DuplicateIds" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/rightDigit"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="25dp"
+                            android:layout_marginVertical="25dp"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="RightDigit"
+                            android:src="@drawable/rd" />
+
+                        <ImageView
+                            android:id="@+id/arrowIcon"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="end"
+                            android:layout_margin="8dp"
+                            android:contentDescription="Arrow Icon"
+                            android:src="@drawable/ic_arrow"
+                            tools:ignore="DuplicateIds" />
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_gravity="center">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/starIcon"
+                    android:layout_width="135dp"
+                    android:layout_height="135dp"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:contentDescription="Star Animation"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/animation"
+                    tools:ignore="DuplicateIds" />
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/jodiDigit"
                 android:layout_width="120dp"
@@ -66,9 +174,22 @@
                 android:onClick="jodiDigit"
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="25dp"
+                android:layout_marginVertical="25dp"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:layout_gravity="center"
                 android:src="@drawable/jd"/>
+                    <ImageView
+                        android:id="@+id/arrowIcon"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="end"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="8dp"
+                        android:contentDescription="Arrow Icon"
+                        android:src="@drawable/ic_arrow"
+                        tools:ignore="DuplicateIds" />
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.old_dummy.cc.Extras.SharPrefHelper;
 import com.old_dummy.cc.Extras.Utility;
 import com.old_dummy.cc.Extras.YourService;
@@ -55,6 +56,7 @@ public class ContactUsActivity extends AppCompatActivity implements ContactUsCon
         mail = findViewById(R.id.mail);
         telegram = findViewById(R.id.telegram);
         withdrawProof = findViewById(R.id.withdrawProof);
+        LottieAnimationView playIcon = findViewById(R.id.callanima);
         dataConText = findViewById(R.id.dataConText);
         utility = new Utility(dataConText);
         mIntentFilter = new IntentFilter();

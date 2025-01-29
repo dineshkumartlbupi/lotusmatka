@@ -23,7 +23,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp"
             android:layout_gravity="center"
             android:orientation="vertical">
             <include layout="@layout/top_design5"
@@ -171,78 +170,91 @@
                     android:textColor="@color/orange_color"/>
 
             </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#102FA6"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
                 android:onClick="createNewAccount"
-                android:text="Signup"
-                app:cornerRadius="20dp"
-                app:strokeColor="#ffFFE3BB"
-                app:strokeWidth="2dp"
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/poppins_extra_bold"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:paddingHorizontal="50dp"
-                android:textColor="@color/white"
-                android:textSize="16sp"/>
+                android:background="@drawable/rounded_button_border"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="50dp"
+                    android:paddingVertical="10dp"
+                    android:text="Signup"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
 
-            <!--            <LinearLayout-->
+            </LinearLayout>
+
+<!--            <com.google.android.material.button.MaterialButton-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:gravity="center"-->
-<!--                android:layout_marginBottom="20dp"-->
+<!--                android:layout_marginHorizontal="20dp"-->
 <!--                android:layout_marginTop="10dp"-->
-<!--                android:onClick="LoginNow">-->
-<!--                <com.google.android.material.textview.MaterialTextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="Already have an account yet?"-->
-<!--                    android:textAllCaps="false"-->
-<!--                    android:textColor="@color/white"/>-->
-<!--                <com.google.android.material.textview.MaterialTextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="  Login"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:textAllCaps="false"-->
-<!--                    android:textColor="@color/logInButtonColor"/>-->
-<!--            </LinearLayout>-->
+<!--                android:backgroundTint="#ff051367"-->
+<!--                android:text="Signup"-->
+<!--                app:cornerRadius="20dp"-->
+<!--                app:strokeColor="#ffFFE3BB"-->
+<!--                app:strokeWidth="1.5dp"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:paddingHorizontal="50dp"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="14sp"/>-->
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Or"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textColor="@color/black"
                 android:textStyle="normal"
                 android:gravity="center"/>
-
-            <com.google.android.material.button.MaterialButton
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="5dp"
-                android:backgroundTint="@color/transparent"
-                android:text="Login"
-                app:cornerRadius="20dp"
-                app:strokeColor="#ffFFE3BB"
-                app:strokeWidth="2dp"
+                android:gravity="center"
                 android:onClick="LoginNow"
-                android:fontFamily="@font/poppins_extra_bold"
-                android:textAllCaps="false"
-                android:textStyle="bold"
-                android:paddingHorizontal="50dp"
-                android:textColor="@color/white"
-                android:textSize="16sp"/>
+                android:background="@drawable/rounded_button"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="50dp"
+                    android:paddingVertical="10dp"
+                    android:text="Login"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginHorizontal="20dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:backgroundTint="@color/transparent"-->
+<!--                app:cornerRadius="20dp"-->
+<!--                app:strokeColor="#ffFFE3BB"-->
+<!--                app:strokeWidth="1.5dp"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textStyle="bold"-->
+<!--                android:paddingHorizontal="50dp"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="14sp"/>-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -250,7 +262,7 @@
                 android:text="Need Help?"
                 android:textStyle="normal"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:layout_marginTop="10dp"
                 android:gravity="center"/>
 

@@ -21,81 +21,164 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="top"
-            android:gravity="top|center_horizontal"
-            android:orientation="vertical"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="30dp">
-            <include layout="@layout/top_design"
-                android:id="@+id/topDesign"/>
+            android:layout_marginTop="30dp"
+            android:gravity="top|center_horizontal"
+            android:orientation="vertical">
 
-            <in.aabhasjindal.otptextview.OtpTextView
-                android:id="@+id/in_pc"
+            <include
+                android:id="@+id/topDesign"
+                layout="@layout/top_design" />
+
+            <LinearLayout
+                android:id="@+id/otpLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                app:bar_enabled="true"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="80dp"
-                android:layout_gravity="center_horizontal"
-                app:bar_active_color="@color/blue_color"
-                app:bar_inactive_color="@color/white"
-                app:length="4"
-                app:box_margin_left="9dp"
-                app:box_margin_right="9dp"
-                app:otp_text_size="18sp"/>
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/otpBox1"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/pin_input_box"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:nextFocusUp="@id/pinBox2"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+
+                <EditText
+                    android:id="@+id/otpBox2"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/pin_input_box"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:nextFocusUp="@id/pinBox3"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:id="@+id/otpBox3"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/pin_input_box"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:nextFocusUp="@id/pinBox4"
+                    android:nextFocusForward="@id/pinBox4"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+                <EditText
+                    android:id="@+id/otpBox4"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/pin_input_box"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="1"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+            </LinearLayout>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/resendOtp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:layout_marginHorizontal="30dp"
                 android:layout_gravity="center_horizontal"
-                android:gravity="end|center_vertical"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="50dp"
+                android:gravity="center|center_vertical"
+                android:onClick="resendOtp"
                 android:padding="5dp"
                 android:text="Don't receive code? Resend OTP"
-                android:textStyle="bold"
-                android:textSize="16sp"
                 android:textAllCaps="false"
-                android:onClick="resendOtp"
-                android:layout_marginBottom="50dp"
-                app:cornerRadius="20dp"/>
-            <com.google.android.material.button.MaterialButton
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp" />
+
+
+            <LinearLayout
+                android:id="@+id/btnVerifyOtp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                android:backgroundTint="#ff051367"
-                app:cornerRadius="20dp"
-                app:strokeColor="#ffFFE3BB"
-                app:strokeWidth="2dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
                 android:onClick="verifyOtp"
-                android:text="Verify"
+                android:background="@drawable/rounded_button_border"
+                android:orientation="horizontal">
 
-                android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/poppins_extra_bold"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-                android:paddingHorizontal="50dp"
-                android:textColor="#ffFFE3BB"
-                android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="50dp"
+                    android:paddingVertical="10dp"
+                    android:text="Verify OTP"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:id="@+id/btnVerifyOtp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:layout_marginHorizontal="20dp"-->
+<!--                android:backgroundTint="#ff051367"-->
+<!--                android:paddingHorizontal="50dp"-->
+<!--                android:textAllCaps="true"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="16sp"-->
+<!--                app:cornerRadius="20dp"-->
+<!--                app:strokeColor="#ffFFE3BB"-->
+<!--                app:strokeWidth="2dp" />-->
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Need Help?"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="16sp"
                 android:layout_marginTop="10dp"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:text="Need Help?"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
-            <include layout="@layout/admin_button"
-                android:id="@+id/adminButton"/>
+            <include
+                android:id="@+id/adminButton"
+                layout="@layout/admin_button" />
 
         </LinearLayout>
 

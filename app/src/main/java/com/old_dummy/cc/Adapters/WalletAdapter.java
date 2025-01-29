@@ -60,11 +60,11 @@ public class WalletAdapter extends RecyclerView.Adapter<WalletAdapter.ViewHolder
             if (recyclerModelWallet.getTransStatus().equalsIgnoreCase("pending")){
                 tranStatus.setTextColor(ContextCompat.getColor(context, R.color.yellow));
             }else if(recyclerModelWallet.getTransStatus().equalsIgnoreCase("Successfull")) {
-                tranStatus.setTextColor(ContextCompat.getColor(context, R.color.green));
+                tranStatus.setTextColor(ContextCompat.getColor(context, R.color.main_color));
             }else if(recyclerModelWallet.getTransStatus().equalsIgnoreCase("Successful")) {
-                tranStatus.setTextColor(ContextCompat.getColor(context, R.color.green));
+                tranStatus.setTextColor(ContextCompat.getColor(context, R.color.main_color));
             }else if(recyclerModelWallet.getTransStatus().equalsIgnoreCase("Approved")) {
-                tranStatus.setTextColor(ContextCompat.getColor(context, R.color.green));
+                tranStatus.setTextColor(ContextCompat.getColor(context, R.color.main_color));
             }else if(recyclerModelWallet.getTransStatus().equalsIgnoreCase("Failed")) {
                 tranStatus.setTextColor(ContextCompat.getColor(context, R.color.red));
             }else if(recyclerModelWallet.getTransStatus().equalsIgnoreCase("Rejected")) {
@@ -75,7 +75,7 @@ public class WalletAdapter extends RecyclerView.Adapter<WalletAdapter.ViewHolder
             if (recyclerModelWallet.getTransType().equalsIgnoreCase("debit")){
                 amount.setTextColor(ContextCompat.getColor(context, R.color.red));
             }else if (recyclerModelWallet.getTransType().equalsIgnoreCase("credit")){
-                amount.setTextColor(ContextCompat.getColor(context, R.color.green));
+                amount.setTextColor(ContextCompat.getColor(context, R.color.main_color));
             }
             amount.setText(recyclerModelWallet.getPoints());
             dateTime.setText(recyclerModelWallet.getCreatedAt());

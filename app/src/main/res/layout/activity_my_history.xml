@@ -4,425 +4,459 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="horizontal"
     tools:context=".MyHistoryActivity.MyHistoryActivity">
-
-    <include layout="@layout/custom_appbar2"
-         android:id="@+id/appbarLayout"/>
-    <com.google.android.material.textview.MaterialTextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/appbarLayout"
+            layout="@layout/custom_appbar2" />
+
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/dataConText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/warningRed"
+        android:elevation="1dp"
+        android:padding="5dp"
         android:text="@string/you_are_not_connected_to_internet"
         android:textColor="@color/white"
-        android:background="@color/warningRed"
-        android:padding="5dp"
-        android:visibility="gone"
-        android:elevation="1dp"/>
+        android:visibility="gone" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
                 android:orientation="horizontal"
-                android:paddingBottom="12dp">
+                android:elevation="1dp">
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="60dp"
-                    android:layout_marginBottom="12dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    app:cardElevation="4dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="12dp"
                     android:layout_weight="1"
-                    android:tag="mainBid"
                     android:foreground="?selectableItemBackground"
                     android:onClick="fundItemClick"
+                    android:tag="mainBid"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:padding="10dp">
 
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/dice"
-                        android:layout_gravity="center"
-                        android:contentDescription="Main Bid Icon"
-                        app:tint="#ffFFE3BB" />
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Main Bid Icon"
+                            android:src="@drawable/dice" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1.5dp"
                             android:layout_marginVertical="5dp"
                             android:background="@color/main_color" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Main Bid "
-                        android:textStyle="bold"
-                        android:gravity="center_vertical"
-                        android:textColor="@color/main_color"
-                        android:layout_gravity="center"
-                        android:textSize="14sp" />
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_weight="1"/>
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:contentDescription="Arrow Icon"
-                            android:src="@drawable/ic_arrow" />
-                    </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center_vertical"
+                                android:text="Main Bid "
+                                android:textColor="@color/main_color"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:layout_weight="1" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:contentDescription="Arrow Icon"
+                                android:src="@drawable/ic_arrow" />
+                        </LinearLayout>
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="60dp"
-                    android:layout_marginBottom="12dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
-                    app:cardElevation="4dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="12dp"
                     android:layout_weight="1"
                     android:foreground="?selectableItemBackground"
-                    android:tag="mainWin"
                     android:onClick="fundItemClick"
+                    android:tag="mainWin"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:padding="10dp">
 
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/trophy"
-                        android:tint="@color/yellow"
-                        android:layout_gravity="center"
-                        android:contentDescription="Main Bid Icon" />
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Main Bid Icon"
+                            android:src="@drawable/trophy" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1.5dp"
                             android:layout_marginVertical="5dp"
                             android:background="@color/main_color" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        >
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Main Win "
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:textColor="@color/main_color"
-                        android:layout_gravity="center"
-                        android:textSize="14sp" />
 
-                        <View
-                            android:layout_width="159dp"
-                            android:layout_height="3dp"
-                            android:layout_weight="1.5" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="20dp"
-                            android:contentDescription="Arrow Icon"
-                            android:src="@drawable/ic_arrow" />
-                    </LinearLayout>
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Main Win "
+                                android:textColor="@color/main_color"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="159dp"
+                                android:layout_height="3dp"
+                                android:layout_weight="1.5" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:contentDescription="Arrow Icon"
+                                android:src="@drawable/ic_arrow" />
+                        </LinearLayout>
 
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/starlineHistory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginVertical="10dp"
-                android:elevation="1dp">
+                android:elevation="1dp"
+                android:orientation="horizontal">
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="60dp"
-                    android:layout_marginBottom="12dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="5dp"
                     android:layout_marginTop="10dp"
-                    app:cardElevation="4dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="12dp"
                     android:layout_weight="1"
-                    android:tag="starBid"
-                    android:onClick="fundItemClick"
                     android:background="?selectableItemBackground"
+                    android:onClick="fundItemClick"
+                    android:tag="starBid"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:padding="10dp">
 
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/dice"
-                        android:tint="#ffFFE3BB"
-                        android:layout_gravity="center"
-                        android:contentDescription="Main Bid Icon" />
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Main Bid Icon"
+                            android:src="@drawable/dice" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1.5dp"
                             android:layout_marginVertical="5dp"
                             android:background="@color/main_color" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Starline Bid "
-                        android:textStyle="bold"
-                        android:gravity="center_vertical"
-                        android:textColor="@color/main_color"
-                        android:layout_gravity="center"
-                        android:textSize="14sp" />
-                        <View
-                            android:layout_width="159dp"
-                            android:layout_height="3dp"
-                            android:layout_weight="1.5" />
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:contentDescription="Arrow Icon"
-                            android:src="@drawable/ic_arrow" />
-                    </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center_vertical"
+                                android:text="Starline Bid "
+                                android:textColor="@color/main_color"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="159dp"
+                                android:layout_height="3dp"
+                                android:layout_weight="1.5" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:contentDescription="Arrow Icon"
+                                android:src="@drawable/ic_arrow" />
+                        </LinearLayout>
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="10dp"
-                    app:cardElevation="4dp"
-                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginBottom="12dp"
-                    android:tag="starWin"
-                    android:onClick="fundItemClick"
+                    android:layout_weight="1"
                     android:background="?selectableItemBackground"
+                    android:onClick="fundItemClick"
+                    android:tag="starWin"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:padding="10dp">
-
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/trophy"
-                        android:tint="@color/yellow"
-                        android:layout_gravity="center"
-                        android:contentDescription="Main Bid Icon" />
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Main Bid Icon"
+                            android:src="@drawable/trophy" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1.5dp"
                             android:layout_marginVertical="5dp"
                             android:background="@color/main_color" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Starline Win "
-                        android:textStyle="bold"
-                        android:gravity="center_vertical"
-                        android:textColor="@color/main_color"
-                        android:layout_gravity="center"
-                        android:textSize="14sp" />
-                        <View
-                            android:layout_width="159dp"
-                            android:layout_height="3dp"
-                            android:layout_weight="1.5" />
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:contentDescription="Arrow Icon"
-                            android:src="@drawable/ic_arrow" />
-                    </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center_vertical"
+                                android:text="Starline Win "
+                                android:textColor="@color/main_color"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="159dp"
+                                android:layout_height="3dp"
+                                android:layout_weight="1.5" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:contentDescription="Arrow Icon"
+                                android:src="@drawable/ic_arrow" />
+                        </LinearLayout>
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/galiHistory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:elevation="1dp">
+                android:elevation="1dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_weight="1"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="fundItemClick"
+                    android:tag="galiBid"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Main Bid Icon"
+                            android:src="@drawable/dice" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1.5dp"
+                            android:layout_marginVertical="5dp"
+                            android:background="@color/main_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Gali Bid "
+                                android:textColor="@color/main_color"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="159dp"
+                                android:layout_height="3dp"
+                                android:layout_weight="1.5" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:contentDescription="Arrow Icon"
+                                android:src="@drawable/ic_arrow" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="12dp"
-                    app:cardElevation="4dp"
                     android:layout_weight="1"
-                    android:tag="galiBid"
                     android:foreground="?selectableItemBackground"
                     android:onClick="fundItemClick"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="10dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:padding="10dp">
-
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/dice"
-                        android:layout_gravity="center"
-                        android:tint="#ffFFE3BB"
-                        android:contentDescription="Main Bid Icon" />
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1.5dp"
-                            android:layout_marginVertical="5dp"
-                            android:background="@color/main_color" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Gali Bid "
-                        android:textStyle="bold"
-
-                        android:gravity="center"
-                        android:textColor="@color/main_color"
-                        android:layout_gravity="center"
-                        android:textSize="14sp" />
-                        <View
-                            android:layout_width="159dp"
-                            android:layout_height="3dp"
-                            android:layout_weight="1.5" />
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:contentDescription="Arrow Icon"
-                            android:src="@drawable/ic_arrow" />
-                    </LinearLayout>
-                    </LinearLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="12dp"
-                    app:cardElevation="4dp"
-                    android:layout_weight="1"
-                    android:foreground="?selectableItemBackground"
                     android:tag="galiWin"
-                    android:onClick="fundItemClick"
                     app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="10dp">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:padding="10dp">
 
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/trophy"
-                        android:tint="@color/yellow"
-                        android:layout_gravity="center"
-                        android:contentDescription="Main Bid Icon" />
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:contentDescription="Main Bid Icon"
+                            android:src="@drawable/trophy"/>
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1.5dp"
                             android:layout_marginVertical="5dp"
                             android:background="@color/main_color" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Gali Win "
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:textColor="@color/main_color"
-                        android:layout_gravity="center"
-                        android:textSize="14sp" />
-                        <View
-                            android:layout_width="159dp"
-                            android:layout_height="3dp"
-                            android:layout_weight="1.5" />
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:contentDescription="Arrow Icon"
-                            android:src="@drawable/ic_arrow" />
-                    </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Gali Win "
+                                android:textColor="@color/main_color"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="159dp"
+                                android:layout_height="3dp"
+                                android:layout_weight="1.5" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="16dp"
+                                android:contentDescription="Arrow Icon"
+                                android:src="@drawable/ic_arrow" />
+                        </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
+    </LinearLayout>
 </LinearLayout>

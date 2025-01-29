@@ -16,6 +16,7 @@ import android.os.Handler;
 import android.os.Vibrator;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -38,8 +39,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.switchmaterial.SwitchMaterial;
@@ -48,7 +51,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.old_dummy.cc.Adapters.GameListAdapter;
 import com.old_dummy.cc.Adapters.MenuAdapter;
-//import com.old_dummy.cc.Adapters.ViewPagerAdapter;
 import com.old_dummy.cc.BaseActivity;
 import com.old_dummy.cc.Extras.SharPrefHelper;
 import com.old_dummy.cc.Extras.Utility;
@@ -64,7 +66,7 @@ import com.old_dummy.cc.NoticeActivity.NoticeActivity;
 import com.old_dummy.cc.R;
 import com.old_dummy.cc.SplashActivity.SplashActivity;
 import com.old_dummy.cc.WithdrawActivity.WithdrawActivity;
-//import com.old_dummy.cc.Adapters.ViewPagerAdapter;
+import com.old_dummy.cc.Adapters.ViewPagerAdapter;
 //import com.smarteist.autoimageslider.SliderView;
 
 import java.lang.reflect.Type;
@@ -78,7 +80,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends BaseActivity implements MainContract.View {
-
+    TextView txtMarquee;
     MaterialToolbar toolbar;
     ImageView noGameIv;
     List<AppDetailsModel.Data.Banner> bannerList;
@@ -86,12 +88,13 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     RecyclerView recyclerView,navigationRecyclerView;
     GameListAdapter gameListAdapter;
     List<GameListModel.Data> dataList = new ArrayList<>();
-    MaterialTextView whatsAppNumber, mobileNumber,textStripFirst,walletAmount,pendingNoti,callNumber;
+    MaterialTextView whatsAppNumber, mobileNumber,walletAmount,pendingNoti,callNumber;
     public static MaterialTextView personName;
     ProgressBar progressBar;
     Vibrator vibe;
     SwipeRefreshLayout swipeRefreshLayout;
     MaterialCardView addFundLyt,playStarLineLty, galidesawarCard;
+    LinearLayout openBottomSheet;
     SwitchMaterial notiSwitchBtn;
     MaterialTextView dataConText;
     IntentFilter mIntentFilter;
@@ -104,7 +107,8 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     ShapeableImageView vipBadge;
     ConstraintLayout navigationHeader;
     List<MenuItemModel> menuItems;
-
+    ViewPager2 viewPager;
+    ViewPagerAdapter viewPagerAdapter;
     @Override
     protected int getLayoutResourceId() {
         return R.layout.activity_main;
@@ -152,20 +156,57 @@ public class MainActivity extends BaseActivity implements MainContract.View {
             presenter.userDetailsApi( SharPrefHelper.getLogInToken(MainActivity.this));
         }
         else Toast.makeText(this, "Check Your Internet Connection", Toast.LENGTH_SHORT).show();
+
+
+        openBottomSheet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create BottomSheetDialog
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(MainActivity.this);
+
+                // Inflate custom layout
+                View bottomSheetView = getLayoutInflater().inflate(R.layout.bottom_sheet_layout, null);
+                bottomSheetDialog.setContentView(bottomSheetView);
+
+                // Close button action
+                LinearLayout playStarLine = bottomSheetView.findViewById(R.id.playStarLine);
+                LinearLayout galidesawar = bottomSheetView.findViewById(R.id.galidesawar);
+                playStarLine.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.dismiss();
+                        presenter.playStarLine(MainActivity.this);
+                    }
+                });
+
+                galidesawar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        bottomSheetDialog.dismiss();
+                        Intent intent = new Intent(MainActivity.this, GalidesawarActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                // Show BottomSheetDialog
+                bottomSheetDialog.show();
+            }
+        });
     }
 
 
 
 
     private void updateProjectStatus() {
-//        if(!SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_BANNER_STATUS,false)) viewPager.setVisibility(View.GONE);
-        if(!SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_MARQUEE_STATUS,false)) stripLayout.setVisibility(View.GONE);
+        if(!SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_BANNER_STATUS,false)) viewPager.setVisibility(View.GONE);
+//        if(!SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_MARQUEE_STATUS,false)) stripLayout.setVisibility(View.GONE);
         if(!SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_MAIN_MARKET_STATUS,false)){
             recyclerView.setVisibility(View.GONE);
             noGameIv.setVisibility(View.VISIBLE);
         }
 
     }
+
 
     public boolean internetIsConnected() {
         try {
@@ -179,19 +220,26 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 //        drawerLayout = findViewById(R.id.drawerLayout);
         toolbar = findViewById(R.id.toolbar);
         navigationRecyclerView = findViewById(R.id.navigation_recycler_view);
-//        viewPager = findViewById(R.id.slider);
+        viewPager = findViewById(R.id.slider);
         recyclerView = findViewById(R.id.recyclerView);
         whatsAppNumber = findViewById(R.id.whatsAppNumber);
         callNumber = findViewById(R.id.callNumber);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
-        textStripFirst = findViewById(R.id.textStripFirst);
         stripLayout = findViewById(R.id.stripLayout);
-        addFundLyt = findViewById(R.id.addFund_mcv);
-        playStarLineLty = findViewById(R.id.playStarLineLty);
+        txtMarquee =findViewById(R.id.marqueeText);
+        txtMarquee.setSelected(true);
+        // Now we will call setSelected() method
+        // and pass boolean value as true
+
+//        addFundLyt = findViewById(R.id.addFund_mcv);
+//        playStarLineLty = findViewById(R.id.playStarLineLty);
+//
+//        galidesawarCard = findViewById(R.id.galidesawar_card);
+//        fundLayout = findViewById(R.id.fundLayout);
+
+        openBottomSheet = findViewById(R.id.openBottomSheet);
         progressBar = findViewById(R.id.progressBar);
         walletAmount = findViewById(R.id.walletAmount);
-        galidesawarCard = findViewById(R.id.galidesawar_card);
-        fundLayout = findViewById(R.id.fundLayout);
         noGameIv = findViewById(R.id.nogame_iv);
         sivNotice = findViewById(R.id.siv_notice);
         pendingNoti = findViewById(R.id.mtv_pending_noti);
@@ -215,13 +263,13 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         personName.setText(SharPrefHelper.getSignUpData(this, SharPrefHelper.KEY_PERSON_NAME));
         mobileNumber.setText(SharPrefHelper.getSignUpData(this, SharPrefHelper.KEY_MOBILE_NUMBER));
         welcomeMessage=SharPrefHelper.getPreferenceData(this,SharPrefHelper.KEY_WELCOME_MSG);
-        textStripFirst.setText(SharPrefHelper.getPreferenceData(this,SharPrefHelper.KEY_MARQUEE_TEXT));
-        textStripFirst.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-        textStripFirst.setSelected(true);
-        textStripFirst.setSingleLine(true);
-        textStripFirst.setMarqueeRepeatLimit(-1);
-        whatsAppNumber.setText(SharPrefHelper.getContactDetails(this, SharPrefHelper.KEY_WHATSAPP_NUMBER));
-        callNumber.setText(SharPrefHelper.getContactDetails(this, SharPrefHelper.KEY_CONTACT_NUMBER1));
+//        textStripFirst.setText(SharPrefHelper.getPreferenceData(this,SharPrefHelper.KEY_MARQUEE_TEXT));
+//        textStripFirst.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+//        textStripFirst.setSelected(true);
+//        textStripFirst.setSingleLine(true);
+//        textStripFirst.setMarqueeRepeatLimit(-1);
+//        whatsAppNumber.setText(SharPrefHelper.getContactDetails(this, SharPrefHelper.KEY_WHATSAPP_NUMBER));
+//        callNumber.setText(SharPrefHelper.getContactDetails(this, SharPrefHelper.KEY_CONTACT_NUMBER1));
 
         pendingNoti.setText(SharPrefHelper.getPreferenceData(this,SharPrefHelper.KEY_PENDING_NOTICE));
         if(SharPrefHelper.getPreferenceData(this,SharPrefHelper.KEY_PENDING_NOTICE)!=null){
@@ -236,16 +284,16 @@ public class MainActivity extends BaseActivity implements MainContract.View {
             System.out.println("json conversion failed");
         }
         vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE) ;
-//        configureViewPager();
+        configureViewPager();
     }
 
     private void updateUserStatus(String accountStatus) {
         if (accountStatus.equals("2")){
             walletAmount.setVisibility(View.GONE);
-            addFundLyt.setVisibility(View.GONE);
-            playStarLineLty.setVisibility(View.GONE);
-            galidesawarCard.setVisibility(View.GONE);
-            fundLayout.setVisibility(View.GONE);
+//            addFundLyt.setVisibility(View.GONE);
+//            playStarLineLty.setVisibility(View.GONE);
+//            galidesawarCard.setVisibility(View.GONE);
+//            fundLayout.setVisibility(View.GONE);
             sivNotice.setVisibility(View.GONE);
 //            menuItems.clear();
 //            menuItems.add(new MenuItemModel("Home", R.drawable.outline_home_24));
@@ -260,12 +308,12 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
         }else{
             walletAmount.setVisibility(View.VISIBLE);
-            addFundLyt.setVisibility(View.VISIBLE);
-            if(SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_STARLINE_MARKET_STATUS,false)) playStarLineLty.setVisibility(View.VISIBLE);
-            else  playStarLineLty.setVisibility(View.GONE);
-            if(SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_GALIDESAWAR_MARKET_STATUS,false)) galidesawarCard.setVisibility(View.VISIBLE);
-            else galidesawarCard.setVisibility(View.GONE);
-            fundLayout.setVisibility(View.VISIBLE);
+//            addFundLyt.setVisibility(View.VISIBLE);
+//            if(SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_STARLINE_MARKET_STATUS,false)) playStarLineLty.setVisibility(View.VISIBLE);
+//            else  playStarLineLty.setVisibility(View.GONE);
+//            if(SharPrefHelper.getBooleanData(this,SharPrefHelper.KEY_GALIDESAWAR_MARKET_STATUS,false)) galidesawarCard.setVisibility(View.VISIBLE);
+//            else galidesawarCard.setVisibility(View.GONE);
+//            fundLayout.setVisibility(View.VISIBLE);
             sivNotice.setVisibility(View.VISIBLE);
             updateProjectStatus();
             menuItems.clear();
@@ -387,14 +435,38 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         walletAmount.setOnClickListener(v -> presenter.funds(this));
     }
 
-//    private void configureViewPager() {
-//        viewPagerAdapter = new ViewPagerAdapter(this, bannerList);
+    private void configureViewPager() {
+        viewPagerAdapter = new ViewPagerAdapter(this, bannerList);
 //        viewPager.setAutoCycleDirection(SliderView.LAYOUT_DIRECTION_LTR);
-//        viewPager.setSliderAdapter(viewPagerAdapter);
+        viewPager.setAdapter(viewPagerAdapter);
+        viewPager.setOffscreenPageLimit(3);
 //        viewPager.setScrollTimeInSec(3);
 //        viewPager.setAutoCycle(true);
 //        viewPager.startAutoCycle();
-//    }
+        viewPager.setPageTransformer((page, position) -> {
+            float absPosition = Math.abs(position);
+
+            // Adjust scale for zoom-out effect
+            page.setScaleY(0.85f + (1 - absPosition) * 0.15f);
+
+            // Adjust translation for spacing effect
+            page.setTranslationX(-position * 40); // Adjust the value to increase/decrease spacing
+        });
+        Log.e("Total Length", String.valueOf(bannerList.size()));
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                int currentItem = viewPager.getCurrentItem();
+                int nextItem = (currentItem + 1) % bannerList.size(); // Loop back to first item
+                viewPager.setCurrentItem(nextItem, true);
+                handler.postDelayed(this, 3000); // Auto-scroll every 3 seconds
+            }
+        };
+        handler.postDelayed(runnable, 3000);
+
+
+    }
     private void configureRecyclerView() {
         gameListAdapter = new GameListAdapter(this, (ArrayList<GameListModel.Data>)
                 dataList, new GameListAdapter.OnItemClickListener() {
@@ -411,7 +483,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
                     Intent intent = new Intent(MainActivity.this, GameActivity.class);
                     intent.putExtra(getString(R.string.game), data.getId());
                     intent.putExtra(getString(R.string.game_name), data.getName());
-                    intent.putExtra("open",data.isOpen());
+                    intent.putExtra("Running",data.isOpen());
                     startActivity(intent);
                 }
             }
@@ -510,7 +582,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         if(vipStatus){
             vipBadge.setVisibility(View.VISIBLE);
         }else {
-            vipBadge.setVisibility(View.GONE);
+            vipBadge.setVisibility(View.VISIBLE);
         }
         if(userStatusData.getAccountStatus().equals("1")){
            try {
@@ -546,12 +618,12 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         SharPrefHelper.setBooleanData(this,SharPrefHelper.KEY_MARQUEE_STATUS, data.getProject_status().getMarquee_status().equals("On"));
         SharPrefHelper.setPreferenceData(this,SharPrefHelper.KEY_BANNER_LIST, new Gson().toJson(data.getBannerList()));
         SharPrefHelper.setPreferenceData(this,SharPrefHelper.KEY_App_Details, new Gson().toJson(data));
-        whatsAppNumber.setText(appDetailsModel.getData().getContact_details().getWhatsapp_no());
-        callNumber.setText(appDetailsModel.getData().getContact_details().getMobile_no_1());
+//        whatsAppNumber.setText(appDetailsModel.getData().getContact_details().getWhatsapp_no());
+//        callNumber.setText(appDetailsModel.getData().getContact_details().getMobile_no_1());
         telegramLink = data.getContact_details().getTelegram_no();
         welcomeMessage = data.getWelcome_message();
         bannerList = data.getBannerList();
-//        viewPagerAdapter.notifyDataSetChanged();
+        viewPagerAdapter.notifyDataSetChanged();
     }
 
     @Override

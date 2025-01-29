@@ -1,68 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="#ff051367">
+    android:layout_margin="16dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <!-- Title Text -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:gravity="start"
-            android:text="Logout"
             android:layout_marginTop="20dp"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
+            android:gravity="center"
+            android:text="Logout"
+            android:textColor="@color/main_color"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <!-- Logout Confirmation Text -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/logoutText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
             android:layout_margin="20dp"
-            android:gravity="start"
-            android:text="Are you sure you want to logout?"
-            android:textColor="@color/white"
-            android:textSize="15sp"/>
+            android:gravity="center"
+            android:text="Are you sure,\nyou want to logout the game?"
+            android:textColor="@color/main_color"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <!-- Buttons Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_below="@id/logoutText"
             android:layout_marginHorizontal="25dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="25dp"
-            android:gravity="end"
-            android:layout_below="@id/logoutText">
+            android:orientation="horizontal">
 
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/noBtn"
-                android:layout_width="wrap_content"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Cancel"
-                app:cornerRadius="10dp"
-                android:paddingVertical="10dp"
-                android:paddingHorizontal="18dp"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:textColor="@color/white"/>
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/yesBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Logout"
-                android:paddingVertical="10dp"
-                app:cornerRadius="10dp"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:paddingHorizontal="18dp"
-                android:background="?selectableItemBackground"
-                android:textColor="@color/white"/>
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="1dp"
+                app:strokeColor="#ffFFE3BB"
+                app:strokeWidth="2dp">
 
+                <TextView
+                    android:id="@+id/noBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/history_bg_gredient"
+                    android:gravity="center"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="12dp"
+                    android:text="No"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- Logout Button -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="1dp"
+                app:strokeColor="#ffFFE3BB"
+                app:strokeWidth="2dp">
+
+                <TextView
+                    android:id="@+id/yesBtn"
+                    android:layout_width="155dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/main_color"
+                    android:gravity="center"
+                    android:paddingVertical="12dp"
+                    android:text="Yes"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
-    </RelativeLayout>
 
+    </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

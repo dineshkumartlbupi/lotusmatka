@@ -11,8 +11,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/drawerIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_marginHorizontal="20dp"
         android:src="@drawable/outline_home_24"
         android:tint="#ff051367" />
@@ -24,6 +24,6 @@
         android:textSize="16sp"
         android:gravity="center"
         android:tint="@color/white"
-        android:textColor="#ff051367"/>
+        android:textColor="@color/black"/>
 
 </LinearLayout>

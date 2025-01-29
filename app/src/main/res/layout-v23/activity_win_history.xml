@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".HistoryActivity.WinHistoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <include layout="@layout/custom_appbar2"
+            android:id="@+id/appbarLayout"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dataConText"
+            android:text="@string/you_are_not_connected_to_internet"
+            android:textColor="@color/black"
+            android:background="@color/warningRed"
+            android:padding="5dp"
+            android:visibility="gone"
+            android:elevation="1dp"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/history_bg_gredient"
+            android:paddingHorizontal="16dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="@string/from_date"
+                android:textColor="@color/main_color"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/fromDate"
+                app:layout_constraintEnd_toEndOf="@id/fromDate"
+                app:layout_constraintStart_toStartOf="@id/fromDate" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/fromDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/date_button_bg"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:onClick="fromDate"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="12dp"
+                android:text="2024-08-29"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:cornerRadius="230dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/toDate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.361" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/to_date"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/toDate"
+                app:layout_constraintEnd_toEndOf="@id/toDate"
+                app:layout_constraintStart_toStartOf="@id/toDate" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/toDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/date_button_bg"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:onClick="toDate"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="12dp"
+                android:text="2024-08-29"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/fromDate"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.361" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="0dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#ff051367"
+                app:strokeColor="#ffFFE3BB"
+                app:strokeWidth="2dp"
+                android:onClick="submitWinHistory"
+                android:text="Submit"
+                app:cornerRadius="20dp"
+                android:paddingVertical="12dp"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/fromDate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/recyclerView"
+                    tools:listitem="@layout/recy_win_history_layout"/>
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/emptyIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:visibility="gone"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_win_history_icon_2_01" />
+            </FrameLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

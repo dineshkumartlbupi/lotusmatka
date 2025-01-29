@@ -122,26 +122,26 @@ public class SettingsActivity extends BaseActivity implements
 //            menuItems.add(new MenuItemModel("Profile", R.drawable.baseline_perm_identity_24));
             menuItems.add(new MenuItemModel("Contact Us", R.drawable.outline_contact_phone_24));
             menuItems.add(new MenuItemModel("Share With Friends", R.drawable.baseline_share_24));
-            menuItems.add(new MenuItemModel("Privacy Policy", R.drawable.outline_gpp_maybe_24));
+//            menuItems.add(new MenuItemModel("Privacy Policy", R.drawable.outline_gpp_maybe_24));
             menuItems.add(new MenuItemModel("Rate App", R.drawable.outline_star_border_24));
             menuItems.add(new MenuItemModel("Change Password", R.drawable.baseline_password_24));
-            menuItems.add(new MenuItemModel("Logout", R.drawable.baseline_logout_24));
+            menuItems.add(new MenuItemModel("Logout", R.drawable.ic_logout));
             setNavigationMenu(menuItems);
 
         }else{
             menuItems.clear();
 //            menuItems.add(new MenuItemModel("Home", R.drawable.outline_home_24));
 //            menuItems.add(new MenuItemModel("Profile", R.drawable.baseline_perm_identity_24));
-            menuItems.add(new MenuItemModel("Wallet", R.drawable.outline_add_business_24));
+//            menuItems.add(new MenuItemModel("Wallet", R.drawable.outline_add_business_24));
 //            menuItems.add(new MenuItemModel("My History", R.drawable.baseline_history_24));
             menuItems.add(new MenuItemModel("Game Rates", R.drawable.baseline_currency_bitcoin_24));
             menuItems.add(new MenuItemModel("How To Play", R.drawable.baseline_play_circle_outline_24));
             menuItems.add(new MenuItemModel("Contact Us", R.drawable.outline_contact_phone_24));
             menuItems.add(new MenuItemModel("Share With Friends", R.drawable.baseline_share_24));
-            menuItems.add(new MenuItemModel("Privacy Policy", R.drawable.outline_gpp_maybe_24));
+//            menuItems.add(new MenuItemModel("Privacy Policy", R.drawable.outline_gpp_maybe_24));
             menuItems.add(new MenuItemModel("Rate App", R.drawable.outline_star_border_24));
             menuItems.add(new MenuItemModel("Change Password", R.drawable.baseline_password_24));
-            menuItems.add(new MenuItemModel("Logout", R.drawable.baseline_logout_24));
+            menuItems.add(new MenuItemModel("Logout", R.drawable.ic_logout));
             setNavigationMenu(menuItems);
         }
     }
@@ -180,15 +180,15 @@ public class SettingsActivity extends BaseActivity implements
         // Handle the menu item clicks here
         // For example, you can replace fragments, start new activities, etc.
         switch (menuItem) {
-            case "Profile":
-                presenter.profile(SettingsActivity.this);
-                break;
-            case "Wallet":
-                presenter.funds(SettingsActivity.this);
-                break;
-            case "My History":
-                presenter.history(SettingsActivity.this,200);
-                break;
+//            case "Profile":
+//                presenter.profile(SettingsActivity.this);
+//                break;
+//            case "Wallet":
+//                presenter.funds(SettingsActivity.this);
+//                break;
+//            case "My History":
+//                presenter.history(SettingsActivity.this,200);
+//                break;
             case "Game Rates":
                 presenter.gameRates(SettingsActivity.this,1);
                 break;
@@ -201,9 +201,9 @@ public class SettingsActivity extends BaseActivity implements
             case "Share With Friends":
                 presenter.shareWithFriends(SettingsActivity.this);
                 break;
-            case "Privacy Policy":
-                presenter.privacyPolicy(this);
-                break;
+//            case "Privacy Policy":
+//                presenter.privacyPolicy(this);
+//                break;
             case "Rate App":
                 presenter.rateApp(SettingsActivity.this);
                 break;

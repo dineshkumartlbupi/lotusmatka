@@ -79,7 +79,7 @@
                         android:layout_gravity="center_vertical"/>
                 </LinearLayout>
 
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/submitButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
