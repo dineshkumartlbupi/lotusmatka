@@ -83,13 +83,13 @@ editRequestLayout.setVisibility(View.GONE);
         inputMobileNumber = findViewById(R.id.inputMobNumber);
 
         // Set hint text color using android:textColorHint attribute (recommended)
-        inputPersonName.setTextColor(getResources().getColor(R.color.black));
-        inputEmail.setTextColor(getResources().getColor(R.color.black));
-        inputMobileNumber.setTextColor(getResources().getColor(R.color.black));
+        inputPersonName.setTextColor(getResources().getColor(R.color.main_color));
+        inputEmail.setTextColor(getResources().getColor(R.color.main_color));
+        inputMobileNumber.setTextColor(getResources().getColor(R.color.main_color));
 
 
         TextInputEditText hint = findViewById(R.id.inputPersonName);
-        hint.setHintTextColor(ContextCompat.getColor(this, R.color.black));
+        hint.setHintTextColor(ContextCompat.getColor(this, R.color.main_color));
 
     }
 

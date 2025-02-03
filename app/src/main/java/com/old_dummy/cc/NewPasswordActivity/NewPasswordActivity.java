@@ -90,10 +90,10 @@ public class NewPasswordActivity extends AppCompatActivity implements NewPasswor
 //            onBackPressed();
 //        });
         if (code==300){
-            topTitle.setText("Reset\nPassword");
+            topTitle.setText("Reset Password");
             passLayout.setVisibility(View.VISIBLE);
         }else {
-            topTitle.setText("Reset\nPin");
+            topTitle.setText("Reset Pin");
             pinLayout.setVisibility(View.VISIBLE);
         }
 

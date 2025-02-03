@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical"
     tools:context=".ProfileActivity.ProfileActivity">
 
     <LinearLayout
@@ -30,39 +29,24 @@
 
         <TextView
             android:id="@+id/profileInitial"
-            android:layout_width="94dp"
-            android:layout_height="94dp"
+            android:layout_width="85sp"
+            android:layout_height="85sp"
             android:layout_gravity="center"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="80sp"
             android:background="@drawable/profile_bg_gradient"
             android:gravity="center"
             android:text="B"
             android:textColor="@android:color/white"
-            android:textSize="36sp" />
-
-        <!--        <ImageView-->
-        <!--            android:layout_width="100dp"-->
-        <!--            android:layout_height="100dp"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            android:layout_marginTop="80dp"-->
-        <!--            android:src="@drawable/profile_image" />-->
-
-
-        <!--                <com.google.android.material.imageview.ShapeableImageView-->
-        <!--                    android:layout_width="150dp"-->
-        <!--                    android:layout_height="150dp"-->
-        <!--                    android:layout_marginVertical="20dp"-->
-        <!--                    android:src="@drawable/ic_app_logo_trans"-->
-        <!--                    android:layout_gravity="center"/>-->
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
+            android:layout_height="25sp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="1sp"
             android:text="Name"
-            android:textColor="@color/black"
+            android:textColor="@color/main_color"
             android:textSize="20sp" />
 
         <View
@@ -85,42 +69,64 @@
                 android:layout_height="250dp"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <!-- Name Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/personInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:enabled="false"
+                    android:textAlignment="textEnd"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/resend_text_color"
+                    app:boxStrokeWidth="1dp"
+                    app:startIconTint="@color/main_color"
+                    app:prefixText="Name "
+                    app:prefixTextColor="@color/main_color">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/nameInputLayout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputPersonName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginTop="30dp"
-                        android:enabled="false"
-                        android:hint="Name"
-                        app:boxCornerRadiusBottomEnd="10dp"
-                        app:boxCornerRadiusBottomStart="10dp"
-                        app:boxCornerRadiusTopEnd="10dp"
-                        app:boxCornerRadiusTopStart="10dp"
-                        android:orientation="horizontal"
-                        app:boxStrokeColor="@color/orange_color"
-                        app:boxStrokeWidth="1dp"
-                        app:hintTextColor="@color/red"
-                        app:startIconTint="@color/black">
+                        android:gravity="end"
+                        android:backgroundTint="@color/white"
+                        android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/inputPersonName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/white"
-                            android:inputType="textPersonName|textCapWords"
-                            android:textColor="@color/black" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                <!-- Phone Number Field (Now Editable) -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/numberInputLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="textEnd"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/resend_text_color"
+                    app:boxStrokeWidth="1dp"
+                    app:startIconTint="@color/main_color"
+                    app:prefixText="Number "
+                    app:prefixTextColor="@color/main_color">
 
-                </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputMobNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:backgroundTint="@color/white"
+                        android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-
+                <!-- Email Field -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/emailInputLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
@@ -129,30 +135,6 @@
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"
                     android:enabled="false"
-                    android:hint="Email"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:startIconTint="@color/yellow">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/inputEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:inputType="textEmailAddress" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/numberInputLayout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:enabled="false"
-                    android:hint="Number"
                     android:textAlignment="textEnd"
                     app:boxCornerRadiusBottomEnd="10dp"
                     app:boxCornerRadiusBottomStart="10dp"
@@ -160,15 +142,17 @@
                     app:boxCornerRadiusTopStart="10dp"
                     app:boxStrokeColor="@color/resend_text_color"
                     app:boxStrokeWidth="1dp"
-                    app:startIconTint="@color/black">
+                    app:startIconTint="@color/main_color"
+                    app:prefixText="Email "
+                    app:prefixTextColor="@color/main_color">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/inputMobNumber"
+                        android:id="@+id/inputEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="end"
                         android:backgroundTint="@color/white"
-                        android:inputType="phone"
-                        android:textColor="@color/black" />
+                        android:inputType="textEmailAddress" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -198,17 +182,14 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:textAllCaps="true" />
-
             </LinearLayout>
-
         </LinearLayout>
-
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="60dp"
