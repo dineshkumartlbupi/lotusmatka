@@ -66,7 +66,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="220dp"
                 android:orientation="vertical">
 
                 <!-- Name Field -->
@@ -106,6 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"
+                    android:enabled="false"
                     android:textAlignment="textEnd"
                     app:boxCornerRadiusBottomEnd="10dp"
                     app:boxCornerRadiusBottomStart="10dp"
@@ -114,18 +115,17 @@
                     app:boxStrokeColor="@color/resend_text_color"
                     app:boxStrokeWidth="1dp"
                     app:startIconTint="@color/main_color"
-                    app:prefixText="Number "
+                    app:prefixText="Mobile "
                     app:prefixTextColor="@color/main_color">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/inputMobNumber"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:backgroundTint="@color/white"
-                        android:inputType="phone" />
-                </com.google.android.material.textfield.TextInputLayout>
-
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputMobNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:inputType="phone"
+                    android:gravity="end"
+                    android:textColor="@color/main_color" />
+            </com.google.android.material.textfield.TextInputLayout>
                 <!-- Email Field -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/emailInputLayout"
@@ -214,6 +214,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:indeterminateTint="@color/orange_color"
+        android:indeterminateTint="@color/main_color"
         android:visibility="gone" />
 </RelativeLayout>

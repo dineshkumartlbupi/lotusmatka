@@ -93,7 +93,7 @@ public class NewPasswordActivity extends AppCompatActivity implements NewPasswor
             topTitle.setText("Reset Password");
             passLayout.setVisibility(View.VISIBLE);
         }else {
-            topTitle.setText("Reset Pin");
+            topTitle.setText("Change Pin");
             pinLayout.setVisibility(View.VISIBLE);
         }
 

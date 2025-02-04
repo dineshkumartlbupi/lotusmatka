@@ -31,6 +31,7 @@ import com.old_dummy.cc.Models.StarlineGameListModel;
 import com.old_dummy.cc.MyHistoryActivity.MyHistoryActivity;
 import com.old_dummy.cc.R;
 import com.old_dummy.cc.SplashActivity.SplashActivity;
+import com.old_dummy.cc.StarLineBidPlacedActivity.StarLineBidPlacedActivity;
 import com.old_dummy.cc.StarlineGameActivity.StarLineGameActivity;
 
 import java.util.ArrayList;
@@ -213,6 +214,6 @@ public class StarLineActivity extends AppCompatActivity implements StarLineContr
     }
 
     public void history(View view) {
-        startActivity(new Intent(this, MyHistoryActivity.class));
+        startActivity(new Intent(this, StarLineBidPlacedActivity.class));
     }
 }

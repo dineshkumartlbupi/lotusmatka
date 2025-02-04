@@ -155,6 +155,7 @@ editRequestLayout.setVisibility(View.GONE);
             submitButton.setVisibility(View.GONE);
             editRequestLayout.setVisibility(View.VISIBLE);
             inputPersonName.setEnabled(true);
+            inputMobileNumber.setEnabled(true);
             inputEmail.setEnabled(true);
             inputPersonName.requestFocus();
 
@@ -243,6 +244,7 @@ editRequestLayout.setVisibility(View.GONE);
     @Override
     public void apiResponse(LoginModel.Data data) {
         inputPersonName.setEnabled(false);
+        inputMobileNumber.setEnabled(false);
         inputEmail.setEnabled(false);
         editProfile = false;
         MainActivity.personName.setText(inputPersonName.getText().toString());

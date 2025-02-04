@@ -60,6 +60,7 @@
                 android:scaleType="fitXY"
                 android:text="Starline Chart "
                 android:textColor="@color/white"
+                android:clickable="true"
                 android:textStyle="bold" />
         </LinearLayout>
 
