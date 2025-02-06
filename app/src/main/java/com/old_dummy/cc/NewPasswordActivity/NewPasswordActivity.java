@@ -39,6 +39,7 @@ import com.old_dummy.cc.SecurityPinActivity.SecurityPinActivity;
 import com.old_dummy.cc.SplashActivity.SplashActivity;
 
 import java.lang.reflect.Type;
+import java.util.Objects;
 
 public class NewPasswordActivity extends AppCompatActivity implements NewPasswordContract.View{
 
@@ -71,13 +72,17 @@ public class NewPasswordActivity extends AppCompatActivity implements NewPasswor
     }
     private void intVariables() {
         mINewPass = findViewById(R.id.inputNewPass);
-        mPassToggle = findViewById(R.id.passToggleEye);
         mIConfPass = findViewById(R.id.inputConformPass);
-        mPassToggleConf = findViewById(R.id.passToggleEyeConf);
-        mINewPin = findViewById(R.id.inputNewPin);
-        mPinToggle = findViewById(R.id.pinToggleEye);
+
+        mINewPin = findViewById(R.id.inputNewPinn);
         mIConfPin = findViewById(R.id.inputConformPin);
+
+        mPassToggle = findViewById(R.id.passToggleEye);
+        mPassToggleConf = findViewById(R.id.passToggleEyeConf);
+
+        mPinToggle = findViewById(R.id.pinToggleEye);
         mPinToggleConf = findViewById(R.id.pinToggleEyeConf);
+
         mProgressBar = findViewById(R.id.progressBar);
         passLayout = findViewById(R.id.passLayout);
         pinLayout = findViewById(R.id.pinLayout);
@@ -114,9 +119,10 @@ public class NewPasswordActivity extends AppCompatActivity implements NewPasswor
     }
 
     public void GoChangePass(View view) {
+        mINewPass = findViewById(R.id.inputNewPass);
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        if (TextUtils.isEmpty(mINewPass.getText().toString())){
+        if (TextUtils.isEmpty(mINewPass.getText())){
             Snackbar.make(view,getString( R.string.please_enter_your_new_password), 2000).show();
             return;
         }
