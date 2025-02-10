@@ -20,15 +20,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 import com.old_dummy.cc.Adapters.StarlineGameListAdapter;
 import com.old_dummy.cc.Extras.SharPrefHelper;
 import com.old_dummy.cc.Extras.Utility;
 import com.old_dummy.cc.Extras.YourService;
-import com.old_dummy.cc.LoginActivity.LoginActivity;
+import com.old_dummy.cc.GameRateActivity.GameRatesActivity;
 import com.old_dummy.cc.Models.StarlineGameListModel;
-import com.old_dummy.cc.MyHistoryActivity.MyHistoryActivity;
 import com.old_dummy.cc.R;
 import com.old_dummy.cc.SplashActivity.SplashActivity;
 import com.old_dummy.cc.StarLineBidPlacedActivity.StarLineBidPlacedActivity;
@@ -42,7 +40,7 @@ public class StarLineActivity extends AppCompatActivity implements StarLineContr
     MaterialToolbar toolbar;
     RecyclerView recyclerStarLine;
     StarlineGameListAdapter starlineGameListAdapter;
-    MaterialTextView singleDigitValue,singlePanaValue,doublePanaValue,triplePanaValue;
+    MaterialTextView singleDigitValue,singlePanaValue,doublePanaValue,triplePanaValue,gameRates,starLineChart;
     MaterialTextView singleDigitEarningAmount,singlePanaEarningAmount,doublePanaEarningAmount,triplePanaEarningAmount;
     String chartURL = "";
     List<MaterialTextView> digitValue = new ArrayList<>();
@@ -55,6 +53,7 @@ public class StarLineActivity extends AppCompatActivity implements StarLineContr
     Utility utility;
     StarLineContract.Presenter presenter;
     ArrayList<String> nameList ;
+    String[] gameNames = {"Single Digit","Jodi Digit","Single Panna","Double Panna","Triple Panna","Half Sanagam","Full Sangam",};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +89,23 @@ public class StarLineActivity extends AppCompatActivity implements StarLineContr
             }
         });
 
+        gameRates.setOnClickListener(new
+                                             View.OnClickListener() {
+                                                 @Override
+                                                 public void onClick(View v) {
+
+                                                     Intent intent = new Intent(StarLineActivity.this, GameRatesActivity.class);
+
+                                                     startActivity(intent);
+                                                 }
+                                             });
+
+        starLineChart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+chart(v);
+            }
+        });
     }
 
     private void configureRecycler() {
@@ -119,6 +135,8 @@ public class StarLineActivity extends AppCompatActivity implements StarLineContr
     private void intIDs() {
         toolbar = findViewById(R.id.toolbar);
         recyclerStarLine = findViewById(R.id.recyclerStarLine);
+        gameRates = findViewById(R.id.gameRates);
+        starLineChart = findViewById(R.id.starLineChart);
 
         singleDigitValue = findViewById(R.id.singleCoastAmount);
         singlePanaValue = findViewById(R.id.singlePannaCoastAmount);
@@ -150,7 +168,9 @@ public class StarLineActivity extends AppCompatActivity implements StarLineContr
     }
 
     public void winHistory(View view) {
-        presenter.History(this, 300);
+
+            presenter.History(this, 400,"Starline Win History");
+
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override

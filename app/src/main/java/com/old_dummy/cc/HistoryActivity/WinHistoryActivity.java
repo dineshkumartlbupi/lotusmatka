@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -164,6 +165,7 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
         title = getIntent().getStringExtra("from");
 
 
+
         if (history == 100 || history == 200) {
             historyMethod(fDate, tDate);
         }
@@ -214,7 +216,17 @@ public class WinHistoryActivity extends AppCompatActivity implements HistoryCont
     };
 
     private void configureToolbar() {
-        toolbar.setTitle(title);
+        try {
+           if (title!=null){
+               toolbar.setTitle(title);
+           }
+          else{
+               toolbar.setTitle("Starline Win History");
+           }
+        }catch (Exception e){
+            toolbar.setTitle("Starline Win History");
+        }
+
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

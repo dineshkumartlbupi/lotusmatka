@@ -67,7 +67,7 @@ public class StarLinePresenter implements StarLineContract.ViewModel.OnFinishedL
     }
 
     @Override
-    public void History(Activity activity, int history) {
+    public void History(Activity activity, int history, String mainWinHistory) {
         Intent bidHistory = new Intent(activity, WinHistoryActivity.class);
         bidHistory.putExtra(activity.getString(R.string.history), history);
         activity.startActivity(bidHistory);

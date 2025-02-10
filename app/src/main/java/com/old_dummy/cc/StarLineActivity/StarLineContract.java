@@ -29,6 +29,7 @@ public interface StarLineContract {
     interface Presenter{
         void api(String token);
         void chart(Activity activity, ArrayList<String> name);
-        void History(Activity activity, int history);
+        void History(Activity activity, int history, String mainWinHistory);
+
     }
 }

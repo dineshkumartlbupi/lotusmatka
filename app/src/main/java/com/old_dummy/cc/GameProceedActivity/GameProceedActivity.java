@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -76,7 +77,7 @@ public class GameProceedActivity extends AppCompatActivity implements GameProcee
     MaterialTextView chooseDate,mtv_totalPoints,walletAmount;
     MaterialAutoCompleteTextView inputDigit,inputCloseDigit;
     TextInputEditText inputPoints;
-    MaterialRadioButton openLlout, closeLlout;
+    LinearLayout openLlout, closeLlout;
     MaterialButton btn_proceed;
     ArrayList<String> numbers, numbers2;
     ArrayAdapter<String> adapter,adapter2;

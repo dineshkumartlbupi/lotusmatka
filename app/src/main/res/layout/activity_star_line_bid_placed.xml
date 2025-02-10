@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".StarLineBidPlacedActivity.StarLineBidPlacedActivity">
-    <include layout="@layout/custom_appbar11"
+    <include layout="@layout/custom_appbar15"
         android:id="@+id/appbarLayout"/>
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
@@ -29,105 +29,116 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp">
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:id="@+id/pointIcon"
-                    android:src="@drawable/diamond"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/walletAmount"/>
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/pointIcon"
-                    app:layout_constraintBottom_toBottomOf="@id/pointIcon"
-                    app:layout_constraintStart_toEndOf="@id/pointIcon"
-                    app:layout_constraintBottom_toTopOf="@id/text1"
-                    android:text="00"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:id="@+id/walletAmount"
-                    android:layout_marginStart="20dp"/>
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/walletAmount"
-                    app:layout_constraintBottom_toBottomOf="@id/pointIcon"
-                    app:layout_constraintStart_toEndOf="@id/pointIcon"
-                    android:text="Available Points"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:id="@+id/text1"
-                    android:layout_marginStart="20dp"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:layout_marginTop="20dp">-->
+<!--                <com.google.android.material.imageview.ShapeableImageView-->
+<!--                    android:layout_width="70dp"-->
+<!--                    android:layout_height="70dp"-->
+<!--                    android:id="@+id/pointIcon"-->
+<!--                    android:src="@drawable/diamond"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toStartOf="@id/walletAmount"/>-->
+<!--                <com.google.android.material.textview.MaterialTextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/pointIcon"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/pointIcon"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/pointIcon"-->
+<!--                    app:layout_constraintBottom_toTopOf="@id/text1"-->
+<!--                    android:text="00"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:id="@+id/walletAmount"-->
+<!--                    android:layout_marginStart="20dp"/>-->
+<!--                <com.google.android.material.textview.MaterialTextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/walletAmount"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/pointIcon"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/pointIcon"-->
+<!--                    android:text="Available Points"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:id="@+id/text1"-->
+<!--                    android:layout_marginStart="20dp"/>-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/chooseDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border2"
+                android:background="@drawable/bg_gradient2"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="13dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="20dp"
                 android:textSize="18sp"
                 android:text="rdxcfvhjhgjh"
-                android:textStyle="bold"
                 android:gravity="center"
-                android:textColor="@color/black"/>
+                android:textColor="@color/white"/>
 
 
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/inputDigit"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Digit"
-                android:paddingVertical="13dp"
-                android:layout_marginTop="20dp"
-                android:paddingHorizontal="10dp"
-                android:textColor="@color/black"
-                android:inputType="number"
-                android:background="@drawable/border2"
-                android:layout_marginHorizontal="20dp"/>
+                android:orientation="vertical"
+                android:layout_margin="16dp"
+                android:padding="16dp"
+                android:background="@drawable/bg_gradient2"
+                android:elevation="4dp"
+                android:clipToOutline="true"
+                android:layout_gravity="center">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputPoints"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_points"
-                android:paddingHorizontal="10dp"
-                android:layout_marginTop="15dp"
-                android:paddingVertical="13dp"
-                android:inputType="number"
-                android:maxLength="9"
-                android:background="@drawable/border2"
-                android:textColor="@color/black"
-                android:layout_marginHorizontal="20dp"/>
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_proceed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#0B1C76"
-                app:strokeColor="#ffFFE3BB"
-                app:strokeWidth="2dp"
-                android:text="Add Bid"
-                app:cornerRadius="20dp"
-                android:paddingVertical="12dp"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/inputDigit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/white"
+                    android:hint="Enter Digit"
+                    android:inputType="number"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="13dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/enter_points"
+                    android:inputType="number"
+                    android:maxLength="9"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="13dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_proceed"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#0B1C76"
+                    app:strokeColor="#ffFFE3BB"
+                    app:strokeWidth="2dp"
+                    android:text="Add Bid"
+                    app:cornerRadius="20dp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
         </LinearLayout>
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"

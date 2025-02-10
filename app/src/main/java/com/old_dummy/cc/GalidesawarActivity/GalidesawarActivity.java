@@ -26,12 +26,17 @@ import com.old_dummy.cc.Adapters.GalidesawarGameListAdapter;
 import com.old_dummy.cc.Extras.SharPrefHelper;
 import com.old_dummy.cc.Extras.Utility;
 import com.old_dummy.cc.Extras.YourService;
+import com.old_dummy.cc.GalidesawarChart.GalidesawarChartActivity;
 import com.old_dummy.cc.GalidesawarGameActivity.GalidesawarGameActivity;
+import com.old_dummy.cc.GalidesawarProceedActivity.GalidesawarBidPlacedActivity;
+import com.old_dummy.cc.GameRateActivity.GameRatesActivity;
 import com.old_dummy.cc.LoginActivity.LoginActivity;
 import com.old_dummy.cc.Models.GalidesawarGameListModel;
 import com.old_dummy.cc.MyHistoryActivity.MyHistoryActivity;
 import com.old_dummy.cc.R;
 import com.old_dummy.cc.SplashActivity.SplashActivity;
+import com.old_dummy.cc.StarLineActivity.StarLineActivity;
+import com.old_dummy.cc.StarlineChart.StarlineChartActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +47,7 @@ public class GalidesawarActivity extends AppCompatActivity implements Galidesawa
     RecyclerView recyclerGalidesawar;
     GalidesawarGameListAdapter galidesawarGameListAdapter;
     MaterialTextView leftDigitValue, rightDigitValue, jodiDigitValue;
-    MaterialTextView leftDigitEarning, rightDigitEarning, jodiDigitEarning;
+    MaterialTextView leftDigitEarning, rightDigitEarning, jodiDigitEarning,gameRates,starLineChart;
     String chartURL = "";
     List<MaterialTextView> digitValue = new ArrayList<>();
     List<MaterialTextView> digitEarning = new ArrayList<>();
@@ -85,6 +90,24 @@ public class GalidesawarActivity extends AppCompatActivity implements Galidesawa
             }
         });
 
+        gameRates.setOnClickListener(new
+                                             View.OnClickListener() {
+                                                 @Override
+                                                 public void onClick(View v) {
+
+                                                     Intent intent = new Intent(GalidesawarActivity.this, GameRatesActivity.class);
+
+                                                     startActivity(intent);
+                                                 }
+                                             });
+
+        starLineChart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+chart(v);
+            }
+        });
+
     }
 
     private void configureRecycler() {
@@ -114,6 +137,8 @@ public class GalidesawarActivity extends AppCompatActivity implements Galidesawa
     private void intIDs() {
         toolbar = findViewById(R.id.toolbar);
         recyclerGalidesawar = findViewById(R.id.recyclerGalidesawar);
+        gameRates = findViewById(R.id.gameRates);
+        starLineChart = findViewById(R.id.starLineChart);
 
         leftDigitValue = findViewById(R.id.leftCoastAmount);
         rightDigitValue = findViewById(R.id.rightCoastAmount);
@@ -206,8 +231,9 @@ public class GalidesawarActivity extends AppCompatActivity implements Galidesawa
         Intent intent = new Intent(this, SplashActivity.class);
         startActivity(intent);
         finish();
-    }
+}
+
     public void history(View view) {
-        startActivity(new Intent(this, MyHistoryActivity.class));
+        startActivity(new Intent(this, GalidesawarBidPlacedActivity.class));
     }
 }

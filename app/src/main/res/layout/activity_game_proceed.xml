@@ -33,146 +33,209 @@
             android:layout_alignParentTop="true"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp">
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center_horizontal"-->
+            <!--                android:layout_marginTop="20dp">-->
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/pointIcon"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:src="@drawable/diamond"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/walletAmount"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <!--                <com.google.android.material.imageview.ShapeableImageView-->
+            <!--                    android:id="@+id/pointIcon"-->
+            <!--                    android:layout_width="70dp"-->
+            <!--                    android:layout_height="70dp"-->
+            <!--                    android:src="@drawable/diamond"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@id/walletAmount"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/walletAmount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="00"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/pointIcon"
-                    app:layout_constraintBottom_toTopOf="@id/text1"
-                    app:layout_constraintStart_toEndOf="@id/pointIcon"
-                    app:layout_constraintTop_toTopOf="@id/pointIcon" />
+            <!--                <com.google.android.material.textview.MaterialTextView-->
+            <!--                    android:id="@+id/walletAmount"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="20dp"-->
+            <!--                    android:text="00"-->
+            <!--                    android:textColor="@color/black"-->
+            <!--                    android:textSize="18sp"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="@id/pointIcon"-->
+            <!--                    app:layout_constraintBottom_toTopOf="@id/text1"-->
+            <!--                    app:layout_constraintStart_toEndOf="@id/pointIcon"-->
+            <!--                    app:layout_constraintTop_toTopOf="@id/pointIcon" />-->
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/text1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="Available Points"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@id/pointIcon"
-                    app:layout_constraintStart_toEndOf="@id/pointIcon"
-                    app:layout_constraintTop_toBottomOf="@id/walletAmount" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--                <com.google.android.material.textview.MaterialTextView-->
+            <!--                    android:id="@+id/text1"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginStart="20dp"-->
+            <!--                    android:text="Available Points"-->
+            <!--                    android:textColor="@color/black"-->
+            <!--                    android:textSize="18sp"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="@id/pointIcon"-->
+            <!--                    app:layout_constraintStart_toEndOf="@id/pointIcon"-->
+            <!--                    app:layout_constraintTop_toBottomOf="@id/walletAmount" />-->
+            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/chooseDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border2"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_gradient2"
+                android:gravity="center"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="13dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginHorizontal="20dp"
-                android:textSize="18sp"
                 android:text="rdxcfvhjhgjh"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textColor="@color/black"/>
-            <RadioGroup
-                android:id="@+id/radioGroup"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/border2"
-                android:layout_marginHorizontal="20dp">
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/open"
-                    android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_gradient2"
+                android:clipToOutline="true"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+                                <LinearLayout
+                                    android:id="@+id/buttonGroup"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:background="@drawable/border4"
+                                    android:padding="2dp"
+                                    android:layout_marginTop="10dp">
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/buttonGroup"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@drawable/border4"-->
+<!--                   >-->
+
+                    <LinearLayout
+                        android:id="@+id/open"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/open_btn_bg"
+                        android:gravity="center"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Open"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!-- Close Button -->
+                    <LinearLayout
+                        android:id="@+id/close"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/close_btn_bg"
+                        android:gravity="center"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Close"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--                    <Button-->
+                <!--                        android:id="@+id/open"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:padding="10dp"-->
+                <!--                        android:background="@drawable/bg_gradient2"-->
+                <!--                        android:text="@string/open"-->
+                <!--                        android:textColor="@color/white"-->
+                <!--                        android:textStyle="bold"-->
+                <!--                        android:gravity="center" />-->
+
+                <!--                    <Button-->
+                <!--                        android:id="@+id/close"-->
+                <!--                        android:layout_width="0dp"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:background="@drawable/bg_gradient2"-->
+                <!--                        android:text="@string/close"-->
+                <!--                        android:textColor="@color/white"-->
+                <!--                        android:textStyle="bold" />-->
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/inputDigit"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/open"
-                    app:buttonTint="@color/black"
-                    android:textColor="@color/black"
-                    android:layout_weight="1"/>
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/enter_digits"
+                    android:inputType="number"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
 
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/close"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/inputCloseDigit"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/close"
-                    app:buttonTint="@color/black"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_corner_white"
+                    android:hint="@string/enter_digits"
+                    android:inputType="number"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="12dp"
                     android:textColor="@color/black"
-                    android:layout_weight="1"/>
-            </RadioGroup>
+                    android:visibility="gone" />
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/white"
+                    android:hint="Enter Amount"
+                    android:inputType="number"
+                    android:maxLength="9"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="12dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
 
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/inputDigit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_digits"
-                android:paddingHorizontal="10dp"
-                android:layout_marginTop="15dp"
-                android:paddingVertical="12dp"
-                android:textColor="@color/black"
-                android:background="@drawable/border2"
-                android:inputType="number"
-                android:layout_marginHorizontal="20dp"/>
-            <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/inputCloseDigit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_digits"
-                android:layout_marginTop="10dp"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="12dp"
-                android:textColor="@color/black"
-                android:inputType="number"
-                android:background="@drawable/rounded_corner_white"
-                android:layout_marginHorizontal="20dp"
-                android:visibility="gone"/>
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputPoints"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Amount"
-                android:paddingHorizontal="10dp"
-                android:layout_marginTop="10dp"
-                android:paddingVertical="12dp"
-                android:inputType="number"
-                android:maxLength="9"
-                android:background="@drawable/border2"
-                android:textColor="@color/black"
-                android:layout_marginHorizontal="20dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_proceed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#ff051367"
-                app:cornerRadius="20dp"
-                app:strokeColor="#ffFFE3BB"
-                app:strokeWidth="2dp"
-                android:text="Add Bid"
-                android:paddingVertical="12dp"
-                android:textAllCaps="true"
-                android:textColor="#ffFFE3BB"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_proceed"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#0B1C76"
+                    android:paddingVertical="12dp"
+                    android:text="Add Bid"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    app:cornerRadius="20dp"
+                    app:strokeColor="#ffFFE3BB"
+                    app:strokeWidth="2dp" />
+            </LinearLayout>
 
         </LinearLayout>
 
